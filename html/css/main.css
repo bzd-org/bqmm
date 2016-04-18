@@ -1,0 +1,43 @@
+@charset "utf-8";
+.index-top { width:100%; height:72px; background:#323334; position:relative; }
+.main { width:1120px; height:auto; margin-left: auto; margin-right: auto; }
+/*表情列表*/
+.series-banner { background: #36cab6 url(../images/series_banner.jpg) no-repeat center top; height: 488px; width: 100%; position: relative; }
+.series-banner h2 { width: 998px; height: auto; background: url(../images/title_bg.png) no-repeat center center; text-align: center; margin: 0 auto; left:0; right:0; bottom:0; overflow: hidden; display: block; position:absolute; }
+.series-list { background: url(../images/series_bg.png) repeat-y center top; width: 1000px; height: auto; min-height: 300px; text-align: center; margin-right: auto; margin-left: auto; padding: 20px 21px 30px 22px; }
+.series-list h2 { width: 998px; height: auto; background: url(../images/title_bg.png) no-repeat center center; overflow: hidden; display: block; }
+.series-list ul { width: 100%; height: auto; }
+.series-list ul li { width: 248px; height: 248px; line-height: 248px; font-size: 22px; background: #ededed; margin-left: 2px; margin-bottom: 2px; float: left; position: relative; }
+.series-list ul li:hover a.details { display: block; }
+.series-list ul li a.details { width: 248px; height: 248px; color:#fff; background: rgba(0,0,0,0.6); display: none; position:absolute; }
+.series-list ul li a.details:hover { text-decoration:none; }
+.series-list ul li a:hover { text-decoration:underline; }
+.series-list ul li .signs-left,  .series-list ul li .signs-right { width: 9px; height: 248px; position: absolute; z-index: 1; }
+.series-list ul li .signs-left { margin-right: -2px; background: url(../images/series_list_signs.png) no-repeat -9px 0px; right:0; }
+.series-list ul li .signs-right { margin-left: -2px; background: url(../images/series_list_signs.png) no-repeat 0px 0px; left:0; }
+.series-list ul li.big { width: 498px; height: 248px; overflow: visible; }
+.series-list ul li.big img { right: 0; bottom: 0; position:absolute; }
+.series-list ul li.big a { width: 498px; height: 248px; display: block; position:absolute; }
+.series-list ul li.last { margin-left: 0; }
+.open-down { font-size: 18px; padding-top: 25px; }
+.open-down a { width: 54px; height: 54px; display: block; background: url(../images/down.png) no-repeat center center; margin-right: auto; margin-left: auto; padding-bottom: 8px; }
+.series-list-foot { background: url(../images/series_foot.png) no-repeat center top; width: 998px; height: 30px; padding-right: 22px; padding-left: 22px; margin-right: auto; margin-left: auto; }
+/*表情详情*/
+.series-info { width: 736px; height: auto; overflow: hidden; padding-left: 192px; padding-right: 192px;}
+.series-info-left { width: 240px; float: left; }
+.series-cover { width: 130px; height: 130px; border: 3px solid #fff; border-radius:65px; overflow: hidden; position: relative; }
+.series-cover img { min-width: 130px; min-height: 130px; }
+.series-info-right { width: 436px; float: right; font-size: 30px; padding-left: 60px; }
+.series-info-right a { width: 160px; height: 35px; line-height: 35px; background: #f997bc; text-align: center; font-size: 18px; color:#fff; display: block; border-radius:4px; }
+.series-info-text { width: 736px; height: auto; color: #8d8d8d; overflow: hidden; padding-top: 25px; padding-bottom: 25px; }
+.series-box { width: 1120px; height: auto; overflow: hidden; }
+.series-content-box { width: 738px; height: auto: overflow: hidden; position: relative; }
+.series-content-ico { width: 23px; height: 12px; background: url(../images/series_icon.png) no-repeat; left:0; right:0; margin: 0 auto; z-index: 1; position:absolute; }
+.series-content { width: 676px; height: auto; min-height: 300px; text-align: center; background: #fff; border: 1px solid #e3e3e3; border-radius: 4px; padding: 30px; margin-top: 11px; overflow: hidden; }
+.series-content img { padding: 25px; }
+.series-switch { width: 191px; height: 100%; }
+.switch-btn { width: 130px; height: 130px; background: url(../images/switch.png) no-repeat; overflow:hidden; display: block; position:absolute; }
+.sl { background-position: -130px 0; }
+.sl:hover { background-position: -130px -130px; }
+.sr { background-position: 0 0; }
+.sr:hover { background-position: 0 -130px; }

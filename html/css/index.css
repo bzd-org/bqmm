@@ -1,0 +1,54 @@
+@charset "utf-8";
+/*导航*/
+.index-top { width:100%; height:auto; position:relative; }
+.topnav-box { background: none !important; z-index: 1; }
+/*banner*/
+.banner{ width:100%; height:770px; overflow:hidden; position:relative; }
+.b-img{ height:500px;  position:absolute; left:0; top:0;}
+.b-img div{ display: block; height: 770px; float: left; text-align: center; }
+.b-img div a { margin-top: 460px; }
+.b-list{ height: 50px; position: absolute; margin: 0 auto; z-index: 1; left:0; right:0; bottom:20px; }
+.b-list span{ display:block;cursor:pointer; width:14px; height:14px; border-radius:50%; background:#fff; float:left; margin:0 5px; _margin:0 3px;}
+.b-list .spcss{ background:#40c9b6;}
+.bar-left{ position:absolute; z-index:1; display:block; width:100px; height:100%; left:0px; background:none; top:0px; }
+.bar-right{ position:absolute;z-index:1; display:block; width:100px; height:100%; right:0px; background:none; top:0px; }
+.bar-left em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-right em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-left .emcss{ background:url(../images/arrow.png) 0px 0px no-repeat; }
+.bar-right .emcss{ background:url(../images/arrow.png) -50px 0px no-repeat; }
+/*模块*/
+.module-box { width:100%; overflow:hidden; }
+.module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat center top; }
+.module2 { height: 360px; background: #fafafa; }
+.module3 { height: 1720px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat center bottom; }
+.module4 { height: 860px; background: url(../images/mod4_bg.jpg) no-repeat center top; }
+.module5 { height: 860px; background: url(../images/mod5_bg.jpg) no-repeat center top; }
+.module6 { height: 700px; background: url(../images/mod6_bg.jpg) no-repeat center top; }
+.main-content { width: 1120px; height: auto; overflow: hidden; text-align: center; margin-right: auto; margin-left: auto; }
+/*合作案例*/
+.case-work-box { width: 100%; height:700px; margin-top: 50px; display:table; }
+.case-work { width: 880px; height:100%; overflow:hidden; vertical-align:middle; display:table-cell; }
+.case-work ul { width: 880px; height: auto; margin: auto; }
+.case-work ul li { width:110px; float:left; margin-bottom:25px; }
+.case-work ul li img { width:80px; height:80px; }
+.case-work ul li b { font-weight: normal; color: #fff; display:block; margin-top:10px; }
+.case-work ul li.big { width:220px; }
+.case-work ul li.big img { width:190px; height:80px; }
+/*合作伙伴*/
+.partner { margin-top: 50px; }
+.partner ul { width: 990px; height:162px; margin: auto; overflow:hidden; }
+.partner ul li { width:110px; height:162px; float:left; }
+.partner ul li img { width:80px; height:80px; opacity:0.2; border-radius:20px; box-shadow: 0 0 5px #666; }
+.partner ul li b { font-weight: normal; display:block; margin-top:10px; }
+.partner ul li.slt { background: url(../images/partner_select.png) no-repeat center bottom; }
+.partner ul li.slt img { opacity:1; }
+.partner-content { width: 978px; height: 492px; border-radius: 5px; margin-right: auto; margin-left: auto; }
+/*联系我们*/
+.contact { width: 476px; height: 550px; background: rgba(0,0,0,0.6); padding: 30px 65px; margin: 45px auto auto; text-align: center; }
+.contact input, .contact textarea { border-style: none; background: #fff; font-size: 16px; color: #666; }
+.contact input { width: 436px; height: 50px; margin-bottom:10px; padding-right: 20px; padding-left: 20px; }
+.contact textarea { width: 436px; height: 155px; padding: 15px 20px; }
+.contact button { width: 476px; height: 50px; background: #40c9b6; font-size: 16px; color: #fff; font-weight: bold; border-style: none; margin-top: 10px; margin-bottom: 10px; border-radius: 5px; cursor: pointer; }
+.contact h4 { color:#ccc; }
+.contact a { color: #40c9b6; }
+.contact a:hover { text-decoration:underline; }

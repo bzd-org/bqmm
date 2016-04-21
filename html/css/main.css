@@ -1,6 +1,9 @@
 @charset "utf-8";
 .index-top { width:100%; height:72px; background:#323334; position:relative; }
+.wrap { width: 100%; min-height: 100%; min-height: calc(100% - 100px); }
+.wrap-bg { background: #f7f7f7 url(../images/bg.png) repeat center top; min-width: 1120px; overflow: hidden; }
 .main { width:1120px; height:auto; margin-left: auto; margin-right: auto; }
+
 /*表情列表*/
 .series-banner { background: #36cab6 url(../images/series_banner.jpg) no-repeat center top; height: 488px; width: 100%; position: relative; }
 .series-banner h2 { width: 998px; height: auto; background: url(../images/title_bg.png) no-repeat center center; text-align: center; margin: 0 auto; left:0; right:0; bottom:0; overflow: hidden; display: block; position:absolute; }
@@ -22,10 +25,11 @@
 .open-down { font-size: 18px; padding-top: 25px; }
 .open-down a { width: 54px; height: 54px; display: block; background: url(../images/down.png) no-repeat center center; margin-right: auto; margin-left: auto; padding-bottom: 8px; }
 .series-list-foot { background: url(../images/series_foot.png) no-repeat center top; width: 998px; height: 30px; padding-right: 22px; padding-left: 22px; margin-right: auto; margin-left: auto; }
+
 /*表情详情*/
 .series-info { width: 736px; height: auto; overflow: hidden; padding-left: 192px; padding-right: 192px;}
 .series-info-left { width: 240px; float: left; }
-.series-cover { width: 130px; height: 130px; border: 3px solid #fff; border-radius:65px; overflow: hidden; position: relative; }
+.series-cover { width: 130px; height: 130px; border: 3px solid #fff; border-radius:50%; overflow: hidden; position: relative; }
 .series-cover img { min-width: 130px; min-height: 130px; }
 .series-info-right { width: 436px; float: right; font-size: 30px; padding-left: 60px; }
 .series-info-right a { width: 160px; height: 35px; line-height: 35px; background: #f997bc; text-align: center; font-size: 18px; color:#fff; display: block; border-radius:4px; }
@@ -41,3 +45,35 @@
 .sl:hover { background-position: -130px -130px; }
 .sr { background-position: 0 0; }
 .sr:hover { background-position: 0 -130px; }
+.series-content h5 a { color:#b9b9b9; }
+
+/*新闻*/
+.news { width: 984px; margin: 0 8px; text-align: center; }
+.news-title-line { width: 85px; height: 3px; background: #36cab6; margin-left: auto; margin-right: auto; }
+.news ul { border-bottom: 1px solid #e1e1e1; }
+.news ul li { width: 100%; margin-bottom: 50px; }
+.news ul li .date { width: 96px; border-top: 2px solid #36cab6; float: left; margin-right: 66px; text-align: center; margin-top: 10px; }
+.news ul li .date i { color: #7c7c7c; font-size: 36px; font-style: normal; display: block; }
+.news ul li .summary { width: 822px; height: auto; color: #7c7c7c; overflow: hidden; text-align: left; }
+.summary p.title { margin-bottom: 5px; }
+.summary p.title a { font-size: 24px; }
+.summary p.title a:hover { color: #36cab6; }
+.summary p.all { text-align: right; }
+.summary p.all a { color: #7c7c7c; }
+.summary p.all a:hover { color: #36cab6; text-decoration:underline; }
+.pager { width: 100#; padding-top: 20px; }
+.pager a { width: 40px; height: 40px; line-height: 40px; text-align: center; border: 1px solid #ededed; border-radius:4px; display: inline-block; margin: 0 8px; }
+.pager a:hover, .pager a.selected { color: #36cab6; }
+.pager a.flip { width: 90px; margin: 0;}
+.pager { width: auto; margin-left: auto; margin-right: auto; }
+
+/*新闻详情*/
+.news-detail { width: 1080px; padding: 30px; margin-left: auto; margin-right: auto; background: #fff; }
+.news-detail .crumb { width:100%; height: 36px; }
+.news-detail .crumb a { color:#36cab6; }
+.crumb span{ color:#7c7c7c; }
+.news-detail .title { height: 50px; line-height:50px; font-size:32px; color:#36cab6; letter-spacing:5px; }
+.news-detail .title i { width: 8px; height: 30px; background: #36cab6; display: block; float: left; margin: 10px 8px 10px 0px; }
+
+/*页脚*/
+.footer-box { height: 100px; line-height: 100px; overflow: hidden; }

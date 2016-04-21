@@ -1,8 +1,7 @@
 @charset "utf-8";
 /* 初始化 */
-html { color: #000; }
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; }
-body { _background-image: url(about:blank);/*用浏览器空白页面作为背景*/ _background-attachment: fixed; /*prevent screen flash in IE6 确保滚动条滚动时，元素不闪动*/ }
+body { _background-image: url(about:blank);/*用浏览器空白页面作为背景*/ _background-attachment: fixed; /*prevent screen flash in IE6 确保滚动条滚动时，元素不闪动*/  }
 ol, ul, li { list-style: none; }
 ins { text-decoration: none; }
 del { text-decoration: line-through; }
@@ -10,7 +9,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 th, td { margin: 0; padding: 0 }
 
 /* 全局 */
-body { background: #f7f7f7 url(../images/bg.png) repeat center top; min-width: 1120px; height: 100%; color: #3d3d3d; font-family: Arial, Verdana, Microsoft Yahei, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53; line-height: 1.5; }
+body { background: #fff; color: #3d3d3d; font-family: Arial, Verdana, Microsoft Yahei, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53; line-height: 1.5; }
+html, body { height: 100%; }
 a:link, a:visited, a:hover, a:active { text-decoration: none; }
 a:link, a:visited, a:active { color: #3d3d3d; }
 a:hover { color: #36cab6; }
@@ -45,7 +45,7 @@ a.abtn-default:hover { background: #40c9b6; color:#fff; }
 .btn-all:hover { width: 221px; height: 82px; background: url(../images/btn_all.png) no-repeat 0px 0px; display: block; margin-right: auto; margin-left: auto; }
 
 /*页脚*/
-.footer-box { width: 100%; height: auto; background: #333535; padding-top: 50px; padding-bottom: 20px; }
+.footer-box { width: 100%; height: auto; background: #333535; }
 .footer { width: 1120px; height: auto; color: #7f7f7f; text-align: center; margin-right: auto; margin-left: auto; }
 .footer ul.footer-ico { width: 1120px; height: 200px; border-bottom: 2px solid #979797; margin-bottom: 20px; }
 .footer-ico li { width: 224px; height: auto; color: #ccc; float: left; text-align: center; padding-bottom: 20px; position:relative; }
@@ -57,9 +57,9 @@ a.abtn-default:hover { background: #40c9b6; color:#fff; }
 .footer-ico li i.qq { background-position:-240px 0px; }
 .footer-ico li i.qq:hover { background-position:-240px -120px; }
 .footer-ico li i.phone { background-position:-360px 0px; }
-.footer-ico li i.phone:hover { background-position:-360px -120px; }
+/*.footer-ico li i.phone:hover { background-position:-360px -120px; }*/
 .footer-ico li i.add { background-position:-480px 0px; }
-.footer-ico li i.add:hover { background-position:-480px -120px; }
+/*.footer-ico li i.add:hover { background-position:-480px -120px; }*/
 .qrcode { width: 200px; height: 210px; background: url(../images/QRcode.png) no-repeat; position: absolute; top: -215px; left: 50%; margin-left: -100px; display:none; }
 li:hover .qrcode { display:block; }
 a.foot-link { color: #7f7f7f; padding-right: 5px; padding-left: 5px; }

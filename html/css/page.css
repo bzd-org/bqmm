@@ -23,10 +23,11 @@
 .yellow { color: #fe0 !important; }
 .orange { color: #ff7123 !important; }
 .violet { color:#ff95d6 !important; }
+.gray { color: #a8a8a8 !important; }
 .default { color:#40c9b6 !important; }
 .unl { text-decoration: underline!important; }
 .no-unl { text-decoration: none; }
-.tac { text-align:center; }
+.tc { text-align:center; }
 
 /* 段落 */
 .t2 { text-indent: 2em; }
@@ -43,6 +44,7 @@
 .l40 { margin-left: 40px; }
 .l50 { margin-left: 50px; }
 .l60 { margin-left: 60px; }
+.l80 { margin-left: 60px; }
 .l100 { margin-left: 100px; }
 .r5 { margin-right: 5px; }
 .r10 { margin-right: 10px; }
@@ -65,7 +67,9 @@
 .top50 { margin-top: 50px; }
 .top60 { margin-top: 60px; }
 .top70 { margin-top: 70px; }
+.top80 { margin-top: 80px; }
 .top100 { margin-top: 100px; }
+.top120 { margin-top: 120px; }
 .top150 { margin-top: 150px; }
 .b5 { margin-bottom: 5px; }
 .b10 { margin-bottom: 10px; }
@@ -77,6 +81,7 @@
 .b50 { margin-bottom: 50px; }
 .b60 { margin-bottom: 60px; }
 .b70 { margin-bottom: 70px; }
+.b80 { margin-bottom: 80px; }
 .b100 { margin-bottom: 100px; }
 
 /* 层 */

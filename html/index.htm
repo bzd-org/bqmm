@@ -309,6 +309,9 @@ var caseWorkClass = function (){
 
     //鼠标滑过显示
     $("#casework .case-list ul li i").hover(function (){
+        $("#casework .case-list .circlemark").clearQueue().stop(true);
+        $("#casework .case-work .case-work-boxs").clearQueue().stop(true);
+
         var index = $(this).parent().index();
 
         //circlemark滑动
@@ -370,6 +373,8 @@ var partnerClass = function (){
 
     //mouse-hover
     $("#partner .partner-links ul li img").hover(function (){
+        $("#partner .partner-boxs").clearQueue().stop(true);
+        
         var index = $(this).parent().index();
 
         //三角符显示

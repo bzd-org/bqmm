@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>表情MM官网</title>
+    <meta name="keywords" content="表情sdk,开发者服务,api,表情商店,接口">
+    <meta name="description" content="表情云是国内最大的表情服务平台，已接入环信、融云、亲加，为开发者提供简洁易用的表情API">
+    <title>表情mm让开发者轻松拥有自己的表情商店！</title>
     <link href="css/page.css" rel="stylesheet">
     <link href="css/public.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
@@ -21,8 +23,8 @@
             <li><a href="index.htm">首页</a>|</li>
             <li><a href="download.htm">下载</a>|</li>
             <li><a href="paintings.htm">表情一览</a>|</li>
-            <li><a href="file.htm">文档</a>|</li>
-            <li><a href="FAQ.htm">FAQ</a></li>
+            <li><a href="http://open.biaoqingmm.com/doc/sdk/" target="_blank">文档</a>|</li>
+            <li><a href="faq.htm">FAQ</a></li>
           </ul>
         </div>
       </div>
@@ -81,7 +83,7 @@
             </ul>
           </div>
           <div class="case-work">
-            <div class="case-work-boxs">
+            <div class="case-work-all">
             <ul>
               <li><img src="images/caseicon/weixin.png" width="80" height="80"><b>微信</b></li>
               <li><img src="images/caseicon/missyou.png" width="80" height="80"><b>想你</b></li>
@@ -224,17 +226,17 @@
           </div>
           <div class="partner-content">
             <div class="partner-boxs">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
-            <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
+              <img src="images/partnericon/pai_content.png" width="978" height="492">
             </div>
           </div>
         </div>
@@ -263,42 +265,13 @@
         <a href="about.htm" class="foot-link">公司介绍</a>/
         <a href="news.htm" class="foot-link">新闻动态</a>/
         <a href="protocol.htm" class="foot-link">服务协议</a>/
-        <a href="cooperation.htm" class="foot-link">加入我们</a>/
+        <a href="http://www.lagou.com/gongsi/1594.html" class="foot-link" target="_blank">加入我们</a>/
         <a href="links.htm" class="foot-link">友情链接</a>
         Copyright @2014-2016 www.biaoqingmm.com All Rights Reserved.
         <p>沪ICP备13039580号-2</p>
       </div>
     </div>
 
-<style type="text/css">
-.case-list ul li {
-    padding-bottom: 75px;
-}
-.case-list ul li i {
-    font-size: 21px;
-}
-.case-work {
-    height: 700px;
-    overflow: hidden;
-}
-.case-work .case-work-boxs {
-    width: auto;
-    height: auto;
-    overflow: hidden;
-    margin-top: 0px;
-}
-.case-work ul {
-    height: 700px;
-    overflow: hidden;
-}
-.case-work ul li {
-    margin-bottom: 18px;
-}
-.case-work ul li b {
-    margin-top: 10px;
-    font-size: 17px;
-}
-</style>
 <script type="text/javascript">
 $(function (){
 //合作案例
@@ -310,7 +283,7 @@ var caseWorkClass = function (){
     //鼠标滑过显示
     $("#casework .case-list ul li i").hover(function (){
         $("#casework .case-list .circlemark").clearQueue().stop(true);
-        $("#casework .case-work .case-work-boxs").clearQueue().stop(true);
+        $("#casework .case-work .case-work-all").clearQueue().stop(true);
 
         var index = $(this).parent().index();
 
@@ -319,7 +292,7 @@ var caseWorkClass = function (){
         circlemark.animate({top:(listitemh*index)+'px'});
 
         //case-work-box滑动
-        var caseworkbox = $("#casework .case-work .case-work-boxs");
+        var caseworkbox = $("#casework .case-work .case-work-all");
         caseworkbox.animate({marginTop:'-'+(workulh*index)+'px'});
     }, function (){
 
@@ -329,30 +302,7 @@ new caseWorkClass();
 })
 </script>
 
-<style type="text/css">
-.partner .partner-links {
-    width: 990px;
-    height: 162px;
-    margin: auto;
-    overflow: hidden;
-}
-.partner .partner-links li img {
-    cursor: pointer;
-}
-.partner ul {
-    width: auto;
-}
-.partner .partner-content {
-    overflow: hidden;
-}
-.partner .partner-content .partner-boxs {
-    text-align: left;
-}
-.partner .partner-content .partner-boxs img {
-    float: left;
-    display: inline-block;
-}
-</style>
+
 <script type="text/javascript">
 $(function (){
 //合作伙伴
@@ -374,7 +324,7 @@ var partnerClass = function (){
     //mouse-hover
     $("#partner .partner-links ul li img").hover(function (){
         $("#partner .partner-boxs").clearQueue().stop(true);
-        
+
         var index = $(this).parent().index();
 
         //三角符显示

@@ -161,5 +161,18 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .cuntact ul li h3 { font-size: 22px; }
 .cuntact ul li a { text-decoration:underline; }
 
+/*FAQ*/
+.faq { width: 100%; height: auto; overflow: hidden; text-align: left; }
+.faq dl { margin-bottom: 50px; }
+.faq dl dt { color: #303030;  font-size: 24px;  padding: 0 10px; }
+.faq dl dd { font-size: 16px;  margin-top: 15px;  color: #878787;  line-height: 30px; padding-left: 20px; }
+
+/*服务协议*/
+.protocol { padding: 20px; background: #EAE9E9; border-radius: 5px; line-height: 25px; font-size: 14px; }
+.protocol p { margin: 0 0 1em; }
+.protocol ul li { list-style-type: disc; text-indent:2em; list-style-position:inside; }
+.protocol ul li ul li { list-style-type: circle; text-indent:4em; }
+
+
 /*页脚*/
 .footer-box { height: 100px; line-height: 100px; overflow: hidden; }

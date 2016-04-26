@@ -302,7 +302,11 @@ new caseWorkClass();
 })
 </script>
 
-
+<style type="text/css">
+.partner ul li.slts img {
+    opacity: 1;
+}
+</style>
 <script type="text/javascript">
 $(function (){
 //合作伙伴
@@ -323,23 +327,24 @@ var partnerClass = function (){
 
     //mouse-hover
     $("#partner .partner-links ul li img").hover(function (){
-        $("#partner .partner-boxs").clearQueue().stop(true);
-
-        var index = $(this).parent().index();
-
-        //三角符显示
-        $("#partner .partner-links ul li").removeClass('slt');
-        $(this).parent().addClass("slt");
-
-        //partner-boxs滑动
-        var partnerboxs = $("#partner .partner-boxs");
-        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*index)+'px'});
-    }, function (){});
+        $(this).parent().addClass("slts");
+    }, function (){
+        $(this).parent().removeClass("slts");
+    });
 
     var mwidth = 0;
     //mouse-click
     $("#partner .partner-links ul li img").click(function (){
+        $("#partner .partner-links ul li").removeClass("slt");
+        $(this).parent().addClass("slt");
+
         var cindex = $(this).parent().index();
+
+        //partner-boxs滑动
+        $("#partner .partner-boxs").clearQueue().stop(true);
+        var partnerboxs = $("#partner .partner-boxs");
+        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*cindex)+'px'});
+
         var partnerlinksul = $("#partner .partner-links ul");
 
         //左移计算

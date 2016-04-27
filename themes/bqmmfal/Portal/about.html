@@ -1,0 +1,204 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+    
+    <div class="wrap">
+        <!--index-top begin-->
+        <div class="index-top">
+            <div class="topnav-box">
+                <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
+                <div id="topnav" class="topnav">
+                <?php
+                    $effected_id="main-menu";
+                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
+                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
+                    $ul_class="dropdown-menu" ;
+                    $li_class="" ;
+                    $style="nav";
+                    $showlevel=6;
+                    $dropdown='dropdown';
+                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+                ?>
+                <script type="text/javascript">
+                $(function (){
+                    $("#topnav").find("li:not(:last)").append('|');
+                })
+                </script>
+                </div>
+            </div>
+            <!--topnav-box end-->
+        </div>
+        <!--index-top end-->
+
+        <div class="banner">
+            <div class="b-img">
+                <foreach name="index_banner" item="banner" > 
+                <div style="background:url({$banner.slide_pic}) center no-repeat;">
+                    <!-- <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a> -->
+                </div>
+                </foreach>
+            </div>
+            <div class="b-list"></div>
+            <a class="baroplink bar-left" href="javascript:;"><em></em></a>
+            <a class="baroplink bar-right" href="javascript:;"><em></em></a>
+            <style type="text/css">.baroplink em{margin-top: 248px;}</style>
+        </div>
+        <!--banner end-->
+
+        <div class="about top50 b40">
+            <img src="__TMPL__Assets/images/about/01.jpg" width="1120" height="480">
+        </div>
+        <!--about-top50-b40 end-->
+
+        <div class="about about_bg1">
+            <img src="__TMPL__Assets/images/about/02.jpg" width="1120" height="400">
+            <div class="about_link">
+                <a href="javascript:;"><img src="__TMPL__Assets/images/about/about_link.jpg" width="200" height="30"></a>
+            </div>
+        </div>
+
+        <div class="about about_bg2">
+            <h2>我们的产品</h2>
+            <h3>our product</h3>
+
+            <div class="about-product b50">
+                <ul>
+                    <li><img src="__TMPL__Assets/images/about/about_produc1.jpg" width="214" height="230"></li>
+                    <li><img src="__TMPL__Assets/images/about/about_produc2.jpg" width="214" height="230"></li>
+                    <li class="last"><img src="__TMPL__Assets/images/about/about_produc3.jpg" width="214" height="230"></li>
+                </ul>
+                <div class="product-text-box ptl">
+                    <div class="pointer"></div>
+                    <div class="product-text">
+                        <b>表情me——我的萌表情</b>
+                        <p>表情me是最懂95后的微信QQ聊天神器！用户只需拍照即可获得专属的卡通动态表情，一键变身女汉子、萌妹子、霸道总裁！主题商店周周更新，推荐当下最热的萌贱逗比表情，让聊天更嗨更欢乐！还有【分享弹幕】、【照片贴图】等吐槽新玩法，带你装X带你飞！</p>
+                    </div>
+                </div>
+                <div class="product-text-box ptm" style="display:none">
+                    <div class="pointer"></div>
+                    <div class="product-text">
+                        <b>表情云™</b>
+                        <p>表情云是移动应用表情服务开放平台，通过客户端SDK的方式提供给开发者和企业。支持Android、iOS等平台，让App轻松拥有自己的表情商店。</p>
+                    </div>
+                </div>
+                <div class="product-text-box ptr" style="display:none">
+                    <div class="pointer"></div>
+                    <div class="product-text">
+                        <b>表情mm</b>
+                        <p>国内最专业的表情供应商，提供大量高品质的明星、影视、动漫、热点表情，原创精品卡通表情基地，表情服务领导者。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about about_bg3">
+            <h2>我们的荣誉</h2>
+            <h3>our honours</h3>
+
+            <div class="honours">
+                <div class="h-top"></div>
+                <ul>
+                    <li>
+                        <dl class="left"><dd>Jan.20</dd><dt>2016</dt></dl>
+                        <i class="ico1"></i>
+                        <dl class="right">
+                            <dt>表情mm | 表情云™ v1.0正式上线</dt>
+                            <dd>强强联手！表情mm全面兼容环信即时通讯云，让开发者轻松拥有表情商店！</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="left"><dd>Dec.19</dd><dt>2015</dt></dl>
+                        <i class="ico1"></i>
+                        <dl class="right">
+                            <dt>表情mm官网上线！</dt>
+                            <dd>表情mm召开发布会，即将推出表情商店云服务！</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="left"><dd>Oct.10</dd><dt>2015</dt></dl>
+                        <i class="ico2"></i>
+                        <dl class="right">
+                            <dt>获得千万级A轮融资</dt>
+                            <dd>融资机构：知名海外上市公司战略投资；融资金额：千万级</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="left"><dd>Jan.08</dd><dt>2015</dt></dl>
+                        <i class="ico3"></i>
+                        <dl class="right">
+                            <dt>Real life, online</dt>
+                            <dd>China Daliy Report</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="left"><dd>Sep.30</dd><dt>2014</dt></dl>
+                        <i class="ico1"></i>
+                        <dl class="right">
+                            <dt>表情me-我的萌表情</dt>
+                            <dd>表情me APP上线！360手机助手蒲公英奖！应用宝小红花奖！小米/vivo/OPPO优秀新APP及编辑推荐！</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl class="left"><dd>Jan.01</dd><dt>2014</dt></dl>
+                        <i class="ico2"></i>
+                        <dl class="right">
+                            <dt>获得数百万天使轮融资</dt>
+                            <dd>融资机构：真格基金，英诺天使领投；融资金额：数百万</dd>
+                        </dl>
+                    </li>
+                    <li class="last">
+                        <dl class="left"><dd>Nov.23</dd><dt>2013</dt></dl>
+                        <i class="ico3"></i>
+                        <dl class="right">
+                            <dt>全国创新创业大赛优胜团队！</dt>
+                            <dd>似颜绘科技获得第二届科技部创新创业大赛上海第一名！全国第三名！</dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about top40">
+            <h2>我们的文化</h2>
+            <h3>our culture</h3>
+
+            <div class="culture">
+                <ul>
+                    <li><img src="__TMPL__Assets/images/about/oc1.jpg" width="216" height="216"></li>
+                    <li><img src="__TMPL__Assets/images/about/oc2.jpg" width="216" height="216"></li>
+                </ul>
+                <ul class="cd">
+                    <li><img src="__TMPL__Assets/images/about/oc3.jpg" width="216" height="216"></li>
+                    <li><img src="__TMPL__Assets/images/about/oc4.jpg" width="216" height="216"></li>
+                </ul>
+                <ul>
+                    <li><img src="__TMPL__Assets/images/about/oc5.jpg" width="216" height="216"></li>
+                    <li><img src="__TMPL__Assets/images/about/oc6.jpg" width="216" height="216"></li>
+                </ul>
+                <ul class="cd">
+                    <li><img src="__TMPL__Assets/images/about/oc7.jpg" width="216" height="216"></li>
+                    <li><img src="__TMPL__Assets/images/about/oc8.jpg" width="216" height="216"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about about_bg3">
+            <h2>联系我们</h2>
+            <h3>cuntact us</h3>
+            
+            <img src="__TMPL__Assets/images/about/contact.png" width="1120" height="154">
+
+            <div class="cuntact">
+                <ul>
+                    <li><h3>技术支持</h3><a href="mailto:support@siyanhui.com">support@siyanhui.com</a></li>
+                    <li><h3>商务合作</h3><a href="mailto:business@siyanhui.com">business@siyanhui.com</a><br>021-67743085</li>
+                    <li><h3>售后服务</h3><a href="mailto:service@siyanhui.com">service@siyanhui.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <tc_include file="Common/footerbox" />
+    
+<tc_include file="Common/foot" />

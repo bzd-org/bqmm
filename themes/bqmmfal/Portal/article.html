@@ -1,0 +1,51 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+    
+    <div class="wrap wrap-bg">
+        <!--index-top begin-->
+        <div class="index-top">
+            <div class="topnav-box">
+                <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
+                <div id="topnav" class="topnav">
+                <?php
+                    $effected_id="main-menu";
+                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
+                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
+                    $ul_class="dropdown-menu" ;
+                    $li_class="" ;
+                    $style="nav";
+                    $showlevel=6;
+                    $dropdown='dropdown';
+                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+                ?>
+                <script type="text/javascript">
+                $(function (){
+                    $("#topnav").find("li:not(:last)").append('|');
+                })
+                </script>
+                </div>
+            </div>
+            <!--topnav-box end-->
+        </div>
+        <!--index-top end-->
+
+        <div class="main top40 b70">
+            <div class="news-detail">
+                <div class="crumb"><a href="news.html">新闻动态</a> / 表情mm-最酷的应用表情商店<span class="ftr">2016/04/13</span></div>
+                <div class="title"><i></i>表情mm-最酷的应用表情商店</div>
+                <div class="top40">
+                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p>
+                    <img src="__TMPL__Assets/images/news/02.jpg" width="613" height="326">
+                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p><br>
+                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p><br>
+                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <tc_include file="Common/footerbox" />
+    
+<tc_include file="Common/foot" />

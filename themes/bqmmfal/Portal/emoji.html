@@ -1,0 +1,97 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+    
+    <div class="wrap wrap-bg">
+        <!--index-top begin-->
+        <div class="index-top">
+            <div class="topnav-box">
+                <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
+                <div id="topnav" class="topnav">
+                <?php
+                    $effected_id="main-menu";
+                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
+                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
+                    $ul_class="dropdown-menu" ;
+                    $li_class="" ;
+                    $style="nav";
+                    $showlevel=6;
+                    $dropdown='dropdown';
+                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+                ?>
+                <script type="text/javascript">
+                $(function (){
+                    $("#topnav").find("li:not(:last)").append('|');
+                })
+                </script>
+                </div>
+            </div>
+            <!--topnav-box end-->
+        </div>
+
+        <div class="series-banner"><h2 class="default top">官方正版授权表情</h2></div>
+        <!--series-banner end-->
+
+        <div class="main b70">
+            <div class="series-list">
+                <h4 class="b30">开发者首选的表情服务，最完美的解决方案，稳定可靠</h4>
+                <ul>
+                    <li class="big"><img src="__TMPL__Assets/images/series/cover/01/banner.png" width="593" height="312"><a href="emojiview.html"></a></li>
+                    <li><a href="emojiview.html">同道大叔之白羊座</a></li>
+                    <li><i class="signs-right"></i><a href="emojiview.html" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/01.jpg" width="248" height="248"></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/02.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">小王子</a></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/03.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">咸蛋超人情人节</a></li>
+                    <li><a href="javascript:;">澳门风云3</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/04.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">对口型大作战</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/05.jpg" width="248" height="248"></li>
+                </ul>
+                <div class="clear"></div>
+                <div class="open-down"><a href="javascript:;"></a>加载更多表情</div>
+
+                <h2 class="top50 green">QQ微信同款表情</h2>
+                <h4 class="top10 b30">轻松拥有下载量过千万、发送量过亿的微信QQ同款热门表情</h4>
+                <ul>
+                    <li class="big"><img src="__TMPL__Assets/images/series/cover/02/banner.png" width="535" height="248"><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;">激萌草泥猫</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/02/01.jpg" width="248" height="248"></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/02/02.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">小妞卷卷</a></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/02/03.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">深井兔</a></li>
+                    <li><a href="javascript:;">贱小猪</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/02/04.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">爆笑楞爷</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/02/05.jpg" width="248" height="248"></li>
+                </ul>
+                <div class="clear"></div>
+                <div class="open-down"><a href="#"></a>加载更多表情</div>
+
+                <h2 class="top50 violet">日本萌妹原创表情</h2>
+                <h4 class="top10 b30">日本萌妹子倾情奉献，你值得拥有!</h4>
+                <ul>
+                    <li class="big"><img src="__TMPL__Assets/images/series/cover/03/banner.png" width="535" height="290"><a href="javascript:;"></a></li>
+                    <li><a href="javascript:;">瓷酱の日常</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/03/01.jpg" width="248" height="248"></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/03/02.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">樱花少女</a></li>
+                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/03/03.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">小飞鼠</a></li>
+                    <li><a href="javascript:;">沙雕来了</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/03/04.jpg" width="248" height="248"></li>
+                    <li><a href="javascript:;">瓷酱の日常3</a></li>
+                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/03/05.jpg" width="248" height="248"></li>
+                </ul>
+                <div class="clear"></div>
+                <div class="open-down"><a href="#"></a>加载更多表情</div>
+            </div>
+
+            <div class="series-list-foot"></div>
+        </div>
+        <!--main end-->
+    </div>
+
+    <tc_include file="Common/footerbox" />
+    
+<tc_include file="Common/foot" />

@@ -1,0 +1,320 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/index.css" rel="stylesheet">
+
+    <!--index-top begin-->
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
+            <div id="topnav" class="topnav">
+                <!-- <ul>
+                    <li><a href="__ROOT__/">首页</a>|</li>
+                    <li><a href="download.html">下载</a>|</li>
+                    <li><a href="paintings.html">表情一览</a>|</li>
+                    <li><a href="file.html">文档</a>|</li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul> -->
+                <?php
+                    $effected_id="main-menu";
+                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
+                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
+                    $ul_class="dropdown-menu" ;
+                    $li_class="" ;
+                    $style="nav";
+                    $showlevel=6;
+                    $dropdown='dropdown';
+                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+                ?>
+                <script type="text/javascript">
+                $(function (){
+                    $("#topnav").find("li:not(:last)").append('|');
+                })
+                </script>
+            </div>
+        </div>
+        <!--topnav-box end-->
+
+        <div class="banner">
+            <div class="b-img">
+                <!-- <div style="background:url(__TMPL__Assets/images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
+                <div style="background:url(__TMPL__Assets/images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
+                <div style="background:url(__TMPL__Assets/images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div> -->
+                <foreach name="index_banner" item="banner">
+                <div style="background:url({$banner.slide_pic}) center no-repeat;">
+                    <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a>
+                </div>
+                </foreach>
+            </div>
+            <div class="b-list"></div>
+            <a class="bar-left" href="javascript:;"><em></em></a>
+            <a class="bar-right" href="javascript:;"><em></em></a>
+        </div>
+        <!--banner end-->
+    </div>
+    <!--index-top end-->
+
+    <div class="module-box module1">
+        <div class="main-content">
+            <h2 class="top50">几行代码，一分钟集成</h2>
+            <h3 class="top10 default">开发者首选的表情服务，最完美的解决方案，稳定可靠</h3>
+            <a href="javascript:;" class="abtn abtn-default top40">立即体验</a>
+            <img src="__TMPL__Assets/images/mod1_picture.png" width="465" height="330" class="top60">
+        </div>
+    </div>
+    <!--module1 end-->
+
+    <div class="module-box module2">
+        <div class="main-content">
+            <h2 class="top50">三个步骤，轻松搞定</h2>
+            <img src="__TMPL__Assets/images/mod2_picture.png" width="870" height="190" class="top50">
+        </div>
+    </div>
+    <!--module2 end-->
+
+    <div class="module-box module3">
+        <div class="main-content">
+            <h2 class="top50 white">最高品质的正版授权表情</h2>
+            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
+            <a href="emoji.html" class="btn-all top40"></a>
+
+            <img src="__TMPL__Assets/images/mod3_picture1.png" width="600" height="495" class="top50">
+            <h2 class="top50">最接地气的表情商店</h2>
+            <h3 class="top10 default">开发者轻松掌握表情流行趋势，魔法表情分分钟玩疯用户</h3>
+
+            <a href="javascript:;" class="abtn abtn-default top40">立即体验</a>
+            <img src="__TMPL__Assets/images/mod3_picture2.png" width="369" height="520" class="top50">
+        </div>
+    </div>
+    <!--module3 end-->
+
+    <div class="module-box module4" style="height: auto; min-height: 985px; background-size: 100% 100%;">
+        <div class="main-content">
+            <h2 class="top50 white">合作案例</h2>
+            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
+            <div id="casework" class="case-work-box">
+                <h3 class="b40 white">他们正在使用...</h3>
+                <div class="case-list">
+                    <span class="circlemark" style="top:0px;"></span>
+                    <ul>
+                        <!-- <li><i>分类一</i></li> -->
+                        <foreach name="slidehzallist" item="slidebanner">
+                        <li><i>{$slidebanner.cat_name}</i></li>
+                        </foreach>
+                    </ul>
+                </div>
+                <div class="case-work">
+                    <div class="case-work-boxs">
+                        <foreach name="slidehzallist" item="slidebanner">
+                        <ul>
+                            <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png" width="80" height="80"><b>微信</b></li> -->
+                            <foreach name="slidebanner.slidebanner" item="banner">
+                            <li><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></li>
+                            </foreach>
+                        </ul>
+                        </foreach>
+                    </div>
+                </div>
+                <!--case-work end-->
+            </div>
+        </div>
+    </div>
+
+    <div class="module-box module5">
+        <div class="main-content">
+            <h2 class="top50">合作伙伴</h2>
+            <div id="partner" class="partner">
+                <div class="partner-links">
+                    <ul>
+                        <li class="slt"><img src="__TMPL__Assets/images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/guoguo.png" width="80" height="80"><b>橙果果</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/xfx.png" width="80" height="80"><b>秀发型</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/banmi.png" width="80" height="80"><b>半米</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/iHere.png" width="80" height="80"><b>iHere</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/bookway.png" width="80" height="80"><b>bookway</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/pai.png" width="80" height="80"><b>圆周派</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/ballyue.png" width="80" height="80"><b>球约么</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/pobing.png" width="80" height="80"><b>破冰</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/guoguo.png" width="80" height="80"><b>橙果果</b></li>
+                        <li><img src="__TMPL__Assets/images/partnericon/bookway.png" width="80" height="80"><b>bookway</b></li>
+                    </ul>
+                </div>
+                <div class="partner-content">
+                    <div class="partner-boxs">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--partner end-->
+
+    <div class="module-box module6">
+        <div class="contact">
+            <form name="contactform">
+                <h2 class="b15 white">联系我们</h2>
+
+                <input name="" type="text" placeholder="您的姓名">
+                <input name="" type="text" placeholder="公司名称">
+                <input name="" type="text" placeholder="联系方式">
+                <textarea name="" cols="" placeholder="需求明细"></textarea>
+
+                <button name="">完成发送</button>
+                <h4>或直接发送需求邮件至 <a href="mailto:business@siyanhui.com">business@siyanhui.com</a></h4>
+            </form>
+        </div>
+    </div>
+    <!--module6 end-->
+
+    <div class="footer-box">
+        <div class="footer">
+            <ul class="footer-ico">
+                <li><div class="qrcode"></div><i class="weixin"></i>表情云</li>
+                <li><i class="weibo"></i>表情MM</li>
+                <li><i class="qq"></i>技术支持：<br>387318208</li>
+                <li><i class="phone"></i>021-87743085</li>
+                <li><i class="add"></i>徐汇区漕溪北路737弄<br>1号楼1201室</li>
+            </ul>
+
+            <a href="about.html" class="foot-link">公司介绍</a>/
+            <a href="news.html" class="foot-link">新闻动态</a>/
+            <a href="protocol.html" class="foot-link">服务协议</a>/
+            <a href="http://www.lagou.com/gongsi/1594.html" class="foot-link" target="_blank">加入我们</a>/
+            <a href="links.html" class="foot-link">友情链接</a>
+            
+            Copyright @2014-2016 www.biaoqingmm.com All Rights Reserved.
+            <p>沪ICP备13039580号-2</p>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(function (){
+//合作案例
+var caseWorkClass = function (){
+    //circlemark高度
+    var listitemh = 106;
+    var workulh = 700;
+
+    //鼠标滑过显示
+    $("#casework .case-list ul li i").hover(function (){
+        $("#casework .case-list .circlemark").clearQueue().stop(true);
+        $("#casework .case-work .case-work-boxs").clearQueue().stop(true);
+
+        var index = $(this).parent().index();
+
+        //circlemark滑动
+        var circlemark = $("#casework .case-list .circlemark");
+        circlemark.animate({top:(listitemh*index)+'px'});
+
+        //case-work-box滑动
+        var caseworkbox = $("#casework .case-work .case-work-boxs");
+        caseworkbox.animate({marginTop:'-'+(workulh*index)+'px'});
+    }, function (){
+
+    })
+}
+new caseWorkClass();
+})
+</script>
+
+<style type="text/css">
+.partner ul li.slts img {
+    opacity: 1;
+}
+</style>
+<script type="text/javascript">
+$(function (){
+//合作伙伴
+var partnerClass = function (){
+    var plinksw = 990;
+    var pcontentimgw = 978;
+
+    //元素总数
+    var plinkslinum = $("#partner .partner-links ul li").length;
+
+    var plinksulw = 0;
+    $("#partner .partner-links ul li").each(function (){
+        plinksulw += parseInt($(this).css('width'));
+    });
+    $("#partner .partner-links ul").css('width', plinksulw+'px');
+
+    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentimgw)+'px');
+
+    //mouse-hover
+    $("#partner .partner-links ul li img").hover(function (){
+        $(this).parent().addClass("slts");
+    }, function (){
+        $(this).parent().removeClass("slts");
+    });
+
+    var mwidth = 0;
+    //mouse-click
+    $("#partner .partner-links ul li img").click(function (){
+        $("#partner .partner-links ul li").removeClass("slt");
+        $(this).parent().addClass("slt");
+
+        var cindex = $(this).parent().index();
+
+        //partner-boxs滑动
+        $("#partner .partner-boxs").clearQueue().stop(true);
+        var partnerboxs = $("#partner .partner-boxs");
+        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*cindex)+'px'});
+        
+        var partnerlinksul = $("#partner .partner-links ul");
+
+        //左移计算
+        var cccindex = 0;
+        var plinkslw = 0;
+        $("#partner .partner-links ul li").each(function (){
+            if (plinkslw < mwidth+plinksw) {
+                cccindex = $(this).index()-1;
+                plinkslw += parseInt($(this).css('width'));
+            } else if (plinkslw == mwidth+plinksw) {
+                cccindex = $(this).index()-1;
+                return false;
+            }
+        });
+        if (cccindex+1==plinkslinum-1 && plinkslw==plinksulw) cccindex = plinkslinum-1;
+        var ccc = plinkslw-plinksw-mwidth;
+        //右边显示
+        if (cindex==cccindex && cindex<plinkslinum-1) {
+            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'));
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        }
+
+        //右移计算
+        var dddindex = 0;
+        var plinksrw = 0;
+        $("#partner .partner-links ul li").each(function (){
+            if (plinksrw < mwidth) {
+                dddindex = $(this).index()+1;
+                plinksrw += parseInt($(this).css('width'));
+            } else if (plinksrw == mwidth) {
+                dddindex = $(this).index();
+                return false;
+            }
+        });
+        var ddd = 0;
+        if (plinksrw-mwidth) {
+            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'));
+            var ddd = dwidth-(plinksrw-mwidth);
+        }
+        //左边显示
+        if (cindex==dddindex && cindex>0) {
+            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'));
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        }
+    });
+}
+new partnerClass();
+})
+</script>
+<tc_include file="Common/foot" />

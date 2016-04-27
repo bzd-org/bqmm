@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+
+    #下载
+    RewriteRule ^download.html$ index.php/?m=page&a=index&id=1/ [PT]
+    #表情一览
+    RewriteRule ^emoji.html$ index.php/?m=page&a=index&id=2 [PT]
+    #FAQ
+    RewriteRule ^faq.html$ index.php/?m=page&a=index&id=3 [PT]
+    #表情一览详情
+    RewriteRule ^emojiview.html$ index.php/?m=page&a=index&id=4 [PT]
+
+    #公司介绍
+    RewriteRule ^about.html$ index.php/?m=page&a=index&id=5 [PT]
+    #新闻动态
+    RewriteRule ^news.html$ index.php/?m=list&a=index&id=1 [PT]
+    #新闻动态-详情
+    RewriteRule ^article_([1-9]+).html$ index.php/?m=article&a=index&id=$1 [PT]
+    #服务协议
+    RewriteRule ^protocol.html$ index.php/?m=page&a=index&id=7 [PT]
+    #友情链接
+    RewriteRule ^links.html$ index.php/?m=page&a=index&id=8 [PT]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>

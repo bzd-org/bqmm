@@ -1,0 +1,216 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+    
+    <div class="wrap">
+        <!--index-top begin-->
+        <div class="index-top">
+            <div class="topnav-box">
+                <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
+                <div id="topnav" class="topnav">
+                <?php
+                    $effected_id="main-menu";
+                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
+                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
+                    $ul_class="dropdown-menu" ;
+                    $li_class="" ;
+                    $style="nav";
+                    $showlevel=6;
+                    $dropdown='dropdown';
+                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
+                ?>
+                <script type="text/javascript">
+                $(function (){
+                    $("#topnav").find("li:not(:last)").append('|');
+                })
+                </script>
+                </div>
+            </div>
+            <!--topnav-box end-->
+        </div>
+        <!--index-top end-->
+
+        <div class="download-banner"></div>
+
+        <div class="main top40 tc ovh">
+            <div class="licence"><i class="r10"></i>下载即表示同意遵守 <a href="javascript:;">[表情mm|表情云TM服务协议]</a> 下载完成后请点击<a href="javascript:;" class="down l20">获取appKey</a></div>
+            
+            <h2 class="default top120">IM版</h2>
+            <h3>同时支持APP的IM模块和评论模块接入</h3>
+            <div class="download-box">
+                <dl class="ftl">
+                    <dt class="android"></dt>
+                    <dd>
+                        版本：v1.3.2<br>
+                        更新：2016.03.31
+                        <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                        <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                    </dd>
+                </dl>
+                <dl class="ftr l80">
+                    <dt class="ios"></dt>
+                    <dd>
+                        版本：v1.3.2<br>
+                        更新：2016.03.31
+                        <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                        <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                    </dd>
+                </dl>
+            </div>
+
+            <h2 class="default">评论版</h2>
+            <h3>适合有评论模块的APP开发者下载</h3>
+            <div class="download-box">
+                <dl class="ftl">
+                    <dt class="android"></dt>
+                    <dd>
+                        版本：v1.3.2<br>
+                        更新：2016.03.31
+                        <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                        <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                    </dd>
+                </dl>
+                <dl class="ftr l80">
+                    <dt class="ios"></dt>
+                    <dd>
+                        版本：v1.3.2<br>
+                        更新：2016.03.31
+                        <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                        <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                    </dd>
+                </dl>
+            </div>
+
+            <h2 class="default">网页版SDK</h2>
+            <h3>同时支持APP的IM模块和评论模块接入</h3>
+            <div class="download-open">
+                <ul>
+                    <li class="ftl">
+                    版本：v1.3.2<br>
+                    更新：2016.03.31
+                    </li>
+                    <li class="ftr"><i class="down-btn">暂未开放</i></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="bg-gray">
+            <div class="main b70 tc ovh">
+                <h3 class="top80 b80">表情云全面兼容四大IM云服务，实现IM功能的同时轻松拥有自己的表情商店</h3>
+
+                <h2><img src="__TMPL__Assets/images/download/01.png" width="55" height="45" class="down-ico r10"><span style="color:#20c2e5">环信版</span></h2>
+                <div class="download-box">
+                    <dl class="ftl">
+                        <dt class="android"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                    <dl class="ftr l80">
+                        <dt class="ios"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                </div>
+
+                <h2><img src="__TMPL__Assets/images/download/02.png" width="72" height="51" class="down-ico r10"><span style="color:#0bb0fc">融云版</span></h2>
+                <div class="download-box">
+                    <dl class="ftl">
+                        <dt class="android"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                    <dl class="ftr l80">
+                        <dt class="ios"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                </div>
+
+                <h2><img src="__TMPL__Assets/images/download/03.png" width="51" height="51" class="down-ico r10"><span style="color:#0fc4ca">亲加版</span></h2>
+                <div class="download-box">
+                    <dl class="ftl">
+                        <dt class="android"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                    <dl class="ftr l80">
+                        <dt class="ios"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                </div>
+
+                <h2><img src="__TMPL__Assets/images/download/04.png" width="50" height="50" class="down-ico r10"><span style="color:#1ab5fc">Leancloud版</span></h2>
+                <div class="download-box">
+                    <dl class="ftl">
+                        <dt class="android"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                    <dl class="ftr l80">
+                        <dt class="ios"></dt>
+                        <dd>
+                            版本：v1.3.2<br>
+                            更新：2016.03.31
+                            <a href="javascript:;" class="sdk down-btn top20">下载SDK</a>
+                            <a href="javascript:;" class="demo down-btn top20">下载DEMO</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="bg-img">
+                <div class="down-im">
+                    <img src="__TMPL__Assets/images/download/phone_im.png" width="277" height="545" class="down-phone1">
+                    <img src="__TMPL__Assets/images/download/phone_comment.png" width="280" height="545" class="down-phone2">
+                    <div class="im-text1">
+                        <h2 class="default">IM版 DEMO</h2>
+                        <h2>马上下载体验</h2>
+                        <a href="javascript:;" class="im-btn btn-android"></a>
+                        <a href="javascript:;" class="im-btn btn-ios l10"></a>
+                    </div>
+                    <div class="im-text2">
+                        <h2 class="default">评论版 DEMO</h2>
+                        <h2>马上下载体验</h2>
+                        <a href="javascript:;" class="im-btn btn-android"></a>
+                        <a href="javascript:;" class="im-btn btn-ios l10"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <tc_include file="Common/footerbox" />
+    
+<tc_include file="Common/foot" />

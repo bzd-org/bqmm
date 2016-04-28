@@ -33,4 +33,24 @@ class GuestbookController extends AppframeController{
 		}
 		
 	}
+
+	//保存留言
+	public function savemsg()
+	{
+		if (IS_POST) {
+			if ($this->guestbook_model->create()) {
+				$result=$this->guestbook_model->add();
+				if ($result!==false) {
+					// $this->success("留言成功！");
+					$this->majaxReturn(0, '留言成功！');
+				} else {
+					// $this->error("留言失败！");
+					$this->majaxReturn(1, '留言失败！');
+				}
+			} else {
+				// $this->error($this->guestbook_model->getError());
+				$this->majaxReturn(1, '留言失败！');
+			}
+		}
+	}
 }

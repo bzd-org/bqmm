@@ -38,9 +38,8 @@ class PageController extends HomebaseController{
         );
         $this->assign('seo', $seo);
 
-        //index_banner
-        $index_banner = sp_getslide('index_banner');
-        $this->assign('index_banner', $index_banner);
+        //表情包
+        if ($id == 2) $this->biaoqingbao();
         
 		$this->display(":$tplname");
 	}
@@ -56,4 +55,29 @@ class PageController extends HomebaseController{
 				"label"=>"post_title");
 		exit( sp_get_nav4admin($navcatname,$datas,$navrule) );
 	}
+
+    //表情包
+    public function biaoqingbao()
+    {
+        $termid = 2;
+
+        //表情包分类信息
+        $term = sp_get_term($termid);
+        $this->assign('term', $term);
+
+        //子分类信息
+        $subterms = sp_get_child_terms($termid);
+        foreach ($subterms as $k=>$subterm) {
+            $tag = 'order:istop desc, post_date desc;';
+            $posts = sp_sql_posts_paged_bycatid($subterm['term_id'],$tag,6);
+
+            foreach ($posts['posts'] as $pk=>$post) {
+                $posts['posts'][$pk]['smeta'] = json_decode($post['smeta'], true);
+            }
+
+            $subterms[$k]['posts'] = is_array($posts) ? $posts : array();
+        }
+        $this->assign('subterms', $subterms);
+        // dump($subterms);exit;
+    }
 }

@@ -107,7 +107,7 @@
                         <ul>
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png" width="80" height="80"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></li>
+                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></a></li>
                             </foreach>
                         </ul>
                         </foreach>
@@ -124,32 +124,18 @@
             <div id="partner" class="partner">
                 <div class="partner-links">
                     <ul>
-                        <li class="slt"><img src="__TMPL__Assets/images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/guoguo.png" width="80" height="80"><b>橙果果</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/xfx.png" width="80" height="80"><b>秀发型</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/banmi.png" width="80" height="80"><b>半米</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/iHere.png" width="80" height="80"><b>iHere</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/bookway.png" width="80" height="80"><b>bookway</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/pai.png" width="80" height="80"><b>圆周派</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/ballyue.png" width="80" height="80"><b>球约么</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/pobing.png" width="80" height="80"><b>破冰</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/guoguo.png" width="80" height="80"><b>橙果果</b></li>
-                        <li><img src="__TMPL__Assets/images/partnericon/bookway.png" width="80" height="80"><b>bookway</b></li>
+                        <!-- <li class="slt"><img src="__TMPL__Assets/images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li> -->
+                        <foreach name="slidehzhblist" item="banner">
+                        <li class="{$banner.class}"><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></li>
+                        </foreach>
                     </ul>
                 </div>
                 <div class="partner-content">
                     <div class="partner-boxs">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
-                        <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492">
+                        <!-- <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492"> -->
+                        <foreach name="slidehzhblist" item="banner">
+                        <img src="{$banner.slide_pic}" width="978" height="492">
+                        </foreach>
                     </div>
                 </div>
             </div>
@@ -159,15 +145,15 @@
 
     <div class="module-box module6">
         <div class="contact">
-            <form name="contactform">
+            <form name="contactform" method="post" action="{:U('api/guestbook/savemsg')}">
                 <h2 class="b15 white">联系我们</h2>
 
-                <input name="" type="text" placeholder="您的姓名">
-                <input name="" type="text" placeholder="公司名称">
-                <input name="" type="text" placeholder="联系方式">
-                <textarea name="" cols="" placeholder="需求明细"></textarea>
+                <input name="full_name" type="text" placeholder="您的姓名">
+                <input name="title" type="text" placeholder="公司名称">
+                <input name="email" type="text" placeholder="联系方式">
+                <textarea name="msg" cols="" placeholder="需求明细"></textarea>
 
-                <button name="">完成发送</button>
+                <button type="submit" name="subtn">完成发送</button>
                 <h4>或直接发送需求邮件至 <a href="mailto:business@siyanhui.com">business@siyanhui.com</a></h4>
             </form>
         </div>
@@ -315,6 +301,31 @@ var partnerClass = function (){
     });
 }
 new partnerClass();
+})
+</script>
+
+<script type="text/javascript">
+$(function (){
+    $("form[name=contactform]").submit(function (){
+        if (!$(this).find("input[name=full_name]").val()) {
+            alert("请填写您的姓名！");
+            return false;
+        }
+        if (!$(this).find("input[name=email]").val()) {
+            alert("请填写联系方式！");
+            return false;
+        }
+        if (!$(this).find("textarea[name=msg]").val()) {
+            alert("请填写需求明细！");
+            return false;
+        }
+        $.post($(this).attr("action"), $(this).serialize(), function (data){
+            alert(data.msg);
+            document.contactform.reset();
+        });
+
+        return false;
+    });
 })
 </script>
 <tc_include file="Common/foot" />

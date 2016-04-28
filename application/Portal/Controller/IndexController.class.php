@@ -27,7 +27,11 @@ class IndexController extends HomebaseController {
         $index_banner = sp_getslide('index_banner');
         $this->assign('index_banner', $index_banner);
 
+        //合作案例
         $this->slidehzal();
+
+        //合作伙伴
+        $this->slidehzhb();
 
     	$this->display(":index");
     }
@@ -48,5 +52,14 @@ class IndexController extends HomebaseController {
 
         // dump($slidehzallist);exit;
         $this->assign('slidehzallist', $slidehzallist);
+    }
+
+    //获取合作伙伴
+    public function slidehzhb()
+    {
+        $slidehzhblist = sp_getslide('hzhb_banner');
+        $slidehzhblist[0]['class'] = 'slt';
+        
+        $this->assign('slidehzhblist', $slidehzhblist);
     }
 }

@@ -13,6 +13,50 @@ class AppframeController extends Controller {
     }
 
     /**
+     * AJAX返回数据
+     * @param int $error 是否产生错误信息 0没有错误信息 1有错误信息
+     * @param string $msg 如果有错 msg为错误信息
+     * @param array $data 返回的数据 多维数组
+     * @return json 统一返回json数据
+     */
+    protected function majaxReturn($error=0,$msg=null,$data=array())
+    {
+        if ($error && !$msg) {
+            $error = 1;
+            $msg   = L('ajaxreturn_error_msg');
+            $data  = array();
+        }
+
+        if (!$error && !is_array($data)) {
+            $error = 1;
+            $msg = L('ajaxreturn_error_msg');
+            $data = array();
+        }
+
+        //APP返回
+        $return = array(
+            'error' => $error,
+            'msg'   => $msg,
+            'data'  => $data
+        );
+
+        $type = 'json';
+        switch ($type) {
+            case 'json':
+                header('Content-Type: application/json');
+                $return = json_encode($return);
+                break;
+            default:
+                header('Content-Type: application/json');
+                $return = json_encode($return);
+                break;
+        }
+
+        echo $return;
+        exit;
+    }
+
+    /**
      * Ajax方式返回数据到客户端
      * @access protected
      * @param mixed $data 要返回的数据

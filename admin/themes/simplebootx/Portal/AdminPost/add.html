@@ -64,6 +64,20 @@
 				<div class="span3">
 					<table class="table table-bordered">
 						<tr>
+							<th><b>Banner图</b></th>
+						</tr>
+						<tr>
+							<td>
+								<div style="text-align: center;">
+									<input type="hidden" name="smeta[banner]" id="banner" value="">
+									<a href="javascript:void(0);" onclick="flashupload('thumb_images', '附件上传','banner',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+										<img src="__TMPL__Public/assets/images/default-thumbnail.png" id="banner_preview" width="135" style="cursor: hand" />
+									</a>
+									<input type="button" class="btn btn-small" onclick="$('#banner_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#banner').val('');return false;" value="取消图片">
+								</div>
+							</td>
+						</tr>
+						<tr>
 							<th><b>缩略图</b></th>
 						</tr>
 						<tr>

@@ -39,24 +39,19 @@
                 <h4 class="top10 b30">{$subterm.description}</h4>
                 <ul>
                     <foreach name="subterm.posts.posts" key="k" item="post">
-                    <if condition="$k==0 && $post.istop">
+                    <if condition="$post.isbanner eq 1">
                         <li class="big"><img src="{$post.smeta.banner}"><a href="emojiview_{$post.object_id}.html"></a></li>
-                    <elseif condition="$k==1" />
+                    <elseif condition="$post.isfirst eq 1" />
+                        <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
+                        <li><i class="signs-right"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+                    <elseif condition="$post.isleft eq 1" />
+                        <li><i class="signs-left"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+                        <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
+                    <elseif condition="$post.isright eq 1" />
                         <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
                         <li><i class="signs-right"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
                     </if>
                     </foreach>
-<!-- 
-                    <li><a href="emojiview.html">同道大叔之白羊座</a></li>
-                    <li><i class="signs-right"></i><a href="emojiview.html" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/01.jpg" width="248" height="248"></li>
-                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/02.jpg" width="248" height="248"></li>
-                    <li><a href="javascript:;">小王子</a></li>
-                    <li><i class="signs-left"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/03.jpg" width="248" height="248"></li>
-                    <li><a href="javascript:;">咸蛋超人情人节</a></li>
-                    <li><a href="javascript:;">澳门风云3</a></li>
-                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/04.jpg" width="248" height="248"></li>
-                    <li><a href="javascript:;">对口型大作战</a></li>
-                    <li><i class="signs-right"></i><a href="javascript:;" class="details">查看详情 ></a><img src="__TMPL__Assets/images/series/cover/01/05.jpg" width="248" height="248"></li> -->
                 </ul>
                 <div class="clear"></div>
                 <div class="open-down"><a href="javascript:;"></a>加载更多表情</div>

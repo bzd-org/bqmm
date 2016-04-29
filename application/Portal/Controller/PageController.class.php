@@ -71,8 +71,32 @@ class PageController extends HomebaseController{
             $tag = 'order:istop desc, post_date desc;';
             $posts = sp_sql_posts_paged_bycatid($subterm['term_id'],$tag,6);
 
+            $flag = 1;
+            $nnn = 0;
             foreach ($posts['posts'] as $pk=>$post) {
                 $posts['posts'][$pk]['smeta'] = json_decode($post['smeta'], true);
+
+                if ($pk==0 && $post['istop']) {
+                    $posts['posts'][$pk]['isbanner'] = 1;
+                } else if ($pk==1 && $posts['posts'][0]['isbanner']==1) {
+                    $posts['posts'][$pk]['isfirst'] = 1;
+                } else {
+                    if ($flag==1 && $nnn<2) {
+                        $posts['posts'][$pk]['isleft'] = 1;
+                    } else if ($flag==2 && $nnn<2) {
+                        $posts['posts'][$pk]['isright'] = 1;
+                    } else {
+                        if ($flag == 1) {
+                            $posts['posts'][$pk]['isright'] = 1;
+                            $flag = 2;
+                        } else if ($flag == 2) {
+                            $posts['posts'][$pk]['isleft'] = 1;
+                            $flag = 1;
+                        }
+                        $nnn = 0;
+                    }
+                    $nnn++;
+                }
             }
 
             $subterms[$k]['posts'] = is_array($posts) ? $posts : array();

@@ -71,7 +71,7 @@
                     <div class="pointer"></div>
                     <div class="product-text">
                         <b>{$product.slide_name}</b>
-                        <p>{$product.slide_content}</p>
+                        <p style="font-size: 17px; line-height: 27px;">{$product.slide_content}</p>
                     </div>
                 </div>
                 </foreach>
@@ -89,7 +89,7 @@
                     <li>
                         <dl class="left"><dd>{$honour.time1}</dd><dt>{$honour.time2}</dt></dl>
                         <i class="{$honour.ico}"></i>
-                        <dl class="right" style="padding-top: 3px;">
+                        <dl class="right">
                             <dt>{$honour.slide_name}</dt>
                             <dd>{$honour.slide_content}</dd>
                         </dl>
@@ -198,8 +198,7 @@
                     <li>
                         <h3>{$contact.slide_name}</h3>
                         <a href="mailto:{$contact.slide_url}">{$contact.slide_btn}</a>
-                        <br>
-                        {$contact.slide_content}
+                        <p>{$contact.slide_content}</p>
                     </li>
                     </foreach>
                     <!-- <li><h3>技术支持</h3><a href="mailto:support@siyanhui.com">support@siyanhui.com</a></li>
@@ -212,6 +211,8 @@
         <div class="clear"></div>
     </div>
 
+    <tc_include file="Common/footerbox" />
+    
 <style type="text/css" media="screen">
 .honours ul li:last-child {
     padding-bottom: 0;
@@ -237,7 +238,5 @@ $(function (){
     });
 })
 </script>
-
-    <tc_include file="Common/footerbox" />
     
 <tc_include file="Common/foot" />

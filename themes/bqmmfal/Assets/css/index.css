@@ -5,7 +5,7 @@
 .topnav-box { background: none !important; z-index: 1; }
 
 /*banner*/
-.banner, .b-img div{ height:770px; }
+.banner, .b-img div{ height:860px; }
 
 /*模块*/
 .module-box { width:100%; overflow:hidden; }
@@ -53,7 +53,7 @@
 .contact input, .contact textarea { border-style: none; background: #fff; font-size: 16px; color: #666; }
 .contact input { width: 436px; height: 50px; margin-bottom:10px; padding-right: 20px; padding-left: 20px; }
 .contact textarea { width: 436px; height: 155px; padding: 15px 20px; }
-.contact button { width: 476px; height: 50px; background: #40c9b6; font-size: 16px; color: #fff; font-weight: bold; border-style: none; margin-top: 10px; margin-bottom: 10px; border-radius: 5px; cursor: pointer; }
+.contact button { width: 476px; height: 50px; background: #40c9b6; font-size: 19px; color: #fff; font-weight: bold; border-style: none; margin-top: 10px; margin-bottom: 10px; border-radius: 5px; cursor: pointer; letter-spacing: 3px; }
 .contact h4 { color:#ccc; }
 .contact a { color: #40c9b6; }
 .contact a:hover { text-decoration:underline; }

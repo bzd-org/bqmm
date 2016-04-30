@@ -31,9 +31,9 @@
         <div class="main top40 b70">
             <div class="series-info">
                 <div class="series-info-left"><div class="series-cover ftr"><img src="{:sp_get_asset_upload_path($article['smeta']['thumb'])}" width="117" height="132"></div></div>
-                <div class="series-info-right" style="padding-top: 10px;">
+                <div class="series-info-right">
                     <p>{$article['post_title']}</p>
-                    <a href="emoji_{$term.term_id}.html" target="_blank" class="top10" style="width: auto; display: inline-block; padding: 3px 15px; background: {$term.color};">{$term.name}</a>
+                    <a href="emoji_{$term.term_id}.html" target="_blank" class="top10" style="background: {$term.color};">{$term.name}</a>
                 </div>
                 <div class="series-info-text" style="text-align: center;">{$article['post_excerpt']}</div>
             </div>
@@ -68,6 +68,9 @@
         </div>
         <!--main end-->
     </div>
+
+    <tc_include file="Common/footerbox" />
+    
 <script type="text/javascript">
 $(function (){
     setTimeout(function (){
@@ -81,6 +84,5 @@ $(function (){
     }, 100);
 })
 </script>
-    <tc_include file="Common/footerbox" />
     
 <tc_include file="Common/foot" />

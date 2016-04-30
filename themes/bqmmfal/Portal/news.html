@@ -60,7 +60,13 @@
                     <else />
                     <a href="news.html&p={$p-1}" class="flip ftl">&lt;上一页</a>
                     </if>
+
+                    <if condition="$mpage neq ''">
                     {$mpage}
+                    <else />
+                    <span class="current">1</span>
+                    </if>
+
                     <if condition="$p eq $pcount">
                     <a href="javascript:;" class="flip ftr disable">下一页&gt;</a>
                     <else />
@@ -94,7 +100,7 @@ span.current {
     display: inline-block;
     border: 1px solid #ededed;
     border-radius: 4px;
-    color: #C1C1C1;
+    color: #36cab6;
     margin: 0 5px;
 }
 </style>

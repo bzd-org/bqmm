@@ -33,8 +33,8 @@
 .series-info-left { width: 240px; float: left; }
 .series-cover { width: 130px; height: 130px; border: 3px solid #fff; border-radius:50%; overflow: hidden; position: relative; }
 .series-cover img { min-width: 130px; min-height: 130px; }
-.series-info-right { width: 436px; float: right; font-size: 30px; padding-left: 60px; }
-.series-info-right a { width: 160px; height: 35px; line-height: 35px; background: #f997bc; text-align: center; font-size: 18px; color:#fff; display: block; border-radius:4px; }
+.series-info-right { width: 436px; float: right; font-size: 30px; padding-left: 60px; padding-top: 17px; }
+.series-info-right a { width: auto; height: 35px; line-height: 35px; background: #f997bc; text-align: center; font-size: 18px; color:#fff; display: inline-block; border-radius:4px; padding: 0 15px; }
 .series-info-text { width: 736px; height: auto; color: #8d8d8d; overflow: hidden; padding-top: 25px; padding-bottom: 25px; }
 .series-box { width: 1120px; height: auto; overflow: hidden; }
 .series-content-box { width: 738px; height: auto: overflow: hidden; position: relative; }
@@ -143,8 +143,8 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .honours ul { width: 900px; height: auto; background: url(../images/about/honours_bg.png) repeat-y left top; overflow: hidden; }
 .honours ul li { width: 900px; height: auto; padding-bottom: 40px; overflow: hidden; }
 .honours ul li.last { padding-bottom: 0; }
-.honours ul li dl dt { color: #414141; }
-.honours ul li dl dd { color: #999; }
+.honours ul li dl dt { color: #333333; font-weight: 600; font-size: 18px; }
+.honours ul li dl dd { color: #999; font-size: 17px; }
 .honours ul li dl.left { width: 120px; float: left; text-align: right; margin-right: 20px; }
 .honours ul li dl.right { width: 680px; height: auto; float: left; text-align: left; margin-left: 20px; }
 .honours ul li i { width: 54px; height: 54px; background: url(../images/images.png) no-repeat; display: block; float: left; }
@@ -157,9 +157,9 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .culture ul.cd { padding-top: 108px; }
 .culture ul li img { max-width: 216px; max-height: 216px; vertical-align:middle; }
 .cuntact { width: 972px; height: auto; overflow: hidden; margin-left: auto; margin-right: auto; }
-.cuntact ul li { width: 300px; height: auto; padding: 0 12px; overflow: hidden; float: left; }
+.cuntact ul li { width: 300px; height: auto; padding: 0 12px; overflow: hidden; float: left; font-size: 18px; color: #777; }
 .cuntact ul li h3 { font-size: 22px; }
-.cuntact ul li a { text-decoration:underline; }
+.cuntact ul li a { text-decoration:underline; display: inline-block; padding: 10px 0; }
 
 /*FAQ*/
 .faq { width: 100%; height: auto; overflow: hidden; text-align: left; }
@@ -175,4 +175,5 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 
 
 /*页脚*/
-.footer-box { height: 100px; line-height: 100px; overflow: hidden; }
+.footer-box { height: 100px; line-height: auto; overflow: hidden; }
+.footer-box .footer { margin-top: 22px; }

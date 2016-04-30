@@ -43,21 +43,25 @@ class ArticleController extends HomebaseController {
     	$next=$rs->alias("a")->join($join)->join($join2)->where(array("post_modified"=>array("egt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_modified asc")->find();
     	$prev=$rs->alias("a")->join($join)->join($join2)->where(array("post_modified"=>array("elt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_modified desc")->find();
     	
-    	 
+        $next['smeta'] = json_decode($next['smeta'], true);
     	$this->assign("next",$next);
+        $prev['smeta'] = json_decode($prev['smeta'], true);
     	$this->assign("prev",$prev);
     	
     	$smeta=json_decode($article['smeta'],true);
     	$content_data=sp_content_page($article['post_content']);
     	$article['post_content']=$content_data['content'];
     	$this->assign("page",$content_data['page']);
-    	$this->assign($article);
     	$this->assign("smeta",$smeta);
     	$this->assign("term",$term);
     	$this->assign("article_id",$article_id);
     	
     	$tplname=$term["one_tpl"];
     	$tplname=sp_get_apphome_tpl($tplname, "article");
+
+        $article['smeta'] = json_decode($article['smeta'], true);
+        $this->assign('article', $article);
+        // dump($article);exit;
     	$this->display(":$tplname");
     }
     

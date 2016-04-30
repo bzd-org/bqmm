@@ -30,36 +30,57 @@
 
         <div class="main top40 b70">
             <div class="series-info">
-                <div class="series-info-left"><div class="series-cover ftr"><img src="__TMPL__Assets/images/cover.jpg" width="117" height="132"></div></div>
-                <div class="series-info-right">
-                    [日本原创]樱花少女
-                    <a href="#" target="_blank" class="top10">日本萌妹原创</a>
+                <div class="series-info-left"><div class="series-cover ftr"><img src="{:sp_get_asset_upload_path($article['smeta']['thumb'])}" width="117" height="132"></div></div>
+                <div class="series-info-right" style="padding-top: 10px;">
+                    <p>{$article['post_title']}</p>
+                    <a href="emoji_{$term.term_id}.html" target="_blank" class="top10" style="width: auto; display: inline-block; padding: 3px 15px; background: {$term.color};">{$term.name}</a>
                 </div>
-                <div class="series-info-text">樱花妹纸是日本萌妹子的原创表情，喜欢卖萌发呆装可爱，矮油，其实人家是真可爱啦，才不是装的呢</div>
+                <div class="series-info-text" style="text-align: center;">{$article['post_excerpt']}</div>
             </div>
 
             <div class="series-box">
-                <div class="series-switch ftr"><div class="series-cover ftr top150"><a href="#" class="switch-btn sr"></a><img src="__TMPL__Assets/images/cover1.jpg" width="117" height="132"></div></div>
-                <div class="series-switch ftl"><div class="series-cover ftl top150"><a href="#" class="switch-btn sl"></a><img src="__TMPL__Assets/images/cover2.jpg" width="117" height="132"></div></div>
+                <div class="series-switch ftr">&nbsp;
+                    <div class="series-cover ftr top150" style="display: none;">
+                        <notempty name="next.tid">
+                        <a href="emojiview_{$next.tid}.html" class="switch-btn sr"></a>
+                        <img src="{:sp_get_asset_upload_path($next['smeta']['thumb'])}" width="117" height="132">
+                        </notempty>
+                    </div>
+                </div>
+                <div class="series-switch ftl">&nbsp;
+                    <div class="series-cover ftl top150" style="display: none;">
+                        <notempty name="prev.tid">
+                        <a href="emojiview_{$prev.tid}.html" class="switch-btn sl"></a>
+                        <img src="{:sp_get_asset_upload_path($prev['smeta']['thumb'])}" width="117" height="132">
+                        </notempty>
+                    </div>
+                </div>
                 <div class="series-content-box ftl">
                     <div class="series-content-ico"></div>
                     <div class="series-content">
-                        <img src="__TMPL__Assets/images/series/Girl01.png" width="104" height="112">
-                        <img src="__TMPL__Assets/images/series/Girl02.png" width="98" height="110">
-                        <img src="__TMPL__Assets/images/series/Girl03.png" width="100" height="114">
-                        <img src="__TMPL__Assets/images/series/Girl04.png" width="84" height="112">
-                        <img src="__TMPL__Assets/images/series/Girl05.png" width="96" height="113">
-                        <img src="__TMPL__Assets/images/series/Girl06.png" width="109" height="112">
-                        <img src="__TMPL__Assets/images/series/Girl07.png" width="106" height="102">
-                        <img src="__TMPL__Assets/images/series/Girl08.png" width="109" height="114">
-                        <h5><a href="">©表情mm</a></h5>
+                        <foreach name="article.smeta.photo" key="k" item="photo">
+                        <img src="{:sp_get_asset_upload_path($photo['url'])}" title="{$photo.alt}">
+                        </foreach>
+                        <foreach name="article.smeta.photo" key="k" item="photo">
+                        <img src="{:sp_get_asset_upload_path($photo['url'])}" title="{$photo.alt}">
+                        </foreach>
+                        <h5 style="position: absolute; bottom: 9px; left: 50%; margin-left: -31px;"><a href="__ROOT__/" target="_blank">©表情mm</a></h5>
                     </div>
                 </div>
             </div>
         </div>
         <!--main end-->
     </div>
-
+<script type="text/javascript">
+$(function (){
+    setTimeout(function (){
+        var sbheight = parseInt($(".series-box").css('height'));
+        $(".series-box .series-switch .series-cover").css({
+            "margin-top": (sbheight/2-65)+"px"
+        }).fadeIn();
+    }, 100);
+})
+</script>
     <tc_include file="Common/footerbox" />
     
 <tc_include file="Common/foot" />

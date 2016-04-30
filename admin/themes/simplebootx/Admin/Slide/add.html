@@ -22,22 +22,22 @@
 							</td>
 						</tr>
 						<tr>
-							<th>{:L('TITLE')}</th>
+							<th>幻灯片名称</th>
 							<td>
 								<input type="text" style="width: 400px;" name="slide_name" value="" placeholder="请输入幻灯片名称"/>
 								<span class="form-required">*</span>
 							</td>
 						</tr>
 						<tr>
-							<th>{:L('DESCRIPTION')}</th>
+							<th>幻灯片描述</th>
 							<td><input type="text" name="slide_des" value="" style="width: 400px"></td>
 						</tr>
 						<tr>
 							<th>按钮名称</th>
-							<td><input type="text" name="slide_btn" value="立即体验" style="width: 400px" placeholder="四个汉字以内"></td>
+							<td><input type="text" name="slide_btn" value="" style="width: 400px" placeholder="四个汉字以内"></td>
 						</tr>
 						<tr>
-							<th>{:L('LINK')}</th>
+							<th>链接地址：</th>
 							<td><input type="text" name="slide_url" value="" style="width: 400px"></td>
 						</tr>
 						<tr>
@@ -58,7 +58,7 @@
 									<a href="javascript:void(0);" onclick="flashupload('thumb_images', '附件上传','thumbi',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
 										<img src="__TMPL__Public/assets/images/default-thumbnail.png" id="thumbi_preview" width="135" style="cursor: hand" />
 									</a>
-									<input type="button" class="btn btn-small" onclick="$('#thumbi_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumb').val('');return false;" value="取消图片">
+									<input type="button" class="btn btn-small" onclick="$('#thumbi_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumbi').val('');return false;" value="取消图片">
 								</div>
 							</td>
 						</tr>

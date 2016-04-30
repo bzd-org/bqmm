@@ -6,6 +6,15 @@ class HomebaseController extends AppframeController {
 	public function __construct() {
 		$this->set_action_success_error_tpl();
 		parent::__construct();
+		
+        //SEO信息
+        $site_options=get_site_options();
+        $seo = array(
+            'title'       => $site_options['site_seo_title'],
+            'keywords'    => $site_options['site_seo_keywords'],
+            'description' => $site_options['site_seo_description'],
+        );
+        $this->assign('seo', $seo);
 	}
 	
 	function _initialize() {

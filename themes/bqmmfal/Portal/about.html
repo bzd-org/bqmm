@@ -31,7 +31,7 @@
 
         <div class="banner">
             <div class="b-img">
-                <foreach name="index_banner" item="banner" > 
+                <foreach name="about_banner" item="banner">
                 <div style="background:url({$banner.slide_pic}) center no-repeat;">
                     <!-- <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a> -->
                 </div>
@@ -45,14 +45,14 @@
         <!--banner end-->
 
         <div class="about top50 b40">
-            <img src="__TMPL__Assets/images/about/01.jpg" width="1120" height="480">
+            <img src="{:sp_get_asset_upload_path($about_bqy['slide_pic'])}" width="1120" height="480">
         </div>
         <!--about-top50-b40 end-->
 
         <div class="about about_bg1">
-            <img src="__TMPL__Assets/images/about/02.jpg" width="1120" height="400">
+            <img src="{:sp_get_asset_upload_path($about_syh['slide_pic'])}" width="1120" height="400">
             <div class="about_link">
-                <a href="javascript:;"><img src="__TMPL__Assets/images/about/about_link.jpg" width="200" height="30"></a>
+                <a href="http://www.siyanhui.com/" target="_blank"><img src="__TMPL__Assets/images/about/about_link.jpg" width="200" height="30"></a>
             </div>
         </div>
 
@@ -60,33 +60,21 @@
             <h2>我们的产品</h2>
             <h3>our product</h3>
 
-            <div class="about-product b50">
-                <ul>
-                    <li><img src="__TMPL__Assets/images/about/about_produc1.jpg" width="214" height="230"></li>
-                    <li><img src="__TMPL__Assets/images/about/about_produc2.jpg" width="214" height="230"></li>
-                    <li class="last"><img src="__TMPL__Assets/images/about/about_produc3.jpg" width="214" height="230"></li>
+            <div class="about-product b50 aboutproduct">
+                <ul style="overflow: hidden;">
+                    <foreach name="about_product" item="product">
+                    <li class="{$product.li_class}" style="cursor: pointer;"><img src="{:sp_get_asset_upload_path($product['slide_pic'])}" width="214" height="230"></li>
+                    </foreach>
                 </ul>
-                <div class="product-text-box ptl">
+                <foreach name="about_product" item="product">
+                <div class="product-text-box {$product.box_class}" style="display:none">
                     <div class="pointer"></div>
                     <div class="product-text">
-                        <b>表情me——我的萌表情</b>
-                        <p>表情me是最懂95后的微信QQ聊天神器！用户只需拍照即可获得专属的卡通动态表情，一键变身女汉子、萌妹子、霸道总裁！主题商店周周更新，推荐当下最热的萌贱逗比表情，让聊天更嗨更欢乐！还有【分享弹幕】、【照片贴图】等吐槽新玩法，带你装X带你飞！</p>
+                        <b>{$product.slide_name}</b>
+                        <p>{$product.slide_content}</p>
                     </div>
                 </div>
-                <div class="product-text-box ptm" style="display:none">
-                    <div class="pointer"></div>
-                    <div class="product-text">
-                        <b>表情云™</b>
-                        <p>表情云是移动应用表情服务开放平台，通过客户端SDK的方式提供给开发者和企业。支持Android、iOS等平台，让App轻松拥有自己的表情商店。</p>
-                    </div>
-                </div>
-                <div class="product-text-box ptr" style="display:none">
-                    <div class="pointer"></div>
-                    <div class="product-text">
-                        <b>表情mm</b>
-                        <p>国内最专业的表情供应商，提供大量高品质的明星、影视、动漫、热点表情，原创精品卡通表情基地，表情服务领导者。</p>
-                    </div>
-                </div>
+                </foreach>
             </div>
         </div>
 
@@ -97,7 +85,17 @@
             <div class="honours">
                 <div class="h-top"></div>
                 <ul>
+                    <foreach name="about_honours" item="honour">
                     <li>
+                        <dl class="left"><dd>{$honour.time1}</dd><dt>{$honour.time2}</dt></dl>
+                        <i class="{$honour.ico}"></i>
+                        <dl class="right" style="padding-top: 3px;">
+                            <dt>{$honour.slide_name}</dt>
+                            <dd>{$honour.slide_content}</dd>
+                        </dl>
+                    </li>
+                    </foreach>
+                    <!-- <li>
                         <dl class="left"><dd>Jan.20</dd><dt>2016</dt></dl>
                         <i class="ico1"></i>
                         <dl class="right">
@@ -152,7 +150,7 @@
                             <dt>全国创新创业大赛优胜团队！</dt>
                             <dd>似颜绘科技获得第二届科技部创新创业大赛上海第一名！全国第三名！</dd>
                         </dl>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -162,7 +160,14 @@
             <h3>our culture</h3>
 
             <div class="culture">
-                <ul>
+                <foreach name="about_culture" item="cultureul">
+                    <ul class="{$cultureul.class}">
+                        <foreach name="cultureul.culture" item="culture">
+                        <li><img src="{:sp_get_asset_upload_path($culture['slide_pic'])}" width="216" height="216"></li>
+                        </foreach>
+                    </ul>
+                </foreach>
+                <!-- <ul>
                     <li><img src="__TMPL__Assets/images/about/oc1.jpg" width="216" height="216"></li>
                     <li><img src="__TMPL__Assets/images/about/oc2.jpg" width="216" height="216"></li>
                 </ul>
@@ -177,27 +182,61 @@
                 <ul class="cd">
                     <li><img src="__TMPL__Assets/images/about/oc7.jpg" width="216" height="216"></li>
                     <li><img src="__TMPL__Assets/images/about/oc8.jpg" width="216" height="216"></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
 
         <div class="about about_bg3">
             <h2>联系我们</h2>
-            <h3>cuntact us</h3>
+            <h3>contact us</h3>
             
             <img src="__TMPL__Assets/images/about/contact.png" width="1120" height="154">
 
             <div class="cuntact">
                 <ul>
-                    <li><h3>技术支持</h3><a href="mailto:support@siyanhui.com">support@siyanhui.com</a></li>
+                    <foreach name="about_contact" item="contact">
+                    <li>
+                        <h3>{$contact.slide_name}</h3>
+                        <a href="mailto:{$contact.slide_url}">{$contact.slide_btn}</a>
+                        <br>
+                        {$contact.slide_content}
+                    </li>
+                    </foreach>
+                    <!-- <li><h3>技术支持</h3><a href="mailto:support@siyanhui.com">support@siyanhui.com</a></li>
                     <li><h3>商务合作</h3><a href="mailto:business@siyanhui.com">business@siyanhui.com</a><br>021-67743085</li>
-                    <li><h3>售后服务</h3><a href="mailto:service@siyanhui.com">service@siyanhui.com</a></li>
+                    <li><h3>售后服务</h3><a href="mailto:service@siyanhui.com">service@siyanhui.com</a></li> -->
                 </ul>
             </div>
         </div>
 
         <div class="clear"></div>
     </div>
+
+<style type="text/css" media="screen">
+.honours ul li:last-child {
+    padding-bottom: 0;
+}
+.honours ul li i.ico_rocket {
+    background-position: 0 -90px;
+}
+.honours ul li i.ico_money {
+    background-position: -64px -90px;
+}
+.honours ul li i.ico_flag {
+    background-position: -128px -90px;
+}
+</style>
+<script type="text/javascript">
+$(function (){
+    //我们的产品
+    $(".product-text-box:first").show();
+    $(".aboutproduct ul li").hover(function (){
+        var index = $(this).index();
+        $(".product-text-box").hide();
+        $(".product-text-box:eq("+index+")").show();
+    });
+})
+</script>
 
     <tc_include file="Common/footerbox" />
     

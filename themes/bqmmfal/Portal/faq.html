@@ -1,7 +1,7 @@
 <tc_include file="Common/head" />
     <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
     
-    <div class="wrap">
+    <div class="wrap wrap-bg">
         <!--index-top begin-->
         <div class="index-top">
             <div class="topnav-box">
@@ -32,7 +32,13 @@
             <h2 class="tc">FAQ</h2>
             <div class="news-title-line"></div>
             <div class="faq top60">
+                <foreach name="faq" item="faqitem">
                 <dl>
+                    <dt>{$faqitem.slide_name}</dt>
+                    <dd>{$faqitem.slide_content}</dd>
+                </dl>
+                </foreach>
+                <!-- <dl>
                     <dt>1、表情mm SDK收费吗？ </dt>
                     <dd>现阶段都是免费接入的，除了产品体量特别大，需要搭设私有云，或者希望有一些深度的高级服务之外，基本上免费接入就已经可以达到微信表情商店的样子了有一些客户是需要定制专属的表情，还有亿级客户是要确保自己的服务稳定，希望搭设私有云，这些其实已经稍超出sdk本身的接入了，那些是会收费的，普通的接入都是免费的。</dd>
                 </dl>
@@ -67,7 +73,7 @@
                 <dl>
                     <dt>9、我们有网页端的产品，请问现在支持Web SDK吗？</dt>
                     <dd>PC版的话，现在还不行，后面会根据各家开发者的需求来定，未来会考虑Web SDK。</dd>
-                </dl>
+                </dl> -->
             </div>
         </div>
         <!-- main end -->

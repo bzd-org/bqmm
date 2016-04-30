@@ -26,11 +26,19 @@ class ListController extends HomebaseController {
 		    	
 		    return ;
 		}
+
+		$cat_id = intval($_GET['id']);
+        if (!$cat_id) $cat_id = 2;
 		
 		$tplname=$term["list_tpl"];
     	$tplname=sp_get_apphome_tpl($tplname, "list");
+
     	$this->assign($term);
-    	$this->assign('cat_id', intval($_GET['id']));
+    	$this->assign('cat_id', $cat_id);
+
+        //表情包
+        $this->biaoqingbao($cat_id);
+
     	$this->display(":$tplname");
 	}
 	
@@ -44,7 +52,107 @@ class ListController extends HomebaseController {
 				),
 				"label"=>"name");
 		exit(sp_get_nav4admin($navcatname,$datas,$navrule));
-		
 	}
-	
+
+    //表情包
+    public function biaoqingbao($termid=2)
+    {
+        //表情包分类信息
+        $term = sp_get_term($termid);
+        $this->assign('term', $term);
+
+        //子分类信息
+        $subterms = sp_get_child_terms($termid);
+        $subterms = array_merge(array($term), $subterms);
+
+        foreach ($subterms as $k=>$subterm) {
+            $tag = 'cid:'.$subterm['term_id'].'order:istop desc, post_date desc;limit:0,6;';
+            $posts = sp_sql_posts($tag);
+
+            $flag = 1;
+            $nnn = 0;
+            foreach ($posts as $pk=>$post) {
+                $posts[$pk]['smeta'] = json_decode($post['smeta'], true);
+
+                if ($pk==0 && $post['istop']) {
+                    $posts[$pk]['isbanner'] = 1;
+                } else if ($pk==1 && $posts[0]['isbanner']==1) {
+                    $posts[$pk]['isfirst'] = 1;
+                } else {
+                    if ($flag==1 && $nnn<2) {
+                        $posts[$pk]['isleft'] = 1;
+                    } else if ($flag==2 && $nnn<2) {
+                        $posts[$pk]['isright'] = 1;
+                    } else {
+                        if ($flag == 1) {
+                            $posts[$pk]['isright'] = 1;
+                            $flag = 2;
+                        } else if ($flag == 2) {
+                            $posts[$pk]['isleft'] = 1;
+                            $flag = 1;
+                        }
+                        $nnn = 0;
+                    }
+                    $nnn++;
+                }
+            }
+
+            $subterms[$k]['posts'] = is_array($posts) ? $posts : array();
+        }
+        $this->assign('subterms', $subterms);
+        // dump($subterms);exit;
+    }
+
+    //ajax表情包
+    public function ajaxbqb()
+    {
+    	$termid = $_REQUEST['termid'];
+    	if (!$termid) $this->majaxReturn(1, '数据出错！');
+
+    	$page = (int)$_REQUEST['page'];
+
+    	$start = 6+($page-1)*4;
+    	$end = $start+4;
+    	$tag = 'order:istop desc, post_date desc;';
+        $posts = sp_sql_posts_bycatid($termid,$tag);
+
+        $termposts = array();
+        $flag = 1;
+        $nnn = 0;
+        foreach ($posts as $pk=>$post) {
+            $posts[$pk]['smeta'] = json_decode($post['smeta'], true);
+
+            if ($pk==0 && $post['istop']) {
+                $posts[$pk]['isbanner'] = 1;
+            } else if ($pk==1 && $posts[0]['isbanner']==1) {
+                $posts[$pk]['isfirst'] = 1;
+            } else {
+                if ($flag==1 && $nnn<2) {
+                    $posts[$pk]['isleft'] = 1;
+                } else if ($flag==2 && $nnn<2) {
+                    $posts[$pk]['isright'] = 1;
+                } else {
+                    if ($flag == 1) {
+                        $posts[$pk]['isright'] = 1;
+                        $flag = 2;
+                    } else if ($flag == 2) {
+                        $posts[$pk]['isleft'] = 1;
+                        $flag = 1;
+                    }
+                    $nnn = 0;
+                }
+                $nnn++;
+            }
+
+            if ($pk>=$start && $pk<$end) $termposts[] = $posts[$pk];
+        }
+
+        $this->assign('termposts', $termposts);
+        $html = $this->fetch("/Public/postsboxitem");
+
+        $this->majaxReturn(0,'',array(
+        	'loadmorehide' => $end>=count($posts) ? 1 : 0,
+        	'html' => $html
+        ));
+    }
 }

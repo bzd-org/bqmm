@@ -28,19 +28,80 @@ class PageController extends HomebaseController{
 		$tplname=isset($smeta['template'])?$smeta['template']:"";
 		
 		$tplname=sp_get_apphome_tpl($tplname, "page");
-		
-        //SEO信息
-        $site_options=get_site_options();
-        $seo = array(
-            'title'       => $site_options['site_seo_title'],
-            'keywords'    => $site_options['site_seo_keywords'],
-            'description' => $site_options['site_seo_description'],
-        );
-        $this->assign('seo', $seo);
 
-        //表情包
-        if ($id == 2) $this->biaoqingbao();
-        
+		//FAQ
+		$faq = sp_getslide('faq', 99);
+        $this->assign('faq', $faq);
+
+		//about_banner
+        $about_banner = sp_getslide('about_banner');
+        $this->assign('about_banner', $about_banner);
+
+        //about_bqy
+        $about_bqy = sp_getslide('about_bqy');
+        $this->assign('about_bqy', $about_bqy[0]);
+
+        //about_syh
+        $about_syh = sp_getslide('about_syh');
+        $this->assign('about_syh', $about_syh[0]);
+
+        //about_product
+        $about_product = sp_getslide('about_product');
+        foreach ($about_product as $k=>$product) {
+        	if ($k == 0) {
+        		$about_product[$k]['li_class'] = '';
+        		$about_product[$k]['box_class'] = 'ptl';
+        	}
+        	if ($k == 1) {
+        		$about_product[$k]['li_class'] = '';
+        		$about_product[$k]['box_class'] = 'ptm';
+        	}
+        	if ($k == 2) {
+        		$about_product[$k]['li_class'] = 'last';
+        		$about_product[$k]['box_class'] = 'ptr';
+        	}
+        }
+        $this->assign('about_product', $about_product);
+
+        //about_honours
+        $about_honours = sp_getslide('about_honours', 99);
+        foreach ($about_honours as $k=>$d) {
+        	$slide_des = explode('|', $d['slide_des']);
+        	$about_honours[$k]['time1'] = $slide_des[0];
+        	$about_honours[$k]['time2'] = $slide_des[1];
+        	$about_honours[$k]['ico'] = $slide_des[2];
+        }
+        rsort($about_honours);
+        $this->assign('about_honours', $about_honours);
+
+        //about_culture
+        $about_culture = sp_getslide('about_culture', 99);
+        $about_culture_cache = $about_culture;
+        $about_culture = array();
+        $i = 0;
+        $f = 0;
+        foreach ($about_culture_cache as $k=>$d) {
+        	if ($f==1 || $f==3) $about_culture[$f]['class'] = 'cd';
+        	if ($i < 2) {
+        		$about_culture[$f]['culture'][] = $d;
+        		$i++;
+        	}
+        	if ($i >= 2) {
+        		$i = 0;
+        		$f++;
+        	}
+        }
+        $this->assign('about_culture', $about_culture);
+
+        //about_contact
+        $about_contact = sp_getslide('about_contact');
+        $this->assign('about_contact', $about_contact);
+
+        //hlinks
+        $hlinks = sp_getlinks();
+        $this->assign('hlinks', $hlinks);
+
+        // dump($hlinks);exit;
 		$this->display(":$tplname");
 	}
 	
@@ -55,53 +116,4 @@ class PageController extends HomebaseController{
 				"label"=>"post_title");
 		exit( sp_get_nav4admin($navcatname,$datas,$navrule) );
 	}
-
-    //表情包
-    public function biaoqingbao()
-    {
-        $termid = 2;
-
-        //表情包分类信息
-        $term = sp_get_term($termid);
-        $this->assign('term', $term);
-
-        //子分类信息
-        $subterms = sp_get_child_terms($termid);
-        foreach ($subterms as $k=>$subterm) {
-            $tag = 'order:istop desc, post_date desc;';
-            $posts = sp_sql_posts_paged_bycatid($subterm['term_id'],$tag,6);
-
-            $flag = 1;
-            $nnn = 0;
-            foreach ($posts['posts'] as $pk=>$post) {
-                $posts['posts'][$pk]['smeta'] = json_decode($post['smeta'], true);
-
-                if ($pk==0 && $post['istop']) {
-                    $posts['posts'][$pk]['isbanner'] = 1;
-                } else if ($pk==1 && $posts['posts'][0]['isbanner']==1) {
-                    $posts['posts'][$pk]['isfirst'] = 1;
-                } else {
-                    if ($flag==1 && $nnn<2) {
-                        $posts['posts'][$pk]['isleft'] = 1;
-                    } else if ($flag==2 && $nnn<2) {
-                        $posts['posts'][$pk]['isright'] = 1;
-                    } else {
-                        if ($flag == 1) {
-                            $posts['posts'][$pk]['isright'] = 1;
-                            $flag = 2;
-                        } else if ($flag == 2) {
-                            $posts['posts'][$pk]['isleft'] = 1;
-                            $flag = 1;
-                        }
-                        $nnn = 0;
-                    }
-                    $nnn++;
-                }
-            }
-
-            $subterms[$k]['posts'] = is_array($posts) ? $posts : array();
-        }
-        $this->assign('subterms', $subterms);
-        // dump($subterms);exit;
-    }
 }

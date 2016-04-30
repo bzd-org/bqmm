@@ -24,7 +24,7 @@ class IndexController extends HomebaseController {
         $this->assign('seo', $seo);
 
         //index_banner
-        $index_banner = sp_getslide('index_banner');
+        $index_banner = sp_getslide('index_banner', 99);
         $this->assign('index_banner', $index_banner);
 
         //合作案例

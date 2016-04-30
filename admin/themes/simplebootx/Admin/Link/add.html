@@ -25,7 +25,12 @@
 				<div class="control-group">
 					<label class="control-label">{:L('LINK_ICON')}</label>
 					<div class="controls">
-						<input type="text" name="link_image">
+						<!-- <input type="text" name="link_image"> -->
+						<input type="hidden" name="link_image" id="thumbi" value="">
+						<a href="javascript:void(0);" onclick="flashupload('thumb_images', '附件上传','thumbi',thumb_images,'1,jpg|jpeg|gif|png|bmp,1,,,1','','','');return false;">
+							<img src="__TMPL__Public/assets/images/default-thumbnail.png" id="thumbi_preview" width="135" style="cursor: hand" />
+						</a>
+						<input type="button" class="btn btn-small" onclick="$('#thumbi_preview').attr('src','__TMPL__Public/assets/images/default-thumbnail.png');$('#thumbi').val('');return false;" value="取消图片">
 					</div>
 				</div>
 				<div class="control-group">
@@ -52,5 +57,6 @@
 		</form>
 	</div>
 	<script src="__PUBLIC__/js/common.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/content_addtop.js"></script>
 </body>
 </html>

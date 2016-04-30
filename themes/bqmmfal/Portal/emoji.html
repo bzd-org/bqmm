@@ -35,26 +35,28 @@
 
             <div class="series-list">
                 <foreach name="subterms" item="subterm">
+                <notempty name="subterm.posts">
                 <h2 class="top50 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
                 <h4 class="top10 b30">{$subterm.description}</h4>
-                <ul>
-                    <foreach name="subterm.posts.posts" key="k" item="post">
+                <ul class="postsbox">
+                    <foreach name="subterm.posts" key="k" item="post">
                     <if condition="$post.isbanner eq 1">
-                        <li class="big"><img src="{$post.smeta.banner}"><a href="emojiview_{$post.object_id}.html"></a></li>
+                        <li class="big"><img src="{$post.smeta.banner}"><a href="emojiview_{$post.tid}.html"></a></li>
                     <elseif condition="$post.isfirst eq 1" />
-                        <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
-                        <li><i class="signs-right"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+                        <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+                        <li><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
                     <elseif condition="$post.isleft eq 1" />
-                        <li><i class="signs-left"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
-                        <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
+                        <li><i class="signs-left"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+                        <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
                     <elseif condition="$post.isright eq 1" />
-                        <li><a href="emojiview_{$post.object_id}.html">{$post.post_title}</a></li>
-                        <li><i class="signs-right"></i><a href="emojiview_{$post.object_id}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+                        <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+                        <li><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
                     </if>
                     </foreach>
                 </ul>
                 <div class="clear"></div>
-                <div class="open-down"><a href="javascript:;"></a>加载更多表情</div>
+                <div class="open-down loadmorebox"><a href="index.php?m=list&a=ajaxbqb&termid={$subterm.term_id}" class="loadmore" page="1"></a>加载更多表情</div>
+                </notempty>
                 </foreach>
 
             </div>
@@ -63,6 +65,7 @@
         </div>
         <!--main end-->
     </div>
+
 <style type="text/css">
 .series-list h2 {
     position: relative;
@@ -72,6 +75,32 @@
     overflow: hidden;
 }
 </style>
+<script type="text/javascript">
+$(function (){
+    //加载更多
+    $("a.loadmore").click(function (){
+        var athat = $(this);
+        var d = {
+            page: $(this).attr("page")
+        }
+        $.get($(this).attr("href"), d, function (data){
+            if (data.error) {
+                alert(data.msg);
+            } else {
+                athat.attr('page',parseInt(athat.attr('page'))+1);
+
+                if (data.data.loadmorehide) {
+                    athat.parent().hide();
+                }
+                athat.parent().prev().prev("ul.postsbox").append(data.data.html);
+            }
+        }, 'json');
+
+        return false;
+    });
+})
+</script>
+
     <tc_include file="Common/footerbox" />
     
 <tc_include file="Common/foot" />

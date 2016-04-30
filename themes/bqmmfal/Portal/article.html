@@ -31,14 +31,10 @@
 
         <div class="main top40 b70">
             <div class="news-detail">
-                <div class="crumb"><a href="news.html">新闻动态</a> / 表情mm-最酷的应用表情商店<span class="ftr">2016/04/13</span></div>
-                <div class="title"><i></i>表情mm-最酷的应用表情商店</div>
+                <div class="crumb"><a href="news.html">新闻动态</a> / {$article.post_title}<span class="ftr">{:str_replace('-','/',substr($article['post_date'],0,10))}</span></div>
+                <div class="title" style="height: auto;"><i></i>{$article.post_title}</div>
                 <div class="top40">
-                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p>
-                    <img src="__TMPL__Assets/images/news/02.jpg" width="613" height="326">
-                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p><br>
-                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p><br>
-                    <p>表情mm SDK是上海似颜绘科技有限公司提供的表情商店SDK, 开发者可以利用此SDK集成丰富的表情。</p>
+                    {$article.post_content}
                 </div>
             </div>
         </div>

@@ -27,8 +27,10 @@ class ListController extends HomebaseController {
 		    return ;
 		}
 
+        $type = intval($_GET['type']);
 		$cat_id = intval($_GET['id']);
-        if (!$cat_id) $cat_id = 2;
+        if (!$cat_id && $type=="xw") $cat_id = 1;
+        if (!$cat_id && $type=="bq") $cat_id = 2;
 		
 		$tplname=$term["list_tpl"];
     	$tplname=sp_get_apphome_tpl($tplname, "list");
@@ -36,8 +38,14 @@ class ListController extends HomebaseController {
     	$this->assign($term);
     	$this->assign('cat_id', $cat_id);
 
+        //新闻动态
+        if ($cat_id==1) $this->xinwendongtai();
         //表情包
-        $this->biaoqingbao($cat_id);
+        if ($cat_id==2) $this->biaoqingbao();
+
+        $p = intval($_GET['p']);
+        $p = $p ? $p : 1;
+        $this->assign('p', $p);
 
     	$this->display(":$tplname");
 	}
@@ -54,9 +62,37 @@ class ListController extends HomebaseController {
 		exit(sp_get_nav4admin($navcatname,$datas,$navrule));
 	}
 
-    //表情包
-    public function biaoqingbao($termid=2)
+    //新闻动态
+    public function xinwendongtai()
     {
+        $termid = 1;
+        $pagesize = 7;
+
+        //表情包分类信息
+        $term = sp_get_term($termid);
+        $this->assign('term', $term);
+
+        $tag = 'order:istop desc, post_date desc;';
+        $pagelink = array('index'=>'news.html', 'list'=>'news.html&p={page}');
+        $posts = sp_sql_posts_paged_bycatid($termid, $tag, $pagesize, '{liststart}{list}{listend}', $pagelink);
+
+        $this->assign('mpage', $posts['page']);
+        $this->assign('pcount', ceil($posts['count']/$pagesize));
+
+        $posts = $posts['posts'];
+        foreach ($posts as $pk=>$post) {
+            $posts[$pk]['smeta'] = json_decode($post['smeta'], true);
+        }
+
+        // dump($posts);exit;
+        $this->assign("posts", $posts);
+    }
+
+    //表情包
+    public function biaoqingbao()
+    {
+        $termid = 2;
+
         //表情包分类信息
         $term = sp_get_term($termid);
         $this->assign('term', $term);

@@ -80,6 +80,10 @@ $(function (){
     //加载更多
     $("a.loadmore").click(function (){
         var athat = $(this);
+        var athatbox = athat.parent().prev().prev("ul.postsbox");
+
+        
+
         var d = {
             page: $(this).attr("page")
         }
@@ -89,10 +93,12 @@ $(function (){
             } else {
                 athat.attr('page',parseInt(athat.attr('page'))+1);
 
-                if (data.data.loadmorehide) {
-                    athat.parent().hide();
-                }
-                athat.parent().prev().prev("ul.postsbox").append(data.data.html);
+                if (data.data.loadmorehide) athat.parent().hide();
+
+                athatbox.append(data.data.html);
+                athatbox.find("li.lihide").fadeIn('normal', function (){
+                    $(this).removeClass('lihide');
+                });
             }
         }, 'json');
 

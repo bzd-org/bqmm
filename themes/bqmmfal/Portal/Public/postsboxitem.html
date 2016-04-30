@@ -5,10 +5,10 @@
     <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
     <li><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
 <elseif condition="$post.isleft eq 1" />
-    <li><i class="signs-left"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
-    <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+    <li class="lihide" style="display: none;"><i class="signs-left"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+    <li class="lihide" style="display: none;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
 <elseif condition="$post.isright eq 1" />
-    <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
-    <li><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
+    <li class="lihide" style="display: none;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+    <li class="lihide" style="display: none;"><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>
 </if>
 </foreach>

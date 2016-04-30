@@ -173,7 +173,7 @@ function sp_sql_posts_bycatid($cid,$tag,$where=array()){
  
  */
 
-function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}{list}{listend}{next}{last}'){
+function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}{list}{listend}{next}{last}',$pagelink=array()){
 	$where=array();
 	$tag=sp_param_lable($tag);
 	$field = !empty($tag['field']) ? $tag['field'] : '*';
@@ -206,10 +206,11 @@ function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}
 		$pagesize = 20;
 	}
 	$PageParam = C("VAR_PAGE");
-	$page = new \Page($totalsize,$pagesize);
-	$page->setLinkWraper("li");
+	$static = is_array($pagelink)&&!empty($pagelink) ? TRUE : FALSE;
+	$page = new \Page($totalsize,$pagesize,1,9,'p',$pagelink,$static);
+	$page->setLinkWraper("");
 	$page->__set("PageParam", $PageParam);
-	$page->SetPager('default', $pagetpl, array("listlong" => "9", "first" => "首页", "last" => "尾页", "prev" => "上一页", "next" => "下一页", "list" => "*", "disabledclass" => ""));
+	$page->SetPager('default', $pagetpl, array("listlong" => "9", "first" => "首页", "last" => "尾页", "prev" => "&lt;上一页", "next" => "下一页&gt;", "list" => "*", "disabledclass" => ""));
 	$posts=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->order($order)->limit($page->firstRow . ',' . $page->listRows)->select();
 
 	$content['posts']=$posts;
@@ -284,7 +285,7 @@ function sp_sql_posts_paged_bykeyword($keyword,$tag,$pagesize=20,$pagetpl='{firs
  * @param string $pagetpl 以字符串方式传入,例："{first}{prev}{liststart}{list}{listend}{next}{last}"
  */
 
-function sp_sql_posts_paged_bycatid($cid,$tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}{list}{listend}{next}{last}'){
+function sp_sql_posts_paged_bycatid($cid,$tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}{list}{listend}{next}{last}',$pagelink=array()){
 	$cid=intval($cid);
 	$catIDS=array();
 	$terms=M("Terms")->field("term_id")->where("status=1 and ( term_id=$cid OR path like '%-$cid-%' )")->order('term_id asc')->select();
@@ -298,7 +299,7 @@ function sp_sql_posts_paged_bycatid($cid,$tag,$pagesize=20,$pagetpl='{first}{pre
 	}else{
 		$catIDS="";
 	}
-	$content= sp_sql_posts_paged($catIDS.$tag,$pagesize,$pagetpl);
+	$content= sp_sql_posts_paged($catIDS.$tag,$pagesize,$pagetpl,$pagelink);
 	return $content;
 
 }

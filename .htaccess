@@ -4,20 +4,20 @@
     #下载
     RewriteRule ^download.html$ index.php/?m=page&a=index&id=1/ [PT]
     #表情一览
-    RewriteRule ^emoji.html$ index.php/?m=list&a=index&id=2 [PT]
+    RewriteRule ^emoji.html$ index.php/?m=list&a=index&id=2&type=bq [PT]
     #表情一览-分类
-    RewriteRule ^emoji_([1-9][0-9]*).html$ index.php/?m=list&a=index&id=$1 [PT]
+    RewriteRule ^emoji_([1-9][0-9]*).html$ index.php/?m=list&a=index&id=$1&type=bq [PT]
     #表情一览-详情
-    RewriteRule ^emojiview_([1-9][0-9]*).html$ index.php/?m=article&a=index&id=$1 [PT]
+    RewriteRule ^emojiview_([1-9][0-9]*).html$ index.php/?m=article&a=index&id=$1&type=bq [PT]
     #FAQ
     RewriteRule ^faq.html$ index.php/?m=page&a=index&id=3 [PT]
 
     #公司介绍
     RewriteRule ^about.html$ index.php/?m=page&a=index&id=5 [PT]
     #新闻动态
-    RewriteRule ^news.html$ index.php/?m=list&a=index&id=1 [PT]
+    RewriteRule ^news.html(&p=([1-9][0-9]*))*$ index.php/?m=list&a=index&id=1&type=xw$1 [PT]
     #新闻动态-详情
-    RewriteRule ^article_([1-9]+).html$ index.php/?m=article&a=index&id=$1 [PT]
+    RewriteRule ^article_([1-9][0-9]*).html$ index.php/?m=article&a=index&id=$1&type=xw [PT]
     #服务协议
     RewriteRule ^protocol.html$ index.php/?m=page&a=index&id=7 [PT]
     #友情链接

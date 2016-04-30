@@ -279,20 +279,20 @@ class Page {
         //上一页 首页
         if ($cfg ['pageindex'] > 1) {
             if ($this->Static) {
-                $pFirst = $this->linkwraper_pre.'<a href="' . $this->PageLink['index'] . '">' . $cfg ['first'] . '</a> '.$this->linkwraper_after; //首页
+                $pFirst = $this->linkwraper_pre.'<a class="flip ftl" href="' . $this->PageLink['index'] . '">' . $cfg ['first'] . '</a> '.$this->linkwraper_after; //首页
             } else {
-                $pFirst = $this->linkwraper_pre.'<a href="' . str_replace('*', 1, $cfg ['link']) . '">' . $cfg ['first'] . '</a> '.$this->linkwraper_after; //首页
+                $pFirst = $this->linkwraper_pre.'<a class="flip ftl" href="' . str_replace('*', 1, $cfg ['link']) . '">' . $cfg ['first'] . '</a> '.$this->linkwraper_after; //首页
             }
             if ($this->Static && ($cfg ['pageindex'] - 1) == 1) {
-                $pPrev = $this->linkwraper_pre.'<a href="' . $this->PageLink['index'] . '">' . $cfg ['prev'] . '</a> '.$this->linkwraper_after; //上一页
+                $pPrev = $this->linkwraper_pre.'<a class="flip ftl" href="' . $this->PageLink['index'] . '">' . $cfg ['prev'] . '</a> '.$this->linkwraper_after; //上一页
             } else {
-                $pPrev = $this->linkwraper_pre.'<a href="' . str_replace('*', $cfg ['pageindex'] - 1, $cfg ['link']) . '">' . $cfg ['prev'] . '</a> '.$this->linkwraper_after;
+                $pPrev = $this->linkwraper_pre.'<a class="flip ftl" href="' . str_replace('*', $cfg ['pageindex'] - 1, $cfg ['link']) . '">' . $cfg ['prev'] . '</a> '.$this->linkwraper_after;
             }
         }
         //下一页，尾页
         if ($cfg ['pageindex'] < $cfg ['pagecount']) {
-            $pLast = $this->linkwraper_pre.'<a href="' . str_replace('*', $cfg ['pagecount'], $cfg ['link']) . '">' . $cfg ['last'] . '</a> '.$this->linkwraper_after;
-            $pNext = $this->linkwraper_pre.'<a href="' . str_replace('*', $cfg ['pageindex'] + 1, $cfg ['link']) . '">' . $cfg ['next'] . '</a> '.$this->linkwraper_after;
+            $pLast = $this->linkwraper_pre.'<a class="flip ftr" href="' . str_replace('*', $cfg ['pagecount'], $cfg ['link']) . '">' . $cfg ['last'] . '</a> '.$this->linkwraper_after;
+            $pNext = $this->linkwraper_pre.'<a class="flip ftr" href="' . str_replace('*', $cfg ['pageindex'] + 1, $cfg ['link']) . '">' . $cfg ['next'] . '</a> '.$this->linkwraper_after;
         }
 
         //快捷跳转方式

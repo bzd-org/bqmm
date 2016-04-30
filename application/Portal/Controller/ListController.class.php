@@ -39,9 +39,9 @@ class ListController extends HomebaseController {
     	$this->assign('cat_id', $cat_id);
 
         //新闻动态
-        if ($cat_id==1) $this->xinwendongtai();
+        $this->xinwendongtai();
         //表情包
-        if ($cat_id==2) $this->biaoqingbao();
+        $this->biaoqingbao($cat_id);
 
         $p = intval($_GET['p']);
         $p = $p ? $p : 1;
@@ -89,9 +89,9 @@ class ListController extends HomebaseController {
     }
 
     //表情包
-    public function biaoqingbao()
+    public function biaoqingbao($termid=2)
     {
-        $termid = 2;
+        $termid = $termid ? $termid : 2;
 
         //表情包分类信息
         $term = sp_get_term($termid);

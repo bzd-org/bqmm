@@ -61,6 +61,12 @@ class ArticleController extends HomebaseController {
 
         $article['smeta'] = json_decode($article['smeta'], true);
         $this->assign('article', $article);
+
+        $this->seo['title'] = $article['post_title'].'-'.$this->seo['title'];
+        $this->seo['keywords'] = $article['post_keywords'].' '.$this->seo['keywords'];
+        $this->seo['description'] = $article['post_excerpt'].' '.$this->seo['description'];
+        $this->assign('seo', $this->seo);
+
         // dump($article);exit;
     	$this->display(":$tplname");
     }

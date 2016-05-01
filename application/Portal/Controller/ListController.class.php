@@ -27,6 +27,11 @@ class ListController extends HomebaseController {
 		    return ;
 		}
 
+        $this->seo['title'] = $term['seo_title'];
+        $this->seo['keywords'] = $term['seo_keywords'].' '.$this->seo['keywords'];
+        $this->seo['description'] = $term['seo_description'].' '.$this->seo['description'];
+        $this->assign('seo', $this->seo);
+
         $type = intval($_GET['type']);
 		$cat_id = intval($_GET['id']);
         if (!$cat_id && $type=="xw") $cat_id = 1;

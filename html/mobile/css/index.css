@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+/*导航*/
+.index-top { width:100%; height:auto; position:relative; }
+.topnav-box { background: none; z-index: 1; }
+
+/*banner*/
+.banner, .b-img div{ height:469px; }
+@media screen and (max-width:639px){.banner, .b-img div{ height:235px; }}
+/*模块*/
+.module-box { width:100%; overflow:hidden; }
+.module-box img { max-width: 100%; }
+.module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat center top; }
+.module2 { height: 360px; background: #fafafa; }
+.module3 { height: 1547px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat center bottom; }
+.module4 { height: auto; background: url(../images/mod4_bg.jpg) no-repeat center top; }
+.module5 { height: 660px; background: url(../images/mod5_bg.jpg) no-repeat center top; }
+.main-content { width: 90%; height: auto; overflow: hidden; text-align: center; margin-right: 5%; margin-left: 5%; }
+.module1 img, .module2 img, .module1 img { max-width: 100%; }
+@media screen and (max-width:639px){
+  .module1 { height: 600px; }
+  .module2 { height: 260px; }
+  .module3 { height: 1270px; }
+  .module5 { height: 460px; }
+}
+
+/*合作案例*/
+.case-work-box { width: 100%; height:auto; margin-top: 50px; text-align: center; }
+.case-work { width: 100%; overflow:hidden; }
+.case-work ul { width: 100%; overflow: hidden; margin: auto; }
+.case-work ul li { width:13.6%; margin:0 0 5%; display: inline-block; }
+.case-work ul li img { width:80%; height:80%; }
+.case-work ul li b { font-weight: normal; color: #fff; font-size: 14px; display:block; margin-top:2%; }
+.case-work ul li.big { width:27.2%; }
+.case-work ul li.big img { width: 100%; height: 100%; }
+.case-work .case-work-all { width: auto; height: auto; overflow: hidden; margin-top: 0px; }
+.case-list { width: 100%; height: auto; }
+.case-list ul li { width: 12px; height: 12px; background: #fff; display: inline-block; border-radius: 50%; cursor: pointer; margin: 0 2px; }
+.case-list ul li i { font-style: normal; display: none; }
+.case-list ul li.select { color: #fff; width: 100px; height: 28px; line-height: 28px; background: none; border: 2px solid #fff; text-align: center; border-radius: 16px; cursor: auto; }
+.case-list ul li.select i { display: inline; }
+.case-list>span { width: 32px; height: 32px; background: url(../images/images.png) no-repeat; display: block; cursor: pointer; }
+.case-list>span.left { background-position:-388px 0px; float: left; }
+.case-list>span.right { background-position:-388px -42px; float: right; }
+
+/*合作伙伴*/
+.partner { margin-top: 30px; position: relative; }
+.partner ul { width: 100%; height:auto; margin: auto; overflow:hidden; position: absolute; z-index: 1; }
+.partner ul li { width:110px; height:164px; float:left; }
+.partner ul li img { width:80px; height:80px; opacity:0.2; border-radius:20px; box-shadow: 0 0 5px #666; margin-top: 5px; }
+.partner ul li b { font-weight: normal; display:block; margin-top:10px; }
+.partner ul li.slt { background: url(../images/partner_select.png) no-repeat center bottom; }
+.partner ul li.slt img { opacity:1; }
+.partner-content { width: 100%; height: 492px; border-radius: 5px; margin-right: auto; margin-left: auto; overflow: hidden; }
+.partner-content .partner-boxs { width: 100%; text-align: left; }
+.partner-content .partner-boxs img { width:572px; border: 2px solid #f5f5f5; border-radius: 8px; }
+.partner .partner-links { width: 100%; height: 162px; margin: auto; overflow: hidden; }
+.partner .partner-links li img { cursor: pointer; }
+.partner ul { width: auto; }
+@media screen and (max-width:639px){
+  .partner-content .partner-boxs img { width:320px; border: 2px solid #f5f5f5; border-radius: 8px; }
+}
+
+/*联系我们*/
+.contact { background:#323334; width: 100%; height: auto; text-align: center;  padding: 20px 0; border-bottom: 1px solid #7f7f7f; }
+.contact>h3 { width: 172px; height: 52px; line-height: 52px; color: #fff; background: #40c9b6; border-radius: 26px; display: block; margin: 0 auto 20px; }
+.contact>h4 { color:#ccc; margin: 10px; }
+.contact>img { max-width: 160px; max-height: 160px; }
+.contact i.ico { width: 24px; height: 24px; background: url(../images/images.png) no-repeat; display: inline-block;vertical-align:middle; margin-right: 15px;}
+.contact i.add { background-position:-440px 0px; }
+.contact i.weixin { background-position: -440px -34px; }
+.contact i.weibo { background-position: -440px -68px; }
+.contact i.qq { background-position:-440px -102px; }
+.contact i.phone { background-position:-440px -136px; }
+.contact .link { color: #40c9b6; margin-top: 40px; }
+.contact .link a { color: #40c9b6; margin-right: 10px; }

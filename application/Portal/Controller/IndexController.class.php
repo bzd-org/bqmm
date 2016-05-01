@@ -14,15 +14,6 @@ use Common\Controller\HomebaseController;
 class IndexController extends HomebaseController {
     //首页
 	public function index() {
-        //SEO信息
-        $site_options=get_site_options();
-        $seo = array(
-            'title'       => $site_options['site_seo_title'],
-            'keywords'    => $site_options['site_seo_keywords'],
-            'description' => $site_options['site_seo_description'],
-        );
-        $this->assign('seo', $seo);
-
         //index_banner
         $index_banner = sp_getslide('index_banner', 99);
         $this->assign('index_banner', $index_banner);

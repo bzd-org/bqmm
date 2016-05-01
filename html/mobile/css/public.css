@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* 初始化 */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; }
+ol, ul, li { list-style: none; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table { border-collapse: collapse; border-spacing: 0; }
+th, td { margin: 0; padding: 0 }
+section { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section { display:block; }
+div { margin:0 auto; }
+
+/* 全局 */
+body { background: #fff; color: #3d3d3d; font-family: “Microsoft YaHei”, Arial, Tahoma, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53; line-height: 1.5; }
+body { min-width: 320px; max-width: 640px; width:100%; margin: 0 auto; }
+a:link, a:visited, a:hover, a:active { text-decoration: none; }
+a:link, a:visited, a:active { color: #3d3d3d; }
+a:hover { color: #36cab6; }
+input, select, textarea { outline: none; }
+h1 { font-size: 52px; font-weight: normal; }
+h2 { font-size: 32px; font-weight: normal; }
+h3 { font-size: 20px; font-weight: normal; }
+h4 { font-size: 18px; font-weight: normal; }
+h5 { font-size: 14px; font-weight: normal; }
+h6 { font-size: 12px; font-weight: normal; }
+@media screen and (max-width:639px){
+  h1 { font-size: 48px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 18px; }
+  h4 { font-size: 16px; }
+  h5 { font-size: 12px; }
+  h6 { font-size: 12px; }
+}
+
+/* banner */
+.banner{ width:100%; overflow:hidden; position:relative; }
+.b-img{ height:auto;  position:absolute; left:0; top:0;}
+.b-img div{ max-width: 640px; background-size: 100% auto; display: block; float: left; text-align: center; }
+.b-img div a { margin-top: 460px; }
+.b-list{ height: 50px; position: absolute; margin: 0 auto; z-index: 1; left:0; right:0; bottom:20px; }
+.b-list span{ display:block;cursor:pointer; width:14px; height:14px; border-radius:50%; background:#fff; float:left; margin:0 5px; _margin:0 3px;}
+.b-list .spcss{ background:#40c9b6;}
+.bar-left{ position:absolute; z-index:1; display:block; width:100px; height:100%; left:0px; background:none; top:0px; }
+.bar-right{ position:absolute;z-index:1; display:block; width:100px; height:100%; right:0px; background:none; top:0px; }
+.bar-left em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-right em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-left .emcss{ background:url(../images/arrow.png) 0px 0px no-repeat; }
+.bar-right .emcss{ background:url(../images/arrow.png) -50px 0px no-repeat; }
+
+/*导航*/
+.topnav-box { width:100%; background:#323334; top: 0; position: absolute; overflow: hidden; z-index: 10; }
+.topnav-title { color: #fff; width: 100%; height: 72px; line-height:72px; font-size: 18px; text-align: center; display: inline-block; }
+.topnav-title > .homeico, .topnav-title > .navico { width:54px; height:54px; background:url(../images/images.png) no-repeat; display: inline-block; margin: 9px 2%; }
+.topnav-title > .homeico { background-position: -192px -90px; float: left; }
+.topnav-title > .navico { background-position: -256px -90px; float: right; }
+.topnav-title .logo { margin: 0 2%; }
+.topnav-title .logo img { vertical-align:middle;  }
+.topnav { width: 100%; display: none; }
+.topnav ul li { width: 100%; height: 60px; line-height: 60px; text-align: center; }
+.topnav ul li, .topnav ul li a { color:#aaa; }
+.topnav ul li a { font-weight: bold; margin-left: 21px; margin-right: 21px; }
+.topnav ul li a:hover { color:#fff; }
+@media screen and (max-width:639px){
+  .topnav-title{height:48px; line-height:48px;}
+  .topnav-title .logo img { max-height: 32px; }
+  .topnav-title > .homeico, .topnav-title > .navico { width:48px; height:48px; margin: 0 2%; }
+}
+
+/*banner*/
+.banner{ width:100%; overflow:hidden; position:relative; }
+.b-img{ height:500px;  position:absolute; left:0; top:0;}
+.b-img div{ display: block; float: left; text-align: center; }
+.b-img div a { margin-top: 280px; }
+.b-list{ height: 50px; position: absolute; margin: 0 auto; z-index: 1; left:0; right:0; bottom:0; }
+.b-list span{ display:block;cursor:pointer; width:14px; height:14px; border-radius:50%; background:#fff; float:left; margin:0 5px; _margin:0 3px;}
+.b-list .spcss{ background:#40c9b6;}
+.bar-left{ position:absolute; z-index:1; display:block; width:100px; height:100%; left:0px; background:none; top:0px; }
+.bar-right{ position:absolute;z-index:1; display:block; width:100px; height:100%; right:0px; background:none; top:0px; }
+.bar-left em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-right em{ display:block; width:50px; height:100px; margin:0 auto; margin-top:325px;}
+.bar-left .emcss{ background:url(../images/arrow.png) 0px 0px no-repeat; }
+.bar-right .emcss{ background:url(../images/arrow.png) -50px 0px no-repeat; }
+@media screen and (max-width:639px){
+  .b-img{height:240px;}
+  .b-img div a { margin-top: 140px; }
+  .b-list { height: 20px; }
+  .b-list span { width:10px; height:10px; }
+}
+/*元素*/
+a.abtn { width: 168px; height: 44px; line-height: 44px; font-size: 18px; text-align: center; display: block; border-radius: 30px; margin-right: auto; margin-left: auto; }
+a.abtn-white { border: 2px solid #FFF; color:#fff; }
+a.abtn-default { border: 2px solid #40c9b6; color:#40c9b6; }
+.btn-all { width: 221px; height: 82px; background: url(../images/btn_all.png) no-repeat 0px -82px; display: block; margin-right: auto; margin-left: auto; }
+@media screen and (max-width:639px){
+  a.abtn{width: 90px; height:24px; line-height: 24px; font-size: 14px;}
+  .btn-all { width: 98px; height: 36px; background: url(../images/btn_all.png) no-repeat 0px 0px; }
+}
+
+/*页脚*/
+.footer-box { width: 100%; height: auto; background: #333535; }
+.footer { width: 100%; height: auto; color: #7f7f7f; text-align: center; padding: 20px 0; }

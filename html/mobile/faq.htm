@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no;"/>
+    <meta name="keywords" content="SDK下载,APP开发者,IM,接口">
+    <meta name="description" content="回答了表情mmSDK的合作模式、收费模式等问题">
+    <title>SDK问答页</title>
+    <link href="css/page.css" rel="stylesheet">
+    <link href="css/public.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/banner.js"></script>
+  </head>
+  <body>
+    <script>
+      $(document).ready(function(){
+        $(".navico").click(function(){
+        $(".topnav").toggle();
+          });
+        });
+      </script>
+    <div class="wrap">
+    <div class="index-top">
+      <div class="topnav-box">
+        <div class="topnav-title"><a href="index.htm" class="homeico"></a>FAQ<a href="#" class="navico"></a></div>
+        <div class="topnav">
+          <ul>
+            <li><a href="index.htm">首页</a></li>
+            <li><a href="download.htm">下载</a></li>
+            <li><a href="paintings.htm">表情一览</a></li>
+            <li><a href="http://open.biaoqingmm.com/doc/sdk/" target="_blank">文档</a></li>
+            <li><a href="faq.htm">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+      <!--nav=end-->
+      <div class="main top40 b50">
+          <h2 class="tc">FAQ</h2>
+          <div class="news-title-line"></div>
+          <div class="faq top30">
+            <dl>
+              <dt>1、表情mm SDK收费吗？ </dt>
+              <dd>现阶段都是免费接入的，除了产品体量特别大，需要搭设私有云，或者希望有一些深度的高级服务之外，基本上免费接入就已经可以达到微信表情商店的样子了有一些客户是需要定制专属的表情，还有亿级客户是要确保自己的服务稳定，希望搭设私有云，这些其实已经稍超出sdk本身的接入了，那些是会收费的，普通的接入都是免费的。</dd>
+            </dl>
+            <dl>
+              <dt>2、表情收费吗？</dt>
+              <dd>目前的版本，全部都是免费表情，后面会随着版本的逐步稳定，以及表情IP主和各开发者之前的需求，来衡量是否加入付费表情的功能。</dd>
+            </dl>
+            <dl>
+              <dt>3、合作模式大概是什么样子？ </dt>
+              <dd>现在直接从官网下载SDK就行了，目前正式版本已经上线。首先需要提交接入申请，然后我会给您发一个产品的id和密钥，您就可以对接调试了。</dd>
+            </dl>
+            <dl>
+              <dt>4、我为什么要接入你们的SDK？我们有自己的原创表情 </dt>
+              <dd>如果您有自己的原创表情，其实和我们的表情商店也不冲突，比如微信QQ都有小黄脸的表情，另外也有表情商店，这对于社交产品是个增值服务~</dd>
+            </dl>
+            <dl>
+              <dt>5、你这个表情mm不是app吗？</dt>
+              <dd>表情mm app是我们另外一款发布到应用软件商店的app产品，和表情mm SDK不太一样，表情mm app是一个表情发布器，可以将里面的表情发到微信QQ等各种社交软件上；而表情SDK是一个接入到app里面的云服务，两者面向的用户不同，一个是下载手机app软件的普通用户，一个是app的开发者，另外两者的产品形态也不同，app就是一个app，SDK相当于是做到别人社交app里面的一个表情商店。</dd>
+            </dl>
+            <dl>
+              <dt>6、你们表情商店里的表情大小是多少的？</dt>
+              <dd>表情商店里的大表情是240px*240px，小黄脸的默认表情是80px*80px。</dd>
+            </dl>
+            <dl>
+              <dt>7、暂时我无法接你们的SDK，能不能先授权几套表情或者素材给我？</dt>
+              <dd>因为我们和IP版权方的合作是无法讲他们的表情再授权给其他客户的，另外我们的原创表情目前也需要优先服务于表情mm SDK，所以目前不能单独把表情或者素材授权出去，今后可能会考虑api级别的合作，但目前尚没有具体的时间点。</dd>
+            </dl>
+            <dl>
+              <dt>8、接入的话没有后台吗？我们怎么配置表情包呢？</dt>
+              <dd>目前是没有后台的，开发者直接接入SDK就好了，今后会有开发者后台。</dd>
+            </dl>
+            <dl>
+              <dt>9、我们有网页端的产品，请问现在支持Web SDK吗？</dt>
+              <dd>PC版的话，现在还不行，后面会根据各家开发者的需求来定，未来会考虑Web SDK。</dd>
+            </dl>
+          </div>
+      </div>
+      <!--main=end-->
+      <div class="clear"></div>
+    </div>
+    <div class="footer-box">
+      <div class="footer">
+        Copyright @2014-2016 www.biaoqingmm.com All Rights Reserved.<br>沪ICP备13039580号-2
+      </div>
+    </div>
+  </body>
+</html>

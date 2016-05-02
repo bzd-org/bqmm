@@ -6,32 +6,7 @@
         <div class="topnav-box">
             <div class="logo"><a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a></div>
             <div id="topnav" class="topnav">
-                <!-- <ul>
-                    <li><a href="__ROOT__/">首页</a>|</li>
-                    <li><a href="download.html">下载</a>|</li>
-                    <li><a href="paintings.html">表情一览</a>|</li>
-                    <li><a href="file.html">文档</a>|</li>
-                    <li><a href="FAQ.html">FAQ</a></li>
-                </ul> -->
-                <?php
-                    $effected_id="main-menu";
-                    $filetpl="<a href='\$href' target='\$target'>\$label</a>";
-                    $foldertpl="<a href='\$href' target='\$target' class='dropdown-toggle' data-toggle='dropdown'>\$label <b class='caret'></b></a>";
-                    $ul_class="dropdown-menu" ;
-                    $li_class="" ;
-                    $style="nav";
-                    $showlevel=6;
-                    $dropdown='dropdown';
-                    echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
-                ?>
-                <style type="text/css">
-                #main-menu { overflow: hidden; }
-                </style>
-                <script type="text/javascript">
-                $(function (){
-                    $("#topnav").find("li:not(:last)").append('|');
-                })
-                </script>
+                <tc_include file="Common/topnav" />
             </div>
         </div>
         <!--topnav-box end-->

@@ -1,0 +1,108 @@
+@charset "utf-8";
+/* 文字 */
+.f12 { font-size: 12px; }
+.f14 { font-size: 14px; }
+.f16 { font-size: 16px; }
+.f18 { font-size: 18px; }
+.f20 { font-size: 20px; }
+.f24 { font-size: 24px; }
+.f32 { font-size: 32px; }
+.f36 { font-size: 36px; }
+.f40 { font-size: 40px; }
+.f56 { font-size: 56px; }
+.f60 { font-size: 60px; }
+.fb { font-weight: bold; }
+.fn { font-weight: normal; }
+.fi { font-style: italic; }
+.white { color: #fff !important; }
+.black {  color: #000 !important;  }
+.red { color: #f00 !important; }
+.blue { color: #00f !important; }
+.green { color: #73ca5b !important; }
+.purple { color: #e0f !important; }
+.yellow { color: #fe0 !important; }
+.orange { color: #ff7123 !important; }
+.violet { color:#ff95d6 !important; }
+.gray { color: #a8a8a8 !important; }
+.default { color:#40c9b6 !important; }
+.unl { text-decoration: underline!important; }
+.no-unl { text-decoration: none; }
+.tc { text-align:center; }
+
+/* 段落 */
+.t2 { text-indent: 2em; }
+.lh150 { line-height: 150% }
+.lh180 { line-height: 180% }
+.lh200 { line-height: 200% }
+.l5 { margin-left: 5px; }
+.l10 { margin-left: 10px; }
+.l12 { margin-left: 12px; }
+.l15 { margin-left: 15px; }
+.l20 { margin-left: 20px; }
+.l25 { margin-left: 25px; }
+.l30 { margin-left: 30px; }
+.l40 { margin-left: 40px; }
+.l50 { margin-left: 50px; }
+.l60 { margin-left: 60px; }
+.l80 { margin-left: 60px; }
+.l100 { margin-left: 100px; }
+.r5 { margin-right: 5px; }
+.r10 { margin-right: 10px; }
+.r15 { margin-right: 15px; }
+.r20 { margin-right: 20px; }
+.r25 { margin-right: 25px; }
+.r30 { margin-right: 30px; }
+.r40 { margin-right: 40px; }
+.r50 { margin-right: 50px; }
+.r60 { margin-right: 60px; }
+.r100 { margin-right: 100px; }
+.top-46 { margin-top: -46px; }
+.top5 { margin-top: 5px; }
+.top10 { margin-top: 10px; }
+.top15 { margin-top: 15px; }
+.top20 { margin-top: 20px; }
+.top25 { margin-top: 25px; }
+.top30 { margin-top: 30px; }
+.top40 { margin-top: 40px; }
+.top50 { margin-top: 50px; }
+.top60 { margin-top: 60px; }
+.top70 { margin-top: 70px; }
+.top80 { margin-top: 80px; }
+.top100 { margin-top: 100px; }
+.top120 { margin-top: 120px; }
+.top150 { margin-top: 150px; }
+.b5 { margin-bottom: 5px; }
+.b10 { margin-bottom: 10px; }
+.b15 { margin-bottom: 15px; }
+.b20 { margin-bottom: 20px; }
+.b25 { margin-bottom: 25px; }
+.b30 { margin-bottom: 30px; }
+.b40 { margin-bottom: 40px; }
+.b50 { margin-bottom: 50px; }
+.b60 { margin-bottom: 60px; }
+.b70 { margin-bottom: 70px; }
+.b80 { margin-bottom: 80px; }
+.b100 { margin-bottom: 100px; }
+
+/* 层 */
+.z0 { z-index: 0; }
+.z1 { z-index: 1; }
+.z2 { z-index: 2; }
+.z3 { z-index: 3; }
+.z4 { z-index: 4; }
+.z5 { z-index: 5; }
+.z6 { z-index: 6; }
+.z7 { z-index: 7; }
+.z8 { z-index: 8; }
+.z9 { z-index: 9; }
+
+/* 浮动 */
+.ftl { float: left; }
+.ftr { float: right; }
+.ftn { float: none; }
+
+/*其他*/
+.ovh { overflow:hidden; }
+.dib { display:block; }
+.tdu { text-decoration:underline !important; }
+.tdn { text-decoration:none !important; }

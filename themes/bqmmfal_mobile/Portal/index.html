@@ -1,0 +1,262 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/index.css" rel="stylesheet">
+    <!-- Swiper css -->
+    <link href='__TMPL__Assets/Swiper-3.1.0/css/swiper.min.css' rel='stylesheet'>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="topnav-box">
+        <div class="topnav-title">
+            <div class="logo ftl">
+                <a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a>
+            </div>
+            <a href="javascript:;" id="navico" class="navico"></a>
+        </div>
+        <div id="topnav" class="topnav">
+            <tc_include file="Common/topnav" />
+        </div>
+    </div>
+
+    <div id="BannerSwiper" class="bannerswiper" style="overflow: hidden;">
+        <div id="banner-swiper-wrapper" class="swiper-wrapper">
+            <foreach name="index_banner" item="banner">
+            <div class="swiper-slide item">
+                <a href="{$banner.slide_url}">
+                    <img src="{$banner.slide_icon}" alt="" class="img-responsive center-block">
+                </a>
+                <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a>
+            </div>
+            </foreach>
+        </div>
+        <!-- pagination -->
+        <div id="banner-swiper-pagination" class="swiper-pagination"></div>
+    </div>
+    <style type="text/css">
+    .swiper-pagination-bullet {
+        opacity: 0.7;
+        background: rgba(255,255,255,1);
+    }
+    .swiper-pagination-bullet-active {
+        background: rgba(64,201,182,0.7);
+    } 
+    .swiper-container-horizontal>.swiper-pagination {
+        z-index: 9;
+    }
+    </style>
+    <!-- /BannerSwiper -->
+
+    <div class="module-box module1">
+        <div class="main-content">
+            <h2 class="top50">几行代码，一分钟集成</h2>
+            <h3 class="top10 default">开发者首选的表情服务，最完美的解决方案，稳定可靠</h3>
+            <a href="http://open.biaoqingmm.com/doc/sdk/" class="abtn abtn-default top20">立即体验</a>
+            <img src="__TMPL__Assets/images/mod1_picture.png" class="top30">
+        </div>
+    </div>
+    <div class="module-box module2">
+        <div class="main-content">
+            <h2 class="top50">三个步骤，轻松搞定</h2>
+            <img src="__TMPL__Assets/images/mod2_picture.png" class="top50">
+        </div>
+    </div>
+
+    <div class="module-box module3">
+        <div class="main-content">
+            <h2 class="top40 white">最高品质的正版授权表情</h2>
+            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
+            <a href="emoji.html" class="btn-all top40"></a>
+
+            <img src="__TMPL__Assets/images/mod3_picture1.png"class="top30">
+            <h2 class="top30">最接地气的表情商店</h2>
+            <h3 class="top10 default">开发者轻松掌握表情流行趋势，魔法表情分分钟玩疯用户</h3>
+
+            <a href="download.html" class="abtn abtn-default top40">立即体验</a>
+
+            <img src="__TMPL__Assets/images/mod3_picture2.png" class="top30">
+        </div>
+    </div>
+
+    <div class="module-box module4" style="height: auto; padding-bottom: 15px; background-size: 100% 100%;">
+        <div class="main-content">
+            <h2 class="top50 white">合作案例</h2>
+            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
+
+            <div id="casework" class="case-work-box">
+                <h3 class="b30 white">他们正在使用...</h3>
+
+                <div class="case-work">
+                    <div class="case-work-all">
+                        <foreach name="slidehzallist" item="slidebanner">
+                        <ul>
+                            <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png"><b>微信</b></li> -->
+                            <foreach name="slidebanner.slidebanner" item="banner">
+                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}"><b>{$banner.slide_name}</b></a></li>
+                            </foreach>
+                        </ul>
+                        </foreach>
+                    </div>
+                </div>
+
+                <div class="case-list">
+                    <span class="left"></span>
+                    <span class="right"></span>
+                    <ul>
+                        <!-- <li class="select"><i>分类三</i></li> -->
+                        <foreach name="slidehzallist" item="slidebanner">
+                        <li><i>{$slidebanner.cat_name}</i></li>
+                        </foreach>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-box module5">
+        <div class="main-content">
+            <h2 class="top30">合作伙伴</h2>
+            <div id="partner" class="partner">
+                <div class="partner-links row">
+                    <ul>
+                        <foreach name="slidehzhblist" item="banner">
+                        <li class="col-xs-3 {$banner.class}" style="padding-left: 9px; padding-right: 9px;"><img src="{$banner.slide_icon}" class="img-responsive img-rounded"><b>{$banner.slide_name}</b></li>
+                        </foreach>
+                    </ul>
+                </div>
+                <div class="partner-content">
+                    <div class="partner-boxs">
+                        <foreach name="slidehzhblist" item="banner">
+                        <img src="{$banner.slide_pic}" class="img-responsive">
+                        </foreach>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$(function (){
+//合作案例
+var caseWorkClass = function (){
+    
+}
+new caseWorkClass();
+
+//合作伙伴
+var partnerClass = function (){
+    // var plinksw = 990;
+    // var pcontentimgw = 978;
+    var plinksliw = parseInt($("#partner .partner-links ul li").css('width'));
+    $("#partner .partner-links ul li").css({
+        "width": plinksliw+"px"
+    });
+    var plinksw = 4*plinksliw;
+    var pcontentimgw = parseInt($("#partner .partner-boxs img").css('width'));
+    $("#partner .partner-boxs img").css({
+        "width": pcontentimgw+"px"
+    });
+
+    //元素总数
+    var plinkslinum = $("#partner .partner-links ul li").length;
+
+    var plinksulw = 0;
+    $("#partner .partner-links ul li").each(function (){
+        plinksulw += parseInt($(this).css('width'));
+    });
+    $("#partner .partner-links ul").css('width', plinksulw+'px');
+
+    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentimgw)+'px');
+
+    //mouse-hover
+    $("#partner .partner-links ul li img").hover(function (){
+        $(this).parent().addClass("slts");
+    }, function (){
+        $(this).parent().removeClass("slts");
+    });
+
+    var mwidth = 0;
+    //mouse-click
+    $("#partner .partner-links ul li img").click(function (){
+        $("#partner .partner-links ul li").removeClass("slt");
+        $(this).parent().addClass("slt");
+
+        var cindex = $(this).parent().index();
+
+        //partner-boxs滑动
+        $("#partner .partner-boxs").clearQueue().stop(true);
+        var partnerboxs = $("#partner .partner-boxs");
+        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*cindex)+'px'});
+        
+        var partnerlinksul = $("#partner .partner-links ul");
+
+        //左移计算
+        var cccindex = 0;
+        var plinkslw = 0;
+        $("#partner .partner-links ul li").each(function (){
+            if (plinkslw < mwidth+plinksw) {
+                cccindex = $(this).index()-1;
+                plinkslw += parseInt($(this).css('width'));
+            } else if (plinkslw == mwidth+plinksw) {
+                cccindex = $(this).index()-1;
+                return false;
+            }
+        });
+        if (cccindex+1==plinkslinum-1 && plinkslw==plinksulw) cccindex = plinkslinum-1;
+        var ccc = plinkslw-plinksw-mwidth;
+        //右边显示
+        if (cindex==cccindex && cindex<plinkslinum-1) {
+            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'));
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        }
+
+        //右移计算
+        var dddindex = 0;
+        var plinksrw = 0;
+        $("#partner .partner-links ul li").each(function (){
+            if (plinksrw < mwidth) {
+                dddindex = $(this).index()+1;
+                plinksrw += parseInt($(this).css('width'));
+            } else if (plinksrw == mwidth) {
+                dddindex = $(this).index();
+                return false;
+            }
+        });
+        var ddd = 0;
+        if (plinksrw-mwidth) {
+            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'));
+            var ddd = dwidth-(plinksrw-mwidth);
+        }
+        //左边显示
+        if (cindex==dddindex && cindex>0) {
+            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'));
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        }
+    });
+}
+new partnerClass();
+})
+</script>
+
+    <tc_include file="Common/footerbox_index" />
+
+  </div>
+</div>
+<!-- Swiper js -->
+<script src="__TMPL__Assets/Swiper-3.1.0/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+var BannerSwiper;
+var BannerSwiperClass = function () {
+    
+    //初始化Swiper
+    BannerSwiper = new Swiper('#BannerSwiper', {
+        autoplay: 5000,//可选选项，自动滑动
+        direction: "horizontal",
+        loop: true,
+
+        autoplayDisableOnInteraction: false,
+
+        pagination: '#banner-swiper-pagination',
+    });
+}
+new BannerSwiperClass();
+</script>
+<tc_include file="Common/foot" />

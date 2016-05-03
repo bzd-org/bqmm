@@ -1,0 +1,63 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+
+<div class="container-fluid">
+  <div class="row">
+
+<div class="wrap wrap-bg">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="__ROOT__/" class="homeico"></a>
+                {$article['post_title']}
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
+        </div>
+        <div class="visiablebanner">&nbsp;</div>
+    </div>
+
+    <div class="main top40 b70">
+        <div class="series-info">
+            <ul class="">
+                <notempty name="prev.tid">
+                <li><a href="emojiview_{$prev.tid}.html"><img src="{:sp_get_asset_upload_path($prev['smeta']['thumb'])}" class="switch-btn sl"></a></li>
+                <else />
+                <li style="visibility: hidden;"><a href="emojiview_{$prev.tid}.html"><img src="{:sp_get_asset_upload_path($prev['smeta']['thumb'])}" class="switch-btn sl"></a></li>
+                </notempty>
+                <li class="cur"><img src="{:sp_get_asset_upload_path($article['smeta']['thumb'])}"></li>
+                <notempty name="next.tid">
+                <li><a href="emojiview_{$next.tid}.html"><img src="{:sp_get_asset_upload_path($next['smeta']['thumb'])}" class="switch-btn sl"></a></li>
+                <else />
+                <li style="visibility: hidden;"><a href="emojiview_{$next.tid}.html"><img src="{:sp_get_asset_upload_path($next['smeta']['thumb'])}" class="switch-btn sl"></a></li>
+                </notempty>
+            </ul>
+        </div>
+
+        <div class="series-box">
+            <div class="series-content-box">
+                <div class="series-content-ico"></div>
+                <div class="series-content">
+                    <h3>
+                        <p class="text-center">{$article['post_title']}</p>
+                        <a href="emoji_{$term.term_id}.html" target="_blank" class="top10 center-block" style="background: {$term.color};">{$term.name}</a>
+                    </h3>
+                    <p style="padding: 10px 0;">{$article['post_excerpt']}</p>
+                    <foreach name="article.smeta.photo" key="k" item="photo">
+                    <img src="{:sp_get_asset_upload_path($photo['url'])}" title="{$photo.alt}" class="" style="width: 33%;">
+                    </foreach>
+                    <h5 style="position: absolute; bottom: 9px; left: 50%; margin-left: -31px;"><a href="__ROOT__/" target="_blank">©表情mm</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  </div>
+</div>
+
+    <tc_include file="Common/footerbox" />
+
+<tc_include file="Common/foot" />

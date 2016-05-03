@@ -106,6 +106,7 @@ class ListController extends HomebaseController {
         $subterms = sp_get_child_terms($termid);
         $subterms = array_merge(array($term), $subterms);
 
+        $aaa = 0;
         foreach ($subterms as $k=>$subterm) {
             $tag = 'cid:'.$subterm['term_id'].'order:istop desc, post_date desc;limit:0,6;';
             $posts = sp_sql_posts($tag);
@@ -136,6 +137,17 @@ class ListController extends HomebaseController {
                     }
                     $nnn++;
                 }
+
+                if ($pk%2 === 0) {
+                    $posts[$pk]['misleft'] = 1;
+                } else {
+                    $posts[$pk]['misright'] = 1;
+                }
+            }
+
+            if ($aaa==0 && !empty($posts)) {
+                $subterms[$k]['sk'] = 1;
+                $aaa = 1;
             }
 
             $subterms[$k]['posts'] = is_array($posts) ? $posts : array();
@@ -183,6 +195,12 @@ class ListController extends HomebaseController {
                     $nnn = 0;
                 }
                 $nnn++;
+            }
+
+            if ($pk%2 === 0) {
+                $posts[$pk]['misleft'] = 1;
+            } else {
+                $posts[$pk]['misright'] = 1;
             }
 
             if ($pk>=$start && $pk<$end) $termposts[] = $posts[$pk];

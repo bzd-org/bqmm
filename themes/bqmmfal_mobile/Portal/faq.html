@@ -1,19 +1,43 @@
 <tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
 
 <div class="container-fluid">
   <div class="row">
 
-    <div class="topnav-box">
-        <div class="topnav-title">
-            <a href="__ROOT__/" class="homeico"></a>
-            FAQ
-            <a href="javascript:;" id="navico" class="navico"></a>
+<div class="wrap wrap-bg">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="__ROOT__/" class="homeico"></a>
+                FAQ
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
         </div>
-        <div id="topnav" class="topnav">
-            <tc_include file="Common/topnav" />
-        </div>
+        <div class="visiablebanner">&nbsp;</div>
     </div>
 
+    <div class="main top40 b50">
+        <h2 class="tc">FAQ</h2>
+        <div class="news-title-line"></div>
+        <div class="faq top30">
+            <foreach name="faq" item="faqitem">
+            <dl>
+                <dt>{$faqitem.slide_name}</dt>
+                <dd>{$faqitem.slide_content}</dd>
+            </dl>
+            </foreach>
+        </div>
+    </div>
+    <!-- main end -->
+    <div class="clear"></div>
+
+</div>
   </div>
 </div>
+
+    <tc_include file="Common/footerbox" />
+
 <tc_include file="Common/foot" />

@@ -1,0 +1,198 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+    <!-- Swiper css -->
+    <link href='__TMPL__Assets/Swiper-3.1.0/css/swiper.min.css' rel='stylesheet'>
+
+<div class="container-fluid">
+  <div class="row">
+
+<div class="wrap">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="__ROOT__/" class="homeico"></a>
+                公司介绍
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
+        </div>
+        <div class="visiablebanner">&nbsp;</div>
+    </div>
+
+    <div id="BannerSwiper" class="bannerswiper" style="overflow: hidden;">
+        <div id="banner-swiper-wrapper" class="swiper-wrapper">
+            <foreach name="about_banner" item="banner">
+            <div class="swiper-slide item">
+                <a href="{$banner.slide_url}">
+                    <img src="{$banner.slide_pic}" alt="" class="img-responsive center-block">
+                </a>
+                <!-- <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a> -->
+            </div>
+            </foreach>
+        </div>
+        <!-- pagination -->
+        <div id="banner-swiper-pagination" class="swiper-pagination"></div>
+    </div>
+    <style type="text/css">
+    .swiper-pagination-bullet {
+        opacity: 0.7;
+        background: rgba(255,255,255,1);
+    }
+    .swiper-pagination-bullet-active {
+        background: rgba(64,201,182,0.7);
+    } 
+    .swiper-container-horizontal>.swiper-pagination {
+        z-index: 9;
+    }
+    </style>
+    <!-- /BannerSwiper -->
+
+
+    <div class="about top50 b40">
+        <img src="{:sp_get_asset_upload_path($about_bqy['slide_pic'])}" class="img-responsive">
+    </div>
+    <!--about-top50-b40 end-->
+
+    <div class="about about_bg1">
+        <img src="{:sp_get_asset_upload_path($about_syh['slide_pic'])}" class="img-responsive">
+        <div class="about_link">
+            <a href="http://www.siyanhui.com/" target="_blank"><img src="__TMPL__Assets/images/about/about_link.jpg" class="img-responsive" style="float: right;"></a>
+        </div>
+    </div>
+
+    <div class="about about_bg2">
+        <h2>我们的产品</h2>
+        <h3>our product</h3>
+
+        <div class="about-product b50">
+            <ul>
+                <foreach name="about_product" item="product">
+                <li>
+                    <img src="{:sp_get_asset_upload_path($product['slide_icon'])}">
+                    <div class="product-text">
+                    <b>{$product.slide_name}</b>
+                    <p>{$product.slide_content}</p>
+                    </div>
+                </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about about_bg3">
+        <h2>我们的荣誉</h2>
+        <h3>our honours</h3>
+
+        <div class="honours top10">
+            <div class="h-top"></div>
+            <ul>
+                <foreach name="about_honours" item="honour">
+                <li>
+                    <dl class="left"><dd>{$honour.time1}</dd><dt>{$honour.time2}</dt></dl>
+                    <i class="{$honour.ico}"></i>
+                    <dl class="right">
+                        <dt>{$honour.slide_name}</dt>
+                        <dd>{$honour.slide_content}</dd>
+                    </dl>
+                </li>
+                </foreach>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about top30">
+        <h2>我们的文化</h2>
+        <h3>our culture</h3>
+
+        <div class="culture top10">
+            <foreach name="about_culture" item="cultureul">
+                <ul class="{$cultureul.class}">
+                    <foreach name="cultureul.culture" item="culture">
+                    <li style="width: auto; height: auto;"><img src="{:sp_get_asset_upload_path($culture['slide_pic'])}"></li>
+                    </foreach>
+                </ul>
+            </foreach>
+            <!-- <ul>
+                <li><img src="__TMPL__Assets/images/about/oc1.jpg" width="216" height="216"></li>
+                <li><img src="__TMPL__Assets/images/about/oc2.jpg" width="216" height="216"></li>
+            </ul>
+            <ul class="cd">
+                <li><img src="__TMPL__Assets/images/about/oc3.jpg" width="216" height="216"></li>
+                <li><img src="__TMPL__Assets/images/about/oc4.jpg" width="216" height="216"></li>
+            </ul>
+            <ul>
+                <li><img src="__TMPL__Assets/images/about/oc5.jpg" width="216" height="216"></li>
+                <li><img src="__TMPL__Assets/images/about/oc6.jpg" width="216" height="216"></li>
+            </ul>
+            <ul class="cd">
+                <li><img src="__TMPL__Assets/images/about/oc7.jpg" width="216" height="216"></li>
+                <li><img src="__TMPL__Assets/images/about/oc8.jpg" width="216" height="216"></li>
+            </ul> -->
+        </div>
+    </div>
+
+    <div class="about about_bg3">
+        <h2>联系我们</h2>
+        <h3>contact us</h3>
+        
+        <img src="__TMPL__Assets/images/about/contact.png">
+
+        <div class="cuntact">
+            <ul>
+                <foreach name="about_contact" item="contact">
+                <li>
+                    <h3>{$contact.slide_name}</h3>
+                    <a href="mailto:{$contact.slide_url}">{$contact.slide_btn}</a>
+                    <p>{$contact.slide_content}</p>
+                </li>
+                </foreach>
+                <!-- <li><h3>技术支持</h3><a href="mailto:support@siyanhui.com">support@siyanhui.com</a></li>
+                <li><h3>商务合作</h3><a href="mailto:business@siyanhui.com">business@siyanhui.com</a><br>021-67743085</li>
+                <li><h3>售后服务</h3><a href="mailto:service@siyanhui.com">service@siyanhui.com</a></li> -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+  </div>
+</div>
+
+    <tc_include file="Common/footerbox" />
+
+<style type="text/css" media="screen">
+.honours ul li:last-child {
+    padding-bottom: 0;
+}
+.honours ul li i.ico_rocket {
+    background-position: 0 -90px;
+}
+.honours ul li i.ico_money {
+    background-position: -64px -90px;
+}
+.honours ul li i.ico_flag {
+    background-position: -128px -90px;
+}
+</style>
+<!-- Swiper js -->
+<script src="__TMPL__Assets/Swiper-3.1.0/js/swiper.jquery.min.js"></script>
+<script type="text/javascript">
+var BannerSwiper;
+var BannerSwiperClass = function () {
+    
+    //初始化Swiper
+    BannerSwiper = new Swiper('#BannerSwiper', {
+        autoplay: 5000,//可选选项，自动滑动
+        direction: "horizontal",
+        loop: true,
+
+        autoplayDisableOnInteraction: false,
+
+        pagination: '#banner-swiper-pagination',
+    });
+}
+new BannerSwiperClass();
+</script>
+<tc_include file="Common/foot" />

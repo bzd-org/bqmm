@@ -1,19 +1,92 @@
 <tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
 
 <div class="container-fluid">
   <div class="row">
 
-    <div class="topnav-box">
-        <div class="topnav-title">
-            <a href="__ROOT__/" class="homeico"></a>
-            表情一览
-            <a href="javascript:;" id="navico" class="navico"></a>
+<div class="wrap">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="__ROOT__/" class="homeico"></a>
+                {$article['post_title']}
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
         </div>
-        <div id="topnav" class="topnav">
-            <tc_include file="Common/topnav" />
-        </div>
+        <div class="visiablebanner">&nbsp;</div>
     </div>
 
+    <div class="series-banner"><img src="__TMPL__Assets/images/series_banner.jpg" class="img-responsive"></div>
+
+    <div class="main b70">
+
+        <div class="series-list">
+            <foreach name="subterms" item="subterm">
+            <notempty name="subterm.posts">
+            <if condition="$subterm.sk eq 1">
+            <h2 class="b30 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
+            <else />
+            <h2 class="top30 b30 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
+            </if>
+            <ul class="postsbox">
+                <foreach name="subterm.posts" item="post">
+                <if condition="$post.misleft eq 1">
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><i class="signs-left"></i><a href="emojiview_{$post.tid}.html" class="details"><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive"></a></li>
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0; border-left: 3px solid #FFF;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+                <elseif condition="$post.misright eq 1" />
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0; border-left: 3px solid #FFF;"><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details"><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive"></a></li>
+                </if>
+                </foreach>
+            </ul>
+            <div class="clear"></div>
+            <div class="open-down loadmorebox"><a href="index.php?m=list&a=ajaxbqb&termid={$subterm.term_id}" class="loadmore" page="1">加载更多</a></div>
+            </notempty>
+            </foreach>
+        </div>
+
+        <div class="series-list-foot"></div>
+    </div>
+    <!--main end-->
+
+</div>
   </div>
 </div>
+
+    <tc_include file="Common/footerbox" />
+    
+<script type="text/javascript">
+$(function (){
+    //加载更多
+    $("a.loadmore").click(function (){
+        var athat = $(this);
+        var athatbox = athat.parent().prev().prev("ul.postsbox");
+
+        
+
+        var d = {
+            page: $(this).attr("page")
+        }
+        $.get($(this).attr("href"), d, function (data){
+            if (data.error) {
+                alert(data.msg);
+            } else {
+                athat.attr('page',parseInt(athat.attr('page'))+1);
+
+                if (data.data.loadmorehide) athat.parent().hide();
+
+                athatbox.append(data.data.html);
+                athatbox.find("li.lihide").fadeIn('normal', function (){
+                    $(this).removeClass('lihide');
+                });
+            }
+        }, 'json');
+
+        return false;
+    });
+})
+</script>
 <tc_include file="Common/foot" />

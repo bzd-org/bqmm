@@ -36,7 +36,7 @@ class IndexController extends HomebaseController {
         //获取幻灯片内容
         if (is_array($slidehzallist)) {
             foreach ($slidehzallist as $key=>$slide) {
-                $slidebanner = sp_getslide($slide['cat_idname']);
+                $slidebanner = sp_getslide($slide['cat_idname'], 99);
                 $slidehzallist[$key]['slidebanner'] = is_array($slidebanner) ? $slidebanner : array();
             }
         }
@@ -48,7 +48,7 @@ class IndexController extends HomebaseController {
     //获取合作伙伴
     public function slidehzhb()
     {
-        $slidehzhblist = sp_getslide('hzhb_banner');
+        $slidehzhblist = sp_getslide('hzhb_banner', 99);
         $slidehzhblist[0]['class'] = 'slt';
         
         $this->assign('slidehzhblist', $slidehzhblist);

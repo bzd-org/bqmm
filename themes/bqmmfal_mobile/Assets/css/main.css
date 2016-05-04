@@ -4,7 +4,7 @@
 .wrap-bg { background: #f7f7f7 url(../images/bg.png) repeat center top; min-width: 320px; overflow: hidden; }
 .main { width:100%; height:auto; margin-left: auto; margin-right: auto; }
 @media screen and (max-width:639px){
-  .index-top { height:48px; }
+  .index-top { height:54px; }
 }
 /*banner*/
 .banner, .b-img div{ height:469px; }
@@ -62,11 +62,11 @@
 }
 
 /*新闻*/
-.news { width: 90%; height: auto; overflow: hidden; padding: 0 5%; }
+.news { width: auto; height: auto; overflow: hidden; padding: 0 15px; }
 .news .title { width: 100%; height: 36px; line-height: 36px; text-align: left;  }
 .news .title i { font-size: 24px; max-width: calc(100% - 90px); height: auto; font-style: normal; overflow:hidden;  }
 .news .title i.date { font-size: 16px; width: 90px; height: auto; color: #7c7c7c; text-align: right; float: right; }
-.news ul li { background: #fff; width: calc(90% - 2px); margin-bottom: 20px; padding: 5%; border: 1px solid #e3e3e3; border-radius: 4px; vertical-align:middle; }
+.news ul li { background: #fff; width: auto; margin-bottom: 20px; padding: 15px; border: 1px solid #e3e3e3; border-radius: 4px; vertical-align:middle; }
 .news ul li .summary { width: 100%; height: auto; color: #7c7c7c; overflow: hidden; padding-top: 10px; }
 .news ul li img { max-width: 100%; }
 .summary p.all { font-size: 18px; padding-top: 10px; color: #3d3d3d; }
@@ -110,13 +110,14 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .btn-ios:hover { background-position: -215px -230px; }
 
 /*友情链接*/
-.links { width: 96%; padding: 0 2%; text-align: center; }
+.links { width: 100%; text-align: center; }
 .links ul { width: 100%; height: auto; overflow: hidden; padding-top: 40px; }
-.links ul li { width: 190px; height:80px; line-height:80px; margin-left:6px; margin-bottom:6px; float:left; }
-.links ul li img { max-width:190px; max-height:80px; vertical-align:middle; }
+.links ul li { margin: 10px 0; }
+/*.links ul li { width: 190px; height:80px; line-height:80px; margin-left:6px; margin-bottom:6px; float:left; }*/
+.links ul li img { vertical-align:middle; }
 @media screen and (max-width:639px){
-  .links ul li { width: 150px; height:64px; }
-  .links ul li img { max-width:150px; }
+  /*.links ul li { width: 150px; height:64px; }*/
+  /*.links ul li img { max-width:150px; }*/
 }
 
 /*关于我们*/

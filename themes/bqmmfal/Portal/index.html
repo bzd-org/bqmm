@@ -17,8 +17,12 @@
                 <div style="background:url(__TMPL__Assets/images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
                 <div style="background:url(__TMPL__Assets/images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div> -->
                 <foreach name="index_banner" item="banner">
-                <div style="background:url({$banner.slide_pic}) center no-repeat; background-size: 100% 100%;">
+                <div style="background:url({$banner.slide_pic}) center no-repeat;">
+                    <if condition="$banner.slide_btn neq ''">
                     <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a>
+                    <else />
+                    &nbsp;
+                    </if>
                 </div>
                 </foreach>
             </div>
@@ -64,14 +68,14 @@
     </div>
     <!--module3 end-->
 
-    <div class="module-box module4" style="height: auto; min-height: 985px; background-size: 100% 100%;">
+    <div class="module-box module4">
         <div class="main-content">
             <h2 class="top50 white">合作案例</h2>
             <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
             <div id="casework" class="case-work-box">
                 <h3 class="b40 white">他们正在使用...</h3>
                 <div class="case-list">
-                    <span class="circlemark" style="top:0px;"></span>
+                    <span class="circlemark"></span>
                     <ul>
                         <!-- <li><i>分类一</i></li> -->
                         <foreach name="slidehzallist" item="slidebanner">
@@ -85,7 +89,7 @@
                         <ul>
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png" width="80" height="80"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></a></li>
+                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}"><b>{$banner.slide_name}</b></a></li>
                             </foreach>
                         </ul>
                         </foreach>
@@ -104,7 +108,7 @@
                     <ul>
                         <!-- <li class="slt"><img src="__TMPL__Assets/images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li> -->
                         <foreach name="slidehzhblist" item="banner">
-                        <li class="{$banner.class}"><img src="{$banner.slide_icon}" width="80" height="80"><b>{$banner.slide_name}</b></li>
+                        <li class="{$banner.class}"><img src="{$banner.slide_icon}"><b>{$banner.slide_name}</b></li>
                         </foreach>
                     </ul>
                 </div>
@@ -152,8 +156,8 @@ $(".footer ul.footer-ico li i.weixin").hover(function (){
 //合作案例
 var caseWorkClass = function (){
     //circlemark高度
-    var listitemh = 106;
-    var workulh = 700;
+    var listitemh = 91;
+    var workulh = 546;
 
     //鼠标滑过显示
     $("#casework .case-list ul li i").hover(function (){

@@ -1,0 +1,97 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+
+<div class="container-fluid">
+  <div class="row">
+
+<div class="wrap wrap-bg">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="__ROOT__/" class="homeico"></a>
+                {$term['name']}
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
+        </div>
+        <div class="visiablebanner">&nbsp;</div>
+    </div>
+
+    <div class="main top30 b30">
+        <div class="news">
+            <ul>
+                <foreach name="posts" item="post">
+                <li>
+                    <a href="article_{$post.tid}.html">
+                        <div class="title"><i>{$post.post_title}</i><i class="date">{:substr($post['post_date'], 0, 4)}/{:substr($post['post_date'], 5, 2)}/{:substr($post['post_date'], 8, 2)}</i></div>
+                        <div class="summary">
+                            <if condition="$post.smeta.thumb neq ''">
+                            <img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive">
+                            </if>
+
+                            <p style="margin-top: 10px; line-height: 25px; letter-spacing: 1px;">{$post.post_excerpt}</p>
+
+                            <p class="all">阅读全文 &gt;</p>
+                        </div>
+                    </a>
+                </li>
+                </foreach>
+            </ul>
+            <div class="pager">
+                <if condition="$p eq 1">
+                <a href="javascript:;" class="flip ftl disable">&lt;上一页</a>
+                <else />
+                <a href="news.html&p={$p-1}" class="flip ftl">&lt;上一页</a>
+                </if>
+
+                <if condition="$mpage neq ''">
+                {$mpage}
+                <else />
+                <span class="current">1</span>
+                </if>
+
+                <if condition="$p eq $pcount">
+                <a href="javascript:;" class="flip ftr disable">下一页&gt;</a>
+                <else />
+                <a href="news.html?p={$p+1}" class="flip ftr">下一页&gt;</a>
+                </if>
+                <!-- <a href="javascript:;" class="flip ftl">&lt;上一页</a>
+                <a href="javascript:;">1</a>
+                <a href="javascript:;">2</a>
+                <a href="javascript:;">3</a>
+                <a href="javascript:;">4</a>
+                <a href="javascript:;">5</a>
+                ...
+                <a href="javascript:;">99</a>
+                <a href="javascript:;">100</a>
+                <a href="javascript:;" class="flip ftr">下一页&gt;</a> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+  </div>
+</div>
+
+    <tc_include file="Common/footerbox" />
+
+<style type="text/css" media="screen">
+.pager a.disable {
+    color: #C1C1C1;
+}
+span.current {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    border: 1px solid #ededed;
+    border-radius: 4px;
+    color: #36cab6;
+    margin: 0 5px;
+}
+</style>
+
+<tc_include file="Common/foot" />

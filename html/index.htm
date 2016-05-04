@@ -22,7 +22,14 @@
           <ul>
             <li><a href="index.htm">首页</a>|</li>
             <li><a href="download.htm">下载</a>|</li>
-            <li><a href="paintings.htm">表情一览</a>|</li>
+            <li>
+              <a href="paintings.htm">表情一览</a>
+              <ul>
+                <li><a href="paintings.htm">选项一</a></li>
+                <li><a href="paintings.htm">选项二</a></li>
+              </ul>
+              |
+            </li>
             <li><a href="http://open.biaoqingmm.com/doc/sdk/" target="_blank">文档</a>|</li>
             <li><a href="faq.htm">FAQ</a></li>
           </ul>
@@ -30,9 +37,9 @@
       </div>
       <div class="banner">
         <div class="b-img">
-          <div style="background:url(images/banner0.jpg) center no-repeat; background-size: 100% 100%;"><a href="#" class="abtn abtn-white">立即体验</a></div>
-          <div style="background:url(images/banner0.jpg) center no-repeat; background-size: 100% 100%;"><a href="#" class="abtn abtn-white">立即体验</a></div>
-          <div style="background:url(images/banner0.jpg) center no-repeat; background-size: 100% 100%;"><a href="#" class="abtn abtn-white">立即体验</a></div>
+          <div style="background:url(images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
+          <div style="background:url(images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
+          <div style="background:url(images/banner0.jpg) center no-repeat;"><a href="#" class="abtn abtn-white">立即体验</a></div>
         </div>
         <div class="b-list"></div>
         <a class="bar-left" href="#"><em></em></a><a class="bar-right" href="#"><em></em></a>
@@ -65,14 +72,14 @@
         <img src="images/mod3_picture2.png" width="369" height="520" class="top50">
       </div>
     </div>
-    <div class="module-box module4" style="height: auto; min-height: 985px; background-size: 100% 100%;">
+    <div class="module-box module4">
       <div class="main-content">
         <h2 class="top50 white">合作案例</h2>
         <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
         <div id="casework" class="case-work-box">
           <h3 class="b40 white">他们正在使用...</h3>
           <div class="case-list">
-            <span class="circlemark" style="top:0px;"></span>
+            <span class="circlemark"></span>
             <ul>
               <li><i>分类一</i></li>
               <li><i>分类二</i></li>
@@ -214,6 +221,7 @@
             <li class="slt"><img src="images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li>
             <li><img src="images/partnericon/guoguo.png" width="80" height="80"><b>橙果果</b></li>
             <li><img src="images/partnericon/xfx.png" width="80" height="80"><b>秀发型</b></li>
+            <li><img src="images/partnericon/qinjia_logo.png"><b>iHere</b></li>
             <li><img src="images/partnericon/banmi.png" width="80" height="80"><b>半米</b></li>
             <li><img src="images/partnericon/iHere.png" width="80" height="80"><b>iHere</b></li>
             <li><img src="images/partnericon/bookway.png" width="80" height="80"><b>bookway</b></li>
@@ -277,8 +285,8 @@ $(function (){
 //合作案例
 var caseWorkClass = function (){
     //circlemark高度
-    var listitemh = 106;
-    var workulh = 700;
+    var listitemh = 91;
+    var workulh = 546;
 
     //鼠标滑过显示
     $("#casework .case-list ul li i").hover(function (){

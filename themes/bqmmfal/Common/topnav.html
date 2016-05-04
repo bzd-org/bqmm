@@ -21,6 +21,7 @@
 </style>
 <script type="text/javascript">
 $(function (){
-    $("#topnav").find("li:not(:last)").append('|');
+    $("#main-menu").find("li:not(:last)").append('<span class="tafg">|</span>');
+    $("#main-menu").find("ul.dropdown-menu li span.tafg").remove();
 })
 </script>

@@ -200,6 +200,11 @@ function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}
 	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
 	$rs= M("TermRelationships");
 	$totalsize=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->count();
+
+	$showpages = 9;
+	if(C('MOBILE_TPL_ENABLED') && sp_is_mobile()) {
+        $showpages = 3;
+    }
 	
 	import('Page');
 	if ($pagesize == 0) {
@@ -207,10 +212,10 @@ function sp_sql_posts_paged($tag,$pagesize=20,$pagetpl='{first}{prev}{liststart}
 	}
 	$PageParam = C("VAR_PAGE");
 	$static = is_array($pagelink)&&!empty($pagelink) ? TRUE : FALSE;
-	$page = new \Page($totalsize,$pagesize,1,9,'p',$pagelink,$static);
+	$page = new \Page($totalsize,$pagesize,1,$showpages,'p',$pagelink,$static);
 	$page->setLinkWraper("");
 	$page->__set("PageParam", $PageParam);
-	$page->SetPager('default', $pagetpl, array("listlong" => "9", "first" => "首页", "last" => "尾页", "prev" => "&lt;上一页", "next" => "下一页&gt;", "list" => "*", "disabledclass" => ""));
+	$page->SetPager('default', $pagetpl, array("listlong" => $showpages, "first" => "首页", "last" => "尾页", "prev" => "&lt;上一页", "next" => "下一页&gt;", "list" => "*", "disabledclass" => ""));
 	$posts=$rs->alias("a")->join($join)->join($join2)->field($field)->where($where)->order($order)->limit($page->firstRow . ',' . $page->listRows)->select();
 
 	$content['posts']=$posts;

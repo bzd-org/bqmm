@@ -100,6 +100,7 @@ class Local{
         }
 
         if(mkdir($dir, 0777, true)){
+            chmod($dir, 0777);
             return true;
         } else {
             $this->error = "目录 {$savepath} 创建失败！";

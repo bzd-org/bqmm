@@ -11,6 +11,7 @@
             <div class="logo ftl">
                 <a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a>
             </div>
+            &nbsp;
             <a href="javascript:;" id="navico" class="navico"></a>
         </div>
         <div id="topnav" class="topnav">
@@ -82,7 +83,7 @@
             <h2 class="top50 white">合作案例</h2>
             <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
 
-            <div id="casework" class="case-work-box">
+            <div id="caseworkbox" class="case-work-box">
                 <h3 class="b30 white">他们正在使用...</h3>
 
                 <div class="case-work">
@@ -137,7 +138,43 @@
 $(function (){
 //合作案例
 var caseWorkClass = function (){
-    
+    var cwulnum = $("#caseworkbox .case-work .case-work-all ul").length;
+    var cwulwidth = parseInt($("#caseworkbox .case-work .case-work-all ul").css('width'));
+    $("#caseworkbox .case-work .case-work-all ul").css({
+        "width": cwulwidth+"px"
+    });
+    $("#caseworkbox .case-work .case-work-all").css({
+        "width": (cwulwidth*cwulnum)+"px"
+    });
+
+    $("#caseworkbox .case-list ul li:first").addClass('select');
+    var curn = 0;
+
+    var clullinum = $("#caseworkbox .case-list ul li").length;
+
+    $("#caseworkbox .case-list .left").click(function (){
+        if (curn === 0) return false;
+
+        var curni = curn-1;
+        $("#caseworkbox .case-list ul li").removeClass('select');
+        $("#caseworkbox .case-list ul li:eq("+curni+")").addClass('select');
+        $("#caseworkbox .case-work .case-work-all").animate({
+            "marginLeft": "-"+(curni*cwulwidth)+"px"
+        })
+        curn--;
+    });
+
+    $("#caseworkbox .case-list .right").click(function (){
+        if (curn == clullinum-1) return false;
+
+        var curni = curn+1;
+        $("#caseworkbox .case-list ul li").removeClass('select');
+        $("#caseworkbox .case-list ul li:eq("+curni+")").addClass('select');
+        $("#caseworkbox .case-work .case-work-all").animate({
+            "marginLeft": "-"+(curni*cwulwidth)+"px"
+        })
+        curn++;
+    });
 }
 new caseWorkClass();
 

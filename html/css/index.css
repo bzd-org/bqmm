@@ -3,6 +3,7 @@
 /*导航*/
 .index-top { width:100%; height:auto; position:relative; }
 .topnav-box { background: none !important; z-index: 1; }
+.topnav ul li>ul { margin-top: -15px; }
 
 /*banner*/
 .banner, .b-img div{ height:860px; }
@@ -12,15 +13,15 @@
 .module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat center top; }
 .module2 { height: 360px; background: #fafafa; }
 .module3 { height: 1720px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat center bottom; }
-.module4 { height: 860px; background: url(../images/mod4_bg.jpg) no-repeat center top; }
+.module4 { height: 860px; background: url(../images/mod4_bg.jpg) no-repeat; }
 .module5 { height: 860px; background: url(../images/mod5_bg.jpg) no-repeat center top; }
 .module6 { height: 700px; background: url(../images/mod6_bg.jpg) no-repeat center top; }
 .main-content { width: 1120px; height: auto; overflow: hidden; text-align: center; margin-right: auto; margin-left: auto; }
 
 /*合作案例*/
 .case-work-box { width: 100%; height:auto; margin-top: 50px; text-align: center; }
-.case-work { width: 770px; height: 700px; overflow:hidden; float: left; padding-left: 30px; }
-.case-work ul { width: 770px; height: 700px; overflow: hidden; margin: auto; }
+.case-work { width: 770px; height: 546px; overflow:hidden; float: left; padding-left: 30px; }
+.case-work ul { width: 770px; height: 546px; overflow: hidden; margin: auto; }
 .case-work ul li { width:110px; float:left; margin-bottom:18px; }
 .case-work ul li img { width:80px; height:80px; }
 .case-work ul li b { font-weight: normal; color: #fff; font-size: 17px; display:block; margin-top:10px; }
@@ -28,25 +29,24 @@
 .case-work ul li.big img { width:190px; height:80px; }
 .case-work .case-work-all { width: auto; height: auto; overflow: hidden; margin-top: 0px; }
 .case-list { width: 200px; height: auto; float: left; border-right: 1px solid #aaa; padding-left: 30px; position:relative; margin-top: 10px; }
-.case-list span { display:block; width:14px; height:14px; border-radius:50%; background:#fff; right: -7px; position:absolute; }
+.case-list span.circlemark { display:block; width:14px; height:14px; border-radius:50%; background:#fff; right: -7px; position:absolute; top:0px; }
 .case-list ul { width: 100%; height: 100%; margin-top: -8px; text-align: right; }
-.case-list ul li { width: auto; font-size: 21px;  padding-bottom: 75px; margin-right: 40px; }
+.case-list ul li { width: auto; font-size: 21px;  padding-bottom: 60px; margin-right: 40px; }
 .case-list ul li i { color: #fff; cursor: pointer; font-style: normal; }
 
 /*合作伙伴*/
 .partner { margin-top: 50px; }
-.partner ul { width: 990px; height:167px; margin: auto; overflow:hidden; }
-.partner ul li { width:110px; height:167px; float:left; }
-.partner ul li img { width:80px; height:80px; opacity:0.2; border-radius:20px; box-shadow: 0 0 5px #666; margin-top: 5px; }
-.partner ul li b { font-weight: normal; display:block; margin-top:10px; }
-.partner ul li.slt { background: url(../images/partner_select.png) no-repeat center bottom; }
-.partner ul li.slt img { opacity:1; }
+.partner-links ul { width: 990px; height:167px; margin: auto; overflow:hidden; white-space:nowrap; }
+.partner-links ul li { width:auto; height:167px; margin-right: 25px; display: inline-block; }
+.partner-links ul li img { width:auto; height:80px; opacity:0.2; border-radius:20px; margin-top: 5px; }
+.partner-links ul li b { font-weight: normal; display:block; margin-top:10px; }
+.partner-links ul li.slt { background: url(../images/partner_select.png) no-repeat center bottom; }
+.partner-links ul li.slt img { opacity:1; }
 .partner-content { width: 978px; height: 492px; border-radius: 5px; margin-right: auto; margin-left: auto; overflow: hidden; }
 .partner-content .partner-boxs { text-align: left; }
 .partner-content .partner-boxs img { float: left; display: inline-block; }
 .partner .partner-links { width: 990px; height: 162px; margin: auto; overflow: hidden; }
 .partner .partner-links li img { cursor: pointer; }
-.partner ul { width: auto; }
 
 /*联系我们*/
 .contact { width: 476px; height: 550px; background: rgba(0,0,0,0.6); padding: 30px 65px; margin: 45px auto auto; text-align: center; }

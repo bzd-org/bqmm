@@ -1,0 +1,42 @@
+<tc_include file="Common/head" />
+    <link href="__TMPL__Assets/css/main.css" rel="stylesheet">
+
+<div class="container-fluid">
+  <div class="row">
+
+<div class="wrap wrap-bg">
+    <div class="index-top">
+        <div class="topnav-box">
+            <div class="topnav-title">
+                <a href="javascript:history.back(-1);" class="homeico"></a>
+                <span class="title">{$article['post_title']}</span>
+                <a href="javascript:;" id="navico" class="navico"></a>
+            </div>
+            <div id="topnav" class="topnav">
+                <tc_include file="Common/topnav" />
+            </div>
+        </div>
+        <div class="visiablebanner">&nbsp;</div>
+    </div>
+
+    <div class="main top30 b30">
+        <div class="news">
+            <ul>
+                <li>
+                    <div class="title"><i>{$article.post_title}</i><i class="date">{:str_replace('-','/',substr($article['post_date'],0,10))}</i></div>
+                    <div class="summary">
+                        {$article.post_content}
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+  </div>
+</div>
+
+    <tc_include file="Common/footerbox" />
+
+<tc_include file="Common/foot" />

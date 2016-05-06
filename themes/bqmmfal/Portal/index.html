@@ -132,7 +132,7 @@
 
                 <input name="full_name" type="text" placeholder="您的姓名">
                 <input name="title" type="text" placeholder="公司名称">
-                <input name="email" type="text" placeholder="联系方式">
+                <input name="email" type="text" placeholder="邮箱地址">
                 <textarea name="msg" cols="" placeholder="需求明细"></textarea>
 
                 <button type="submit" name="subtn">完成发送</button>
@@ -291,7 +291,7 @@ $(function (){
         }
         $.post($(this).attr("action"), $(this).serialize(), function (data){
             alert(data.msg);
-            document.contactform.reset();
+            if (!data.error) document.contactform.reset();
         });
 
         return false;

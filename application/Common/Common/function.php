@@ -864,7 +864,7 @@ function sp_getslide($slide,$limit=5,$order = "listorder ASC"){
     $slide_obj= M("SlideCat");
 	$join = "".C('DB_PREFIX').'slide as b on '.C('DB_PREFIX').'slide_cat.cid =b.slide_cid';
     if($order == ''){
-		$order = "listorder ASC";
+		$order = "listorder ASC, slide_id asc";
 	}
 	if ($limit == 0) {
 		$limit = 5;

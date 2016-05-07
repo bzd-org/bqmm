@@ -26,7 +26,11 @@
                 <a href="{$banner.slide_url}">
                     <img src="{$banner.slide_icon}" alt="" class="img-responsive center-block">
                 </a>
+                <if condition="$banner.slide_btn neq ''">
                 <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white">{$banner.slide_btn}</a>
+                <else />
+                <a href="{$banner.slide_url}" target="_blank" class="abtn abtn-white" style="display: none;"></a>
+                </if>
             </div>
             </foreach>
         </div>
@@ -92,7 +96,7 @@
                         <ul>
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"><b>{$banner.slide_name}</b></a></li>
+                            <li style="margin: 0 7px;"><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"><b>{$banner.slide_name}</b></a></li>
                             </foreach>
                         </ul>
                         </foreach>
@@ -112,28 +116,45 @@
             </div>
         </div>
     </div>
+    <style type="text/css" media="screen">
+    .case-list ul li { margin-top: 2px; }
+    .case-list ul li.select { height: 20px; }
+    </style>
 
     <div class="module-box module5">
-        <div class="main-content">
+        <div class="main-content" style="width: auto;">
             <h2 class="top30">合作伙伴</h2>
             <div id="partner" class="partner">
                 <div class="partner-links row">
                     <ul>
                         <foreach name="slidehzhblist" item="banner">
-                        <li class="col-xs-3 {$banner.class}" style="padding-left: 9px; padding-right: 9px;"><img src="{$banner.slide_icon}" class="img-responsive img-rounded"><b>{$banner.slide_name}</b></li>
+                        <li class="{$banner.class}"><span><img src="{$banner.slide_icon}" class="img-responsive img-rounded center-block"></span><b>{$banner.slide_name}</b></li>
                         </foreach>
                     </ul>
                 </div>
                 <div class="partner-content">
                     <div class="partner-boxs">
                         <foreach name="slidehzhblist" item="banner">
-                        <img src="{$banner.slide_pic}" class="img-responsive">
+                        <span><img src="{$banner.slide_pic}" class="img-responsive center-block"></span>
                         </foreach>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <style type="text/css" media="screen">
+    .partner-links ul li { padding: 0 12px; margin: 0; padding-bottom: 30px; }
+    .partner-links ul li span { display: block; height: 65px; overflow: hidden; cursor: pointer; }
+    .partner-links ul li img { width: auto; height: auto; max-height: 60px; }
+    .partner-links ul li b { display: block; }
+    .partner-content { width: auto; height: auto; border: 2px solid #F1F1F1; background: #FFFFFF; margin-top: -2px; }
+    .partner-content .partner-boxs { overflow: hidden; }
+    .partner-content .partner-boxs span {
+        float: left; display: block; height: auto; overflow: hidden; background: #FFFFFF; text-align: center; margin-top: 3px;
+    }
+    .partner-content .partner-boxs span img { float: none; }
+    </style>
+
 <script type="text/javascript">
 $(function (){
 //合作案例
@@ -180,31 +201,36 @@ new caseWorkClass();
 
 //合作伙伴
 var partnerClass = function (){
-    // var plinksw = 990;
-    // var pcontentimgw = 978;
-    var plinksliw = parseInt($("#partner .partner-links ul li").css('width'));
-    $("#partner .partner-links ul li").css({
-        "width": plinksliw+"px"
-    });
-    var plinksw = 4*plinksliw;
-    var pcontentimgw = parseInt($("#partner .partner-boxs img").css('width'));
-    $("#partner .partner-boxs img").css({
-        "width": pcontentimgw+"px"
-    });
-
+    var pw = 24;
     //元素总数
-    var plinkslinum = $("#partner .partner-links ul li").length;
-
+    var plinkslinum = 0;
+    var plinksw = 0;
     var plinksulw = 0;
     $("#partner .partner-links ul li").each(function (){
-        plinksulw += parseInt($(this).css('width'));
+        var index = $(this).index();
+        var iw = parseInt($(this).width())+pw;
+
+        $(this).css({
+            "width": iw+"px"
+        });
+
+        if (index<4) {
+            plinksw += iw;
+        }
+        plinksulw += iw;
+
+        plinkslinum++;
     });
+    $("#partner .partner-links").css('width', plinksw+'px');
     $("#partner .partner-links ul").css('width', plinksulw+'px');
 
-    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentimgw)+'px');
+    var pcontentspanw = plinksw;
+    $("#partner .partner-content").css('width', pcontentspanw+'px');
+    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentspanw)+'px');
+    $("#partner .partner-content .partner-boxs span").css('width', pcontentspanw+'px');
 
     //mouse-hover
-    $("#partner .partner-links ul li img").hover(function (){
+    $("#partner .partner-links ul li span").hover(function (){
         $(this).parent().addClass("slts");
     }, function (){
         $(this).parent().removeClass("slts");
@@ -212,7 +238,7 @@ var partnerClass = function (){
 
     var mwidth = 0;
     //mouse-click
-    $("#partner .partner-links ul li img").click(function (){
+    $("#partner .partner-links ul li span").click(function (){
         $("#partner .partner-links ul li").removeClass("slt");
         $(this).parent().addClass("slt");
 
@@ -221,7 +247,7 @@ var partnerClass = function (){
         //partner-boxs滑动
         $("#partner .partner-boxs").clearQueue().stop(true);
         var partnerboxs = $("#partner .partner-boxs");
-        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*cindex)+'px'});
+        partnerboxs.animate({marginLeft:'-'+(pcontentspanw*cindex)+'px'});
         
         var partnerlinksul = $("#partner .partner-links ul");
 
@@ -231,7 +257,7 @@ var partnerClass = function (){
         $("#partner .partner-links ul li").each(function (){
             if (plinkslw < mwidth+plinksw) {
                 cccindex = $(this).index()-1;
-                plinkslw += parseInt($(this).css('width'));
+                plinkslw += parseInt($(this).width())+pw;
             } else if (plinkslw == mwidth+plinksw) {
                 cccindex = $(this).index()-1;
                 return false;
@@ -241,7 +267,10 @@ var partnerClass = function (){
         var ccc = plinkslw-plinksw-mwidth;
         //右边显示
         if (cindex==cccindex && cindex<plinkslinum-1) {
-            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'));
+            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'))+pw;
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        } else if (cindex == plinkslinum-2) {
+            mwidth = plinksulw-plinksw;
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         }
 
@@ -251,7 +280,7 @@ var partnerClass = function (){
         $("#partner .partner-links ul li").each(function (){
             if (plinksrw < mwidth) {
                 dddindex = $(this).index()+1;
-                plinksrw += parseInt($(this).css('width'));
+                plinksrw += parseInt($(this).width())+pw;
             } else if (plinksrw == mwidth) {
                 dddindex = $(this).index();
                 return false;
@@ -259,17 +288,21 @@ var partnerClass = function (){
         });
         var ddd = 0;
         if (plinksrw-mwidth) {
-            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'));
+            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'))+pw;
             var ddd = dwidth-(plinksrw-mwidth);
         }
         //左边显示
         if (cindex==dddindex && cindex>0) {
-            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'));
+            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'))+pw;
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         }
     });
 }
-new partnerClass();
+$(window).load(function (){
+    setTimeout(function (){
+        new partnerClass();
+    }, 100);
+});
 })
 </script>
 

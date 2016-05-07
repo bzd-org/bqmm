@@ -12,26 +12,18 @@ div { margin:0 auto; }
 
 /* 全局 */
 body { background: #fff; color: #3d3d3d; font-family: “Microsoft YaHei”, Arial, Tahoma, \5FAE\8F6F\96C5\9ED1, \5B8B\4F53; line-height: 1.5; }
-body { min-width: 320px; max-width: 640px; width:100%; margin: 0 auto; }
+body { min-width: 320px; max-width: 640px; width:100%; font-size: 14px; margin: 0 auto; }
 a:link, a:visited, a:hover, a:active { text-decoration: none; }
 a:link, a:visited, a:active { color: #3d3d3d; }
 a:hover { color: #36cab6; }
 input, select, textarea { outline: none; }
 /*h1, h2, h3, h4, h5 { overflow: hidden; }*/
-h1 { font-size: 52px; font-weight: normal; }
-h2 { font-size: 32px; font-weight: normal; }
+h1 { font-size: 36px; font-weight: normal; }
+h2 { font-size: 24px; font-weight: normal; }
 h3 { font-size: 20px; font-weight: normal; }
 h4 { font-size: 18px; font-weight: normal; }
 h5 { font-size: 14px; font-weight: normal; }
 h6 { font-size: 12px; font-weight: normal; }
-@media screen and (max-width:639px){
-  h1 { font-size: 48px; }
-  h2 { font-size: 25px; }
-  h3 { font-size: 17px; line-height: 25px; }
-  h4 { font-size: 16px; }
-  h5 { font-size: 12px; }
-  h6 { font-size: 12px; }
-}
 
 /* banner */
 .banner{ width:100%; overflow:hidden; position:relative; }
@@ -74,7 +66,6 @@ h6 { font-size: 12px; font-weight: normal; }
 }
 .topnav-title > .navico { background:url(../images/topnav_switch.png) no-repeat; background-position: 0px 0px; }
 #main-menu { overflow: hidden; background: rgba(50,51,52,1); z-index: 99999; }
-
 @media(min-width: 320px){
   .topnav-title > span.title { display: inline-block; width: 210px; }
 }
@@ -112,10 +103,10 @@ h6 { font-size: 12px; font-weight: normal; }
 a.abtn { width: 168px; height: 44px; line-height: 44px; font-size: 18px; text-align: center; display: block; border-radius: 30px; margin-right: auto; margin-left: auto; }
 a.abtn-white { border: 2px solid #FFF; color:#fff; position: absolute; left: 50%; margin-left: -50px; top: 65%; }
 a.abtn-default { border: 2px solid #40c9b6; color:#40c9b6; }
-.btn-all { width: 221px; height: 82px; background: url(../images/btn_all.png) no-repeat 0px -82px; display: block; margin-right: auto; margin-left: auto; }
+.btn-all { width: 221px; height: 82px; background: url(../images/btn_all.png) no-repeat; display: block; margin-right: auto; margin-left: auto; }
 @media screen and (max-width:639px){
-  a.abtn{width: 100px; height:30px; line-height: 26px; font-size: 13px;}
-  .btn-all { width: 98px; height: 36px; background: url(../images/btn_all.png) no-repeat 0px 0px; }
+  a.abtn{width: 100px; height:30px; line-height: 32px; font-size: 13px;}
+  .btn-all { width: 98px; height: 36px; background: url(../images/btn_all.png) no-repeat; background-size:cover; }
 }
 
 /*页脚*/

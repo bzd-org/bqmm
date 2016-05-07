@@ -19,9 +19,9 @@
         <div class="visiablebanner">&nbsp;</div>
     </div>
 
-    <div class="series-banner"><img src="__TMPL__Assets/images/series_banner.jpg" class="img-responsive"></div>
+    <div class="series-banner"><img src="__TMPL__Assets/images/series_banner.jpg" class="img-responsive center-block"></div>
 
-    <div class="main b70">
+    <div class="main">
 
         <div class="series-list">
             <foreach name="subterms" item="subterm">
@@ -35,15 +35,17 @@
                 <foreach name="subterm.posts" item="post">
                 <if condition="$post.misleft eq 1">
                     <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><i class="signs-left"></i><a href="emojiview_{$post.tid}.html" class="details"><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive"></a></li>
-                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0; border-left: 3px solid #FFF;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
                 <elseif condition="$post.misright eq 1" />
                     <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
-                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0; border-left: 3px solid #FFF;"><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details"><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive"></a></li>
+                    <li class="col-xs-6 center-block" style="padding-left: 0; padding-right: 0;"><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details"><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive"></a></li>
                 </if>
                 </foreach>
             </ul>
             <div class="clear"></div>
+            <if condition='$subterm.loadmorehide neq 1'>
             <div class="open-down loadmorebox"><a href="index.php?m=list&a=ajaxbqb&termid={$subterm.term_id}" class="loadmore" page="1">加载更多</a></div>
+            </if>
             </notempty>
             </foreach>
         </div>
@@ -57,7 +59,10 @@
 </div>
 
     <tc_include file="Common/footerbox" />
-    
+
+<style type="text/css" media="screen">
+.series-list ul li .signs-right { left: 0; }
+</style>
 <script type="text/javascript">
 $(function (){
     //加载更多

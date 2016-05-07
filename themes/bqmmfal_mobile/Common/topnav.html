@@ -16,6 +16,19 @@
     $dropdown='dropdown';
     echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
 ?>
+<style type="text/css" media="screen">
+#main-menu li.dropdown a:focus, #main-menu li.dropdown a:hover { background: none; }
+#main-menu li.dropdown ul.dropdown-menu {
+    position: relative;
+    float: none;
+    background: none;
+    margin-top: 7px;
+}
+#main-menu li.dropdown ul.dropdown-menu li {
+    margin: 15px 0;
+    display: inline-block;
+}
+</style>
 <script type="text/javascript">
 $(function (){
     $("ul#main-menu").find("li:eq(1)").remove();

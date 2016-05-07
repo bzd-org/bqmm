@@ -165,13 +165,6 @@
 
 <script type="text/javascript">
 $(function (){
-//qrcode显示
-$(".footer ul.footer-ico li i.weixin").hover(function (){
-    $(this).prev(".qrcode").fadeIn();
-}, function (){
-    $(this).prev(".qrcode").fadeOut();
-});
-
 //合作案例
 var caseWorkClass = function (){
     //circlemark高度
@@ -304,7 +297,7 @@ var partnerClass = function (){
 }
 setTimeout(function (){
     new partnerClass();
-}, 10);
+}, 100);
 })
 </script>
 

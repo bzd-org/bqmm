@@ -28,6 +28,13 @@
 </div>
 <script type="text/javascript">
 $(function (){
+//qrcode显示
+$(".footer ul.footer-ico li i.weixin").hover(function (){
+    $(this).prev(".qrcode").fadeIn();
+}, function (){
+    $(this).prev(".qrcode").fadeOut();
+});
+
     $("ul.footer-ico li i:eq(0), ul.footer-ico li i:eq(1)").hover(function (){
         $(this).css({
             "background-position": "0px -120px"

@@ -69,7 +69,7 @@ class UeditorController extends Controller {
 				
 			}else{//local
 				$host=(is_ssl() ? 'https' : 'http')."://".$_SERVER['HTTP_HOST'];
-				$file=$host.$file;
+				// $file=$host.$file;
 			}
 		} else {
 			$state = $upload->getError();
@@ -425,7 +425,7 @@ class UeditorController extends Controller {
 		
 			}else{//local
 				$host=(is_ssl() ? 'https' : 'http')."://".$_SERVER['HTTP_HOST'];
-				$url=$host.$url;
+				// $url=$host.$url;
 			}
 		} else {
 			$state = $upload->getError();

@@ -860,7 +860,7 @@ function sp_getad($ad){
  * @param string $slide 幻灯片标识
  * @return array;
  */
-function sp_getslide($slide,$limit=5,$order = "listorder ASC"){
+function sp_getslide($slide,$limit=5,$order = "listorder ASC, slide_id asc"){
     $slide_obj= M("SlideCat");
 	$join = "".C('DB_PREFIX').'slide as b on '.C('DB_PREFIX').'slide_cat.cid =b.slide_cid';
     if($order == ''){

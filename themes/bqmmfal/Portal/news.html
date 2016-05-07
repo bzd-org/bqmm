@@ -28,9 +28,9 @@
                         <div class="summary">
                             <p class="title"><a href="article_{$post.tid}.html">{$post.post_title}</a></p>
 
-                            <if condition="$post.smeta.thumb neq ''">
+                            <notempty name="post['smeta']['thumb']">
                             <img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}">
-                            </if>
+                            </notempty>
 
                             <p>{$post.post_excerpt}</p>
 

@@ -13,7 +13,7 @@
             <!--topnav-box end-->
         </div>
 
-        <div class="series-banner"><h2 class="default top"></h2></div>
+        <div class="series-banner" style="background: url({$emoji_top_banner[0]['slide_pic']});"><h2 class="default top"></h2></div>
         <!--series-banner end-->
 
         <div class="main b70" style="margin-top: -114px;">
@@ -40,7 +40,9 @@
                     </foreach>
                 </ul>
                 <div class="clear"></div>
+                <if condition='$subterm.loadmorehide neq 1'>
                 <div class="open-down loadmorebox"><a href="index.php?m=list&a=ajaxbqb&termid={$subterm.term_id}" class="loadmore" page="1"></a>加载更多表情</div>
+                </if>
                 </notempty>
                 </foreach>
 

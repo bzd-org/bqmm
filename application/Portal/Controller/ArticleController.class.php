@@ -34,15 +34,22 @@ class ArticleController extends HomebaseController {
     	$posts_model=M("Posts");
     	$posts_model->save(array("id"=>$article_id,"post_hits"=>array("exp","post_hits+1")));
     	
-    	$article_date=$article['post_modified'];
+    	$article_date=$article['post_date'];
     	
     	$join = "".C('DB_PREFIX').'posts as b on a.object_id =b.id';
     	$join2= "".C('DB_PREFIX').'users as c on b.post_author = c.id';
     	$rs= M("TermRelationships");
     	
-    	$next=$rs->alias("a")->join($join)->join($join2)->where(array("post_modified"=>array("egt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_modified asc")->find();
-    	$prev=$rs->alias("a")->join($join)->join($join2)->where(array("post_modified"=>array("elt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_modified desc")->find();
+    	$next=$rs->alias("a")->join($join)->join($join2)->where(array("post_date"=>array("egt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_date asc")->find();
+    	$prev=$rs->alias("a")->join($join)->join($join2)->where(array("post_date"=>array("elt",$article_date), "tid"=>array('neq',$id), "status"=>1,'term_id'=>$termid))->order("post_date desc")->find();
     	
+        if (!is_array($next) || empty($next)) {
+            $next = $rs->alias("a")->join($join)->join($join2)->where(array("status"=>1,'term_id'=>$termid))->order("post_date asc")->find();
+        }
+        if (!is_array($prev) || empty($prev)) {
+            $prev = $rs->alias("a")->join($join)->join($join2)->where(array("status"=>1,'term_id'=>$termid))->order("post_date desc")->find();
+        }
+
         $next['smeta'] = json_decode($next['smeta'], true);
     	$this->assign("next",$next);
         $prev['smeta'] = json_decode($prev['smeta'], true);

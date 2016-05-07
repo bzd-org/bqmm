@@ -48,6 +48,10 @@ class ListController extends HomebaseController {
         //表情包
         $this->biaoqingbao($cat_id);
 
+        //表情包banner
+        $emoji_top_banner = sp_getslide('emoji_top_banner', 99);
+        $this->assign('emoji_top_banner', $emoji_top_banner);
+
         $p = intval($_GET['p']);
         $p = $p ? $p : 1;
         $this->assign('p', $p);
@@ -77,7 +81,7 @@ class ListController extends HomebaseController {
         $term = sp_get_term($termid);
         $this->assign('term', $term);
 
-        $tag = 'order:istop desc, post_date desc;';
+        $tag = 'order:istop desc, listorder asc, post_date desc;';
         $pagelink = array('index'=>'news.html', 'list'=>'news.html&p={page}');
         $posts = sp_sql_posts_paged_bycatid($termid, $tag, $pagesize, '{liststart}{list}{listend}', $pagelink);
 
@@ -108,12 +112,14 @@ class ListController extends HomebaseController {
 
         $aaa = 0;
         foreach ($subterms as $k=>$subterm) {
-            $tag = 'cid:'.$subterm['term_id'].'order:istop desc, post_date desc;limit:0,6;';
+            $tag = 'cid:'.$subterm['term_id'].'order:istop desc, listorder asc, post_date desc;limit:0,9999;';
             $posts = sp_sql_posts($tag);
 
             $flag = 1;
             $nnn = 0;
             foreach ($posts as $pk=>$post) {
+                if ($pk >= 6) continue;
+
                 $posts[$pk]['smeta'] = json_decode($post['smeta'], true);
 
                 if ($pk==0 && $post['istop']) {
@@ -150,6 +156,7 @@ class ListController extends HomebaseController {
                 $aaa = 1;
             }
 
+            $subterms[$k]['loadmorehide'] = count($posts)<=6 ? 1 : 0;
             $subterms[$k]['posts'] = is_array($posts) ? $posts : array();
         }
         $this->assign('subterms', $subterms);
@@ -166,8 +173,8 @@ class ListController extends HomebaseController {
 
     	$start = 6+($page-1)*4;
     	$end = $start+4;
-    	$tag = 'order:istop desc, post_date desc;';
-        $posts = sp_sql_posts_bycatid($termid,$tag);
+    	$tag = 'cid:'.$termid.'order:istop desc, listorder asc, post_date desc;limit:0,9999;';
+        $posts = sp_sql_posts($tag);
 
         $termposts = array();
         $flag = 1;
@@ -210,7 +217,7 @@ class ListController extends HomebaseController {
         $html = $this->fetch("/Public/postsboxitem");
 
         $this->majaxReturn(0,'',array(
-        	'loadmorehide' => $end>=count($posts) ? 1 : 0,
+        	'loadmorehide' => count($posts)<=$end ? 1 : 0,
         	'html' => $html
         ));
     }

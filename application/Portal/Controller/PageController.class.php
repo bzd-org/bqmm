@@ -27,8 +27,9 @@ class PageController extends HomebaseController{
         $this->seo['keywords'] = $content['post_keywords'].' '.$this->seo['keywords'];
         $this->seo['description'] = $content['post_excerpt'].' '.$this->seo['description'];
         $this->assign('seo', $this->seo);
-        
+
         $this->assign($content);
+        $this->assign('pageinfo', $content);
         $smeta=json_decode($content['smeta'],true);
         $tplname=isset($smeta['template'])?$smeta['template']:"";
         
@@ -39,7 +40,7 @@ class PageController extends HomebaseController{
         $this->assign('faq', $faq);
 
         //about_banner
-        $about_banner = sp_getslide('about_banner');
+        $about_banner = sp_getslide('about_banner',99);
         $this->assign('about_banner', $about_banner);
 
         //about_bqy
@@ -99,12 +100,15 @@ class PageController extends HomebaseController{
         $this->assign('about_culture', $about_culture);
 
         //about_contact
-        $about_contact = sp_getslide('about_contact');
+        $about_contact = sp_getslide('about_contact', 99);
         $this->assign('about_contact', $about_contact);
 
         //hlinks
         $hlinks = sp_getlinks();
         $this->assign('hlinks', $hlinks);
+
+        //下载页 slide
+        $this->downloadslide();
 
         // dump($hlinks);exit;
         $this->display(":$tplname");
@@ -120,5 +124,34 @@ class PageController extends HomebaseController{
                 ),
                 "label"=>"post_title");
         exit( sp_get_nav4admin($navcatname,$datas,$navrule) );
+    }
+
+    //下载页slide
+    public function downloadslide()
+    {
+        $download_banners = array(
+            'download_im',
+            'download_comment',
+            'download_websdk',
+            'download_huanxin',
+            'download_rongyun',
+            'download_qinjia',
+            'download_leancloud',
+            'download_imdemo',
+            'download_commentdemo',
+        );
+
+        foreach ($download_banners as $bannerflag) {
+            //bannerflag
+            $bannerflagslide = sp_getslide($bannerflag, 99);
+            foreach ($bannerflagslide as $k=>$d) {
+                $des = explode('|', $d['slide_des']);
+                $bannerflagslide[$k]['version'] = $des[0];
+                $bannerflagslide[$k]['dt'] = $des[1];
+
+                $bannerflagslide[$d['slide_name']] = $bannerflagslide[$k];
+            }
+            $this->assign($bannerflag, $bannerflagslide);
+        }
     }
 }

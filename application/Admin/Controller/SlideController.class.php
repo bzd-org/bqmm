@@ -31,7 +31,7 @@ class SlideController extends AdminbaseController{
 			$where="slide_cid=$cid";
 		}
 		$this->assign("slide_cid",$cid);
-		$slides=$this->slide_model->where($where)->order("listorder ASC")->select();
+		$slides=$this->slide_model->where($where)->order("listorder ASC, slide_id asc")->select();
 		$this->assign('slides',$slides);
 		$this->display();
 	}

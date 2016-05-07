@@ -295,9 +295,11 @@ var partnerClass = function (){
         }
     });
 }
-setTimeout(function (){
-    new partnerClass();
-}, 100);
+$(window).load(function (){
+    setTimeout(function (){
+        new partnerClass();
+    }, 100);
+});
 })
 </script>
 

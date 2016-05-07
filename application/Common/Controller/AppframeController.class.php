@@ -139,4 +139,33 @@ class AppframeController extends Controller {
     	}
     }
 
+    public function sendmail($address=null, $name=null, $title=null, $body=null)
+    {
+        //发送邮件
+        require(VENDOR_PATH."PHPMailer-5.2.14/class.phpmailer.php");
+        require(VENDOR_PATH."PHPMailer-5.2.14/class.smtp.php");
+        $mail = new \PHPMailer();
+        $mail->IsSMTP();
+        // $mail->SMTPDebug = 1;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = "ssl";
+        $mail->Host = "smtp.qq.com";
+        $mail->Port = 465;
+        $mail->Username = "250175411@qq.com";
+        $mail->Password = "fzibvacpdtpfcafg";
+        $mail->SetFrom("250175411@qq.com", "步知道");
+        $mail->AddReplyTo("250175411@qq.com", "步知道");
+
+        $mail->CharSet = "UTF-8";
+        $mail->Encoding = "base64";
+        $mail->AddAddress($address, $name);
+
+        // 邮件主题
+        $mail->Subject = $title;
+        // 邮件内容
+        $mail->Body = $body;
+        $mail->AltBody = "text/html";
+        $mail->IsHTML(true);
+        $mail->Send();
+    }
 }

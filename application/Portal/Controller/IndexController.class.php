@@ -24,6 +24,10 @@ class IndexController extends HomebaseController {
         //合作伙伴
         $this->slidehzhb();
 
+        //index_bottom_icon
+        $index_bottom_icon = sp_getslide('index_bottom_icon', 99);
+        $this->assign('index_bottom_icon', $index_bottom_icon);
+
     	$this->display(":index");
     }
 

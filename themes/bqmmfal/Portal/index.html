@@ -89,7 +89,7 @@
                         <ul>
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png" width="80" height="80"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}"><b>{$banner.slide_name}</b></a></li>
+                            <li><a href="javascript:;" target="_blank"><span><img src="{$banner.slide_icon}"></span><b>{$banner.slide_name}</b></a></li>
                             </foreach>
                         </ul>
                         </foreach>
@@ -99,16 +99,23 @@
             </div>
         </div>
     </div>
+    <style type="text/css" media="screen">
+    .case-work ul li { width: auto; height: 122px; margin: 0 15px 15px 15px; overflow: hidden; }
+    .case-work ul li a { display: inline-block; }
+    .case-work ul li span { display: block; height: 80px; overflow: hidden; }
+    .case-work ul li img { width: auto; height: auto; }
+    .case-work ul li b { display: block; }
+    </style>
 
     <div class="module-box module5">
-        <div class="main-content">
+        <div class="main-content" style="width: auto;">
             <h2 class="top50">合作伙伴</h2>
             <div id="partner" class="partner">
                 <div class="partner-links">
                     <ul>
                         <!-- <li class="slt"><img src="__TMPL__Assets/images/partnericon/ydg.png" width="80" height="80"><b>运动咖</b></li> -->
                         <foreach name="slidehzhblist" item="banner">
-                        <li class="{$banner.class}"><img src="{$banner.slide_icon}"><b>{$banner.slide_name}</b></li>
+                        <li class="{$banner.class}"><span><img src="{$banner.slide_icon}"></span><b>{$banner.slide_name}</b></li>
                         </foreach>
                     </ul>
                 </div>
@@ -116,7 +123,7 @@
                     <div class="partner-boxs">
                         <!-- <img src="__TMPL__Assets/images/partnericon/pai_content.png" width="978" height="492"> -->
                         <foreach name="slidehzhblist" item="banner">
-                        <img src="{$banner.slide_pic}" width="978" height="492">
+                        <span><img src="{$banner.slide_pic}"></span>
                         </foreach>
                     </div>
                 </div>
@@ -124,15 +131,27 @@
         </div>
     </div>
     <!--partner end-->
+    <style type="text/css" media="screen">
+    .partner-links ul li { width: auto; height: 167px; overflow: hidden; padding: 0 12px; margin: 0; }
+    .partner-links ul li span { display: block; height: 90px; overflow: hidden; cursor: pointer; }
+    .partner-links ul li img { width: auto; height: auto; }
+    .partner-links ul li b { display: block; }
+    .partner-content { width: 0px; height: auto; border: 2px solid #F1F1F1; background: #FFFFFF; margin-top: -2px; }
+    .partner-content .partner-boxs { overflow: hidden; }
+    .partner-content .partner-boxs span {
+        float: left; display: block; height: auto; overflow: hidden; background: #FFFFFF; text-align: center; margin-top: 3px;
+    }
+    .partner-content .partner-boxs span img { float: none; }
+    </style>
 
     <div class="module-box module6">
         <div class="contact">
             <form name="contactform" method="post" action="{:U('api/guestbook/savemsg')}">
                 <h2 class="b15 white">联系我们</h2>
 
-                <input name="full_name" type="text" placeholder="您的姓名">
-                <input name="title" type="text" placeholder="公司名称">
-                <input name="email" type="text" placeholder="邮箱地址">
+                <input name="full_name" value="" type="text" placeholder="您的姓名">
+                <input name="title" value="" type="text" placeholder="公司名称">
+                <input name="email" value="" type="text" placeholder="邮箱地址">
                 <textarea name="msg" cols="" placeholder="需求明细"></textarea>
 
                 <button type="submit" name="subtn">完成发送</button>
@@ -190,22 +209,32 @@ new caseWorkClass();
 $(function (){
 //合作伙伴
 var partnerClass = function (){
-    var plinksw = 990;
-    var pcontentimgw = 978;
-
+    var pw = 24;
     //元素总数
-    var plinkslinum = $("#partner .partner-links ul li").length;
-
+    var plinkslinum = 0;
+    var plinksw = 0;
     var plinksulw = 0;
     $("#partner .partner-links ul li").each(function (){
-        plinksulw += parseInt($(this).css('width'));
+        var index = $(this).index();
+        var iw = parseInt($(this).width())+pw;
+
+        if (index<9) {
+            plinksw += iw;
+        }
+        plinksulw += iw;
+
+        plinkslinum++;
     });
+    $("#partner .partner-links").css('width', plinksw+'px');
     $("#partner .partner-links ul").css('width', plinksulw+'px');
 
-    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentimgw)+'px');
+    var pcontentspanw = plinksw;
+    $("#partner .partner-content").css('width', pcontentspanw+'px');
+    $("#partner .partner-content .partner-boxs").css('width', (plinkslinum*pcontentspanw)+'px');
+    $("#partner .partner-content .partner-boxs span").css('width', pcontentspanw+'px');
 
     //mouse-hover
-    $("#partner .partner-links ul li img").hover(function (){
+    $("#partner .partner-links ul li span").hover(function (){
         $(this).parent().addClass("slts");
     }, function (){
         $(this).parent().removeClass("slts");
@@ -213,7 +242,7 @@ var partnerClass = function (){
 
     var mwidth = 0;
     //mouse-click
-    $("#partner .partner-links ul li img").click(function (){
+    $("#partner .partner-links ul li span").click(function (){
         $("#partner .partner-links ul li").removeClass("slt");
         $(this).parent().addClass("slt");
 
@@ -222,7 +251,7 @@ var partnerClass = function (){
         //partner-boxs滑动
         $("#partner .partner-boxs").clearQueue().stop(true);
         var partnerboxs = $("#partner .partner-boxs");
-        partnerboxs.animate({marginLeft:'-'+(pcontentimgw*cindex)+'px'});
+        partnerboxs.animate({marginLeft:'-'+(pcontentspanw*cindex)+'px'});
         
         var partnerlinksul = $("#partner .partner-links ul");
 
@@ -232,7 +261,7 @@ var partnerClass = function (){
         $("#partner .partner-links ul li").each(function (){
             if (plinkslw < mwidth+plinksw) {
                 cccindex = $(this).index()-1;
-                plinkslw += parseInt($(this).css('width'));
+                plinkslw += parseInt($(this).width())+pw;
             } else if (plinkslw == mwidth+plinksw) {
                 cccindex = $(this).index()-1;
                 return false;
@@ -242,7 +271,10 @@ var partnerClass = function (){
         var ccc = plinkslw-plinksw-mwidth;
         //右边显示
         if (cindex==cccindex && cindex<plinkslinum-1) {
-            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'));
+            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'))+pw;
+            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+        } else if (cindex == plinkslinum-2) {
+            mwidth = plinksulw-plinksw;
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         }
 
@@ -252,7 +284,7 @@ var partnerClass = function (){
         $("#partner .partner-links ul li").each(function (){
             if (plinksrw < mwidth) {
                 dddindex = $(this).index()+1;
-                plinksrw += parseInt($(this).css('width'));
+                plinksrw += parseInt($(this).width())+pw;
             } else if (plinksrw == mwidth) {
                 dddindex = $(this).index();
                 return false;
@@ -260,17 +292,19 @@ var partnerClass = function (){
         });
         var ddd = 0;
         if (plinksrw-mwidth) {
-            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'));
+            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'))+pw;
             var ddd = dwidth-(plinksrw-mwidth);
         }
         //左边显示
         if (cindex==dddindex && cindex>0) {
-            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'));
+            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'))+pw;
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         }
     });
 }
-new partnerClass();
+setTimeout(function (){
+    new partnerClass();
+}, 10);
 })
 </script>
 

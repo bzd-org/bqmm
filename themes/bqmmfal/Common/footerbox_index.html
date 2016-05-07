@@ -1,11 +1,19 @@
 <div class="footer-box">
     <div class="footer">
         <ul class="footer-ico">
-            <li><div class="qrcode"></div><i class="weixin"></i>表情云</li>
-            <li><a href="http://weibo.com/biaoqingmm" target="_blank"><i class="weibo"></i></a>表情MM</li>
-            <li><i class="qq"></i>技术支持：<br>387318208</li>
-            <li><i class="phone"></i>021-87743085</li>
-            <li><i class="add"></i>徐汇区漕溪北路737弄<br>1号楼1201室</li>
+            <foreach name="index_bottom_icon" item="banner">
+            <li>
+                <if condition="$banner.slide_pic neq ''">
+                <div class="qrcode" style="background:url({$banner.slide_pic});"></div>
+                </if>
+                <if condition="$banner.slide_url neq ''">
+                <a href="{$banner.slide_url}" target="_blank"><i class="weixin" style="background:url({$banner.slide_icon});"></i></a>
+                <else />
+                <i class="weixin" style="background:url({$banner.slide_icon});"></i>
+                </if>
+                <span>{$banner.slide_name}<br/>{$banner.slide_content}</span>
+            </li>
+            </foreach>
         </ul>
 
         <a href="about.html" class="foot-link">公司介绍</a> /
@@ -18,3 +26,16 @@
         <p class="copyno">沪ICP备13039580号-2</p>
     </div>
 </div>
+<script type="text/javascript">
+$(function (){
+    $("ul.footer-ico li i:eq(0), ul.footer-ico li i:eq(1)").hover(function (){
+        $(this).css({
+            "background-position": "0px -120px"
+        });
+    }, function (){
+        $(this).css({
+            "background-position": "0px 0px"
+        });
+    });
+})
+</script>

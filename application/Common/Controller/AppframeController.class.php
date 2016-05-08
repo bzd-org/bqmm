@@ -168,4 +168,34 @@ class AppframeController extends Controller {
         $mail->IsHTML(true);
         $mail->Send();
     }
+
+    public function sendmail_bak($address=null, $name=null, $title=null, $body=null)
+    {
+        //发送邮件
+        require(VENDOR_PATH."PHPMailer-5.2.14/class.phpmailer.php");
+        require(VENDOR_PATH."PHPMailer-5.2.14/class.smtp.php");
+        $mail = new \PHPMailer();
+        $mail->IsSMTP();
+        $mail->SMTPDebug = 1;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = "ssl";
+        $mail->Host = C('SP_MAIL_SMTP');
+        $mail->Port = 465;
+        $mail->Username = C('SP_MAIL_LOGINNAME');
+        $mail->Password = C('SP_MAIL_PASSWORD');
+        $mail->SetFrom(C('SP_MAIL_ADDRESS'), C('SP_MAIL_SENDER'));
+        $mail->AddReplyTo(C('SP_MAIL_ADDRESS'), C('SP_MAIL_SENDER'));
+
+        $mail->CharSet = "UTF-8";
+        $mail->Encoding = "base64";
+        $mail->AddAddress($address, $name);
+
+        // 邮件主题
+        $mail->Subject = $title;
+        // 邮件内容
+        $mail->Body = $body;
+        $mail->AltBody = "text/html";
+        $mail->IsHTML(true);
+        $mail->Send();
+    }
 }

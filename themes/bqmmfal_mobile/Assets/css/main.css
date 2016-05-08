@@ -1,11 +1,8 @@
 @charset "utf-8";
-.index-top { width:100%; height:72px; background:#323334; position:relative; }
+.index-top { width:100%; height:42px; background:#323334; position:relative; }
 .wrap { width: 100%; min-height: 100%; min-height: calc(100% - 100px); }
 .wrap-bg { background: #f7f7f7 url(../images/bg.png) repeat center top; min-width: 320px; overflow: hidden; }
 .main { width:100%; height:auto; margin-left: auto; margin-right: auto; }
-@media screen and (max-width:639px){
-  .index-top { height:54px; }
-}
 /*banner*/
 .banner, .b-img div{ height:469px; }
 @media screen and (max-width:639px){.banner, .b-img div { height:235px; }}
@@ -144,6 +141,25 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .faq dl { margin-bottom: 30px; }
 .faq dl dt { color: #303030;  font-size: 20px; }
 .faq dl dd { font-size: 16px;  margin-top: 10px;  color: #878787;  line-height: 23px; }
+
+/*SDK*/
+.sdk-bg { background: #fafafa; width: 100%; height: auto; overflow: hidden; }
+.sdk-bg1 { background:#fafafa url(../images/sdk_complete.png) no-repeat center bottom; background-size:100% auto; margin-bottom: -35px; }
+.sdk-box { width: calc(100% - 20px); height:auto; margin: 20px auto 35px; overflow: hidden; }
+.sdk-box .progress-bar { width: 300px; height: 50px; background: url(../images/sdk_bar.png);margin: 25px auto 40px; background-size:cover; }
+table.sdk { margin: 0 auto; }
+table.sdk th { font-size: 16px; font-weight: normal;}
+table.sdk td { color:#a8a8a8; }
+table.sdk th, table.sdk td { padding: 10px 5px; }
+table.sdk .input-bg { width: 204px; height: 24px; line-height: 24px; border: 2px solid #e1e1e1; border-radius: 27px;}
+table.sdk .input-ico1 { background:#fff url(../images/sdk_ipt1.png) no-repeat; background-size:24px; }
+table.sdk .input-ico2 { background:#fff url(../images/sdk_ipt2.png) no-repeat; background-size:24px; }
+table.sdk .input-ico3 { background:#fff url(../images/sdk_ipt3.png) no-repeat; background-size:24px; }
+table.sdk .input-ico4 { background:#fff url(../images/sdk_ipt4.png) no-repeat; background-size:24px; }
+table.sdk .input-ico5 { background:#fff url(../images/sdk_ipt5.png) no-repeat; background-size:24px; }
+table.sdk .input-bg input { width: 170px; height: 20px; float: right; margin: 2px 10px 0 0; font-size: 14px; border: none; }
+table.sdk input.btn { width: 208px; height: 28px; line-height: 28px; background: #36cab6; text-align: center; color: #fff; font-size: 16px; border: none; cursor: pointer;border-radius: 27px; }
+.sdk-c { width: 60%; height: auto; padding: 10% 20% 240px; color: #a8a8a8; font-size: 16px; text-align: center; overflow: hidden; table-layout:fixed; word-break: break-all; }
 
 /*服务协议*/
 .protocol { padding: 20px; background: #EAE9E9; border-radius: 5px; line-height: 25px; font-size: 14px; }

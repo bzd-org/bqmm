@@ -12,7 +12,7 @@
     #FAQ
     RewriteRule ^faq.html$ index.php/?m=page&a=index&id=3 [PT]
     #申请接入
-    RewriteRule ^sdkaccess.html$ index.php/?m=page&a=index&id=26 [PT]
+    RewriteRule ^sdkaccess.html$ index.php/?m=page&a=index&id=28 [PT]
 
     #公司介绍
     RewriteRule ^about.html$ index.php/?m=page&a=index&id=5 [PT]

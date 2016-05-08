@@ -11,6 +11,8 @@
     RewriteRule ^emojiview_([1-9][0-9]*).html$ index.php/?m=article&a=index&id=$1&type=bq [PT]
     #FAQ
     RewriteRule ^faq.html$ index.php/?m=page&a=index&id=3 [PT]
+    #申请接入
+    RewriteRule ^sdkaccess.html$ index.php/?m=page&a=index&id=26 [PT]
 
     #公司介绍
     RewriteRule ^about.html$ index.php/?m=page&a=index&id=5 [PT]

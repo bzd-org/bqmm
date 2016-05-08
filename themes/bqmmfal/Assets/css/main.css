@@ -133,7 +133,7 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .ptl { float: left; }
 .ptm { margin-left: auto; margin-right: auto; }
 .ptr { float: right; }
-.product-text { background: #fff; width: 588px; height: auto; max-height: 200px; min-height: 100px; text-align: left; border: 2px solid #f5f5f5; border-radius: 8px; overflow: hidden; padding: 18px; margin-top: 28px; }
+.product-text { background: #fff; width: 588px; height: auto; min-height: 158px; text-align: left; border: 2px solid #f5f5f5; border-radius: 8px; overflow: hidden; padding: 18px; margin-top: 28px; }
 .product-text b { font-size: 20px; width: 100%; padding-bottom: 10px; display: block; }
 .product-text-box .pointer { background: url(../images/images.png) no-repeat -40px 0px; height: 30px; width: 28px; position: absolute; }
 .ptl .pointer { left:100px; }
@@ -168,12 +168,29 @@ dd a.demo:hover { color: #b2e9e1; border: 2px solid #b2e9e1; }
 .faq dl dt { color: #303030;  font-size: 24px;  padding: 0 10px; }
 .faq dl dd { font-size: 16px;  margin-top: 15px;  color: #878787;  line-height: 30px; padding-left: 20px; }
 
+/*SDK*/
+.sdk-bg { background: #fafafa; width: 100%; height: auto; overflow: hidden; }
+.sdk-box { width:1120px; height:auto; margin: 40px auto 70px; overflow: hidden; }
+.sdk-box .progress-bar { width: 600px; height: 100px; background: url(../images/sdk_bar.png);margin: 25px auto 40px; }
+table.sdk th { font-size: 24px; font-weight: normal;}
+table.sdk td { color:#a8a8a8; }
+table.sdk th, table.sdk td { padding: 15px; }
+table.sdk .input-bg { width: 396px; height: 50px; line-height: 50px; background:#fff url(../images/images.png) no-repeat; border: 2px solid #e1e1e1; border-radius: 27px;}
+table.sdk .input-ico1 { background-position:-450px 0; }
+table.sdk .input-ico2 { background-position:-450px -60px; }
+table.sdk .input-ico3 { background-position:-450px -120px; }
+table.sdk .input-ico4 { background-position:-450px -180px; }
+table.sdk .input-ico5 { background-position:-450px -240px; }
+table.sdk .input-bg input { width: 330px; height: 42px; float: right; margin: 2px 16px 0 0; font-size: 18px; border: none; }
+table.sdk input.btn { width: 400px; height: 54px; line-height: 54px; background: #36cab6; text-align: center; color: #fff; font-size: 24px; border: none; cursor: pointer;border-radius: 27px; }
+table.sdk input.btn:hover { background: #38b4a3; }
+.sdk-c { width: 763px; height: 109px; background: url(../images/sdk_complete.png) no-repeat; margin: 0 auto; padding: 145px 100px 190px; color: #a8a8a8; font-size: 21px; text-align: center;}
+
 /*服务协议*/
 .protocol { padding: 20px; background: #EAE9E9; border-radius: 5px; line-height: 25px; font-size: 14px; }
 .protocol p { margin: 0 0 1em; }
 .protocol ul li { list-style-type: disc; text-indent:2em; list-style-position:inside; }
 .protocol ul li ul li { list-style-type: circle; text-indent:4em; }
-
 
 /*页脚*/
 .footer-box { height: 100px; line-height: auto; overflow: hidden; }

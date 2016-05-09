@@ -27,9 +27,9 @@
                     <a href="article_{$post.tid}.html">
                         <div class="title"><i>{$post.post_title}</i><i class="date">{:substr($post['post_date'], 0, 4)}/{:substr($post['post_date'], 5, 2)}/{:substr($post['post_date'], 8, 2)}</i></div>
                         <div class="summary">
-                            <if condition="$post.smeta.thumb neq ''">
-                            <img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" class="img-responsive">
-                            </if>
+                            <notempty name="post['smeta']['thumb']">
+                            <img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}">
+                            </notempty>
 
                             <p style="margin-top: 10px; line-height: 25px; letter-spacing: 1px;">{$post.post_excerpt}</p>
 

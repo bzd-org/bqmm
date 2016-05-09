@@ -50,7 +50,7 @@ h6 { font-size: 12px; font-weight: normal; }
 .topnav-title { color: #fff; width: 100%; font-size: 18px; text-align: center; display: block; overflow: hidden;  line-height: 36px;}
 .topnav-title > .homeico, .topnav-title > .navico { width:36px; height:36px; display: inline-block; }
 .topnav-title > .homeico { background:url(../images/home_icon.png) no-repeat; background-size:cover;  float: left; }
-.topnav-title > span.title { display: inline-block; height: 42px; line-height: 42px; overflow: hidden; vertical-align: top; }
+.topnav-title > span.title { display: inline-block; height: 36px; line-height: 36px; overflow: hidden; vertical-align: top; }
 .topnav-title > .navico { background-position: -256px -90px; float: right; }
 .topnav-title .logo { display: inline-block; margin: 6px; }
 .topnav-title .logo a { display: block; }

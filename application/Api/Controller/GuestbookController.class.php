@@ -8,6 +8,7 @@ class GuestbookController extends AppframeController{
 	function _initialize() {
 		parent::_initialize();
 		$this->guestbook_model=D("Common/Guestbook");
+		$this->sdkaccess_model=D("Common/Sdkaccess");
 	}
 	
 	function index(){
@@ -62,7 +63,42 @@ class GuestbookController extends AppframeController{
 				}
 			} else {
 				// $this->error($this->guestbook_model->getError());
-				$this->majaxReturn(1, '留言失败！');
+				$this->majaxReturn(1, $this->guestbook_model->getError());
+			}
+		}
+	}
+
+	//保存留言
+	public function savesdkaccess()
+	{
+		if (IS_POST) {
+			if ($this->sdkaccess_model->create()) {
+				$result=$this->sdkaccess_model->add();
+				if ($result!==false) {
+					$product = htmlentities($_REQUEST['product']);
+					$fullname = htmlentities($_REQUEST['fullname']);
+					$company = htmlentities($_REQUEST['company']);
+					$email = htmlentities($_REQUEST['email']);
+					$qq = htmlentities($_REQUEST['qq']);
+
+					//发送邮件
+					$body = '
+			            <h3>姓名：'.$fullname.'</h3>
+			            <h3>Q Q：'.$qq.'</h3>
+			            <h3>公司：'.$company.'</h3>
+			            <h3>产品：'.$product.'</h3>
+			        ';
+					$this->sendmail($email, $fullname, $company, $body);
+
+					// $this->success("留言成功！");
+					$this->majaxReturn(0, '留言成功！');
+				} else {
+					// $this->error("留言失败！");
+					$this->majaxReturn(1, '留言失败！');
+				}
+			} else {
+				// $this->error($this->sdkaccess_model->getError());
+				$this->majaxReturn(1, $this->sdkaccess_model->getError());
 			}
 		}
 	}

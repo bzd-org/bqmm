@@ -139,7 +139,7 @@ class AppframeController extends Controller {
     	}
     }
 
-    public function sendmail($address=null, $name=null, $title=null, $body=null)
+    public function sendmail_bak($address=null, $name=null, $title=null, $body=null)
     {
         //发送邮件
         require(VENDOR_PATH."PHPMailer-5.2.14/class.phpmailer.php");
@@ -169,18 +169,18 @@ class AppframeController extends Controller {
         $mail->Send();
     }
 
-    public function sendmail_bak($address=null, $name=null, $title=null, $body=null)
+    public function sendmail($address=null, $name=null, $title=null, $body=null)
     {
         //发送邮件
         require(VENDOR_PATH."PHPMailer-5.2.14/class.phpmailer.php");
         require(VENDOR_PATH."PHPMailer-5.2.14/class.smtp.php");
         $mail = new \PHPMailer();
         $mail->IsSMTP();
-        $mail->SMTPDebug = 1;
+        // $mail->SMTPDebug = 1;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = "ssl";
         $mail->Host = C('SP_MAIL_SMTP');
-        $mail->Port = 465;
+        $mail->Port = (int)C('SP_MAIL_SMTP_PORT');
         $mail->Username = C('SP_MAIL_LOGINNAME');
         $mail->Password = C('SP_MAIL_PASSWORD');
         $mail->SetFrom(C('SP_MAIL_ADDRESS'), C('SP_MAIL_SENDER'));

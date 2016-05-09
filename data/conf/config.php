@@ -12,7 +12,7 @@
   'HTML_CACHE_ON' => false,
   'SP_MAIL_ADDRESS' => '250175411@qq.com',
   'SP_MAIL_SENDER' => '步知道',
-  'SP_MAIL_SMTP' => 'qq.smtp.com',
+  'SP_MAIL_SMTP' => 'smtp.qq.com',
   'SP_MAIL_SMTP_PORT' => '465',
   'SP_MAIL_LOGINNAME' => '250175411@qq.com',
   'SP_MAIL_PASSWORD' => 'fzibvacpdtpfcafg',

@@ -13,57 +13,87 @@
             <!--topnav-box end-->
         </div>
 
-        <div class="sdk-bg">
+        <div id="sdkaccessbox" class="sdk-bg">
             <div class="sdk-box">
                 <h2 class="tc gray1">表情云SDK 接入申请</h2>
                 <div class="progress-bar"></div>
 
+                <form name="sdkaccessform" method="post" action="/index.php?g=api&m=guestbook&a=savesdkaccess">
                 <table width="1030" border="0" class="sdk">
                     <tr>
                         <th width="340" align="right">产品名称*</th>
-                        <td width="400"><div class="input-bg input-ico1"><input name="" type="text" /></div></td>
+                        <td width="400"><div class="input-bg input-ico1"><input name="product" type="text" /></div></td>
                         <td>*为必填项</td>
                     </tr>
                     <tr>
                         <th align="right">姓名*&nbsp;</th>
-                        <td><div class="input-bg input-ico2"><input name="" type="text" /></div></td>
+                        <td><div class="input-bg input-ico2"><input name="fullname" type="text" /></div></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <th align="right">公司*&nbsp;</th>
-                        <td><div class="input-bg input-ico3"><input name="" type="text" /></div></td>
+                        <td><div class="input-bg input-ico3"><input name="company" type="text" /></div></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
-                        <th align="right">邮箱*&nbsp;</th>
-                        <td><div class="input-bg input-ico4"><input name="" type="text" /></div>我们会把key发到您的邮箱之类的一句话</td>
-                        <td><span class="red">请填写正确的邮箱地址</span></td>
+                        <th align="right" style="padding-top: 0;">邮箱*&nbsp;</th>
+                        <td><div class="input-bg input-ico4"><input name="email" type="text" /></div><span>我们会把key发到您的邮箱</span></td>
+                        <td style="padding-top: 0;"><span id="msg-email" class="red" style="display: none;">*请填写正确的邮箱地址</span></td>
                     </tr>
                     <tr>
                         <th align="right">QQ&nbsp;</th>
-                        <td><div class="input-bg input-ico5"><input name="" type="text" /></div></td>
+                        <td><div class="input-bg input-ico5"><input name="qq" type="text" /></div></td>
                         <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><a href="sdkaccess.html"><input name="" type="button" value="提交申请" class="btn"/></a></td>
+                        <td><input name="" type="submit" value="提交申请" class="btn"/></td>
                         <td>&nbsp;</td>
                     </tr>
                 </table>
             </div>
         </div>
 
-        <!-- <div class="sdk-bg">
+        <div id="sdkaccesscomplete" class="sdk-bg" style="display: none;">
             <div class="sdk-box">
                 <div class="sdk-c">
-                   blablablablablablablablablablablablablablablablablablablablablablablablablablabla,<br>blablablablablablablablablablablablablablablablabla
+                   请稍候<br/>我们会把key发到您的邮箱
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="clear"></div>
     </div>
 
     <tc_include file="Common/footerbox" />
 
+<script type="text/javascript">
+$(function (){
+$("form[name=sdkaccessform]").submit(function (){
+    if (!$(this).find("input[name=fullname]").val()) {
+        alert("请填写您的姓名！");
+        return false;
+    }
+    if (!$(this).find("input[name=company]").val()) {
+        alert("请填写公司！");
+        return false;
+    }
+    if (!$(this).find("input[name=email]").val()) {
+        alert("请填写邮箱！");
+        return false;
+    }
+    $.post($(this).attr("action"), $(this).serialize(), function (data){
+        if (data.error) {
+            alert(data.msg);
+        } else {
+            document.sdkaccessform.reset();
+            $("#sdkaccessbox").hide();
+            $("#sdkaccesscomplete").show();
+        }
+    });
+
+    return false;
+});
+})
+</script>
 <tc_include file="Common/foot" />

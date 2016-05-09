@@ -9,9 +9,8 @@
     <div class="topnav-box">
         <div class="topnav-title">
             <div class="logo ftl">
-                <a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png"></a>
+                <a href="__ROOT__/"><img src="__TMPL__Assets/images/logo.png" class="img-responsive"></a>
             </div>
-            &nbsp;
             <a href="javascript:;" id="navico" class="navico"></a>
         </div>
         <div id="topnav" class="topnav">
@@ -96,7 +95,10 @@
                         <ul>
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li style="margin: 0 7px;"><a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"><b>{$banner.slide_name}</b></a></li>
+                            <li style="margin: 0 7px;">
+                                <a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"></a>
+                                <b>{$banner.slide_name}</b>
+                            </li>
                             </foreach>
                         </ul>
                         </foreach>
@@ -128,7 +130,10 @@
                 <div class="partner-links row">
                     <ul>
                         <foreach name="slidehzhblist" item="banner">
-                        <li class="{$banner.class}"><span><img src="{$banner.slide_icon}" class="img-responsive img-rounded center-block"></span><b>{$banner.slide_name}</b></li>
+                        <li class="{$banner.class}">
+                            <span><img src="{$banner.slide_icon}" class="img-responsive img-rounded center-block"></span>
+                            <b>{$banner.slide_name}</b>
+                        </li>
                         </foreach>
                     </ul>
                 </div>
@@ -143,8 +148,8 @@
         </div>
     </div>
     <style type="text/css" media="screen">
-    .partner-links ul li { padding: 0 12px; margin: 0; padding-bottom: 30px; }
-    .partner-links ul li span { display: block; height: 65px; overflow: hidden; cursor: pointer; }
+    .partner-links ul li { padding: 0 10px; margin: 0; padding-bottom: 30px; width: 25%; }
+    .partner-links ul li span { display: block; height: auto; overflow: hidden; cursor: pointer; }
     .partner-links ul li img { width: auto; height: auto; max-height: 60px; }
     .partner-links ul li b { display: block; }
     .partner-content { width: auto; height: auto; border: 2px solid #F1F1F1; background: #FFFFFF; margin-top: -2px; }
@@ -201,18 +206,21 @@ new caseWorkClass();
 
 //合作伙伴
 var partnerClass = function (){
-    var pw = 24;
+    var pw = 20;
     //元素总数
     var plinkslinum = 0;
     var plinksw = 0;
     var plinksulw = 0;
+    var plinkslispanh = 0;
     $("#partner .partner-links ul li").each(function (){
         var index = $(this).index();
         var iw = parseInt($(this).width())+pw;
-
         $(this).css({
             "width": iw+"px"
         });
+
+        var lispanh = parseInt($(this).find("span").height());
+        if (lispanh > plinkslispanh) plinkslispanh = lispanh;
 
         if (index<4) {
             plinksw += iw;
@@ -223,6 +231,7 @@ var partnerClass = function (){
     });
     $("#partner .partner-links").css('width', plinksw+'px');
     $("#partner .partner-links ul").css('width', plinksulw+'px');
+    $("#partner .partner-links ul li span").css('height', plinkslispanh+'px');
 
     var pcontentspanw = plinksw;
     $("#partner .partner-content").css('width', pcontentspanw+'px');

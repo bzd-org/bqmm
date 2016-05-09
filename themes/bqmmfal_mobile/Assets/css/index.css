@@ -28,9 +28,10 @@
 .case-work-box { width: 100%; height:auto; margin-top: 30px; text-align: center; }
 .case-work { width: 100%; height: 300px; overflow:hidden; margin-bottom: 5px; }
 .case-work ul { width: 100%; height: 300px; overflow: hidden; margin: 0; float: left; }
-.case-work ul li { width:40px; height: 40px; display: inline-block; }
-.case-work ul li img { width: 100%; height: 100%; }
-.case-work ul li b { font-weight: normal; color: #fff; font-size: 12px; display:block; margin-top:2%; display: inline-block; width: auto; height: 17px; line-height: 17px; overflow: hidden; }
+.case-work ul li { display: inline-block; overflow: hidden; }
+.case-work ul li a { display: block; overflow: hidden; height: 40px; }
+.case-work ul li img { height: 100%; }
+.case-work ul li b { font-weight: normal; color: #fff; font-size: 12px; display:block; margin-top:2%; display: inline-block; width: auto; height: 20px; line-height: 20px; overflow: hidden; }
 .case-work ul li.big { width:84px; }
 .case-work .case-work-all { width: auto; height: auto; overflow: hidden; margin-top: 0px; }
 .case-list { width: 100%; margin-top: 10px; }

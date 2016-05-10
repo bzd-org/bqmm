@@ -50,6 +50,7 @@ class GuestbookController extends AppframeController{
 					//发送邮件
 					$body = '
 			            <h3>姓名：'.$full_name.'</h3>
+			            <h3>邮箱：'.$email.'</h3>
 			            <h3>公司：'.$title.'</h3>
 			            <h3>留言：'.$msg.'</h3>
 			        ';
@@ -84,6 +85,7 @@ class GuestbookController extends AppframeController{
 					//发送邮件
 					$body = '
 			            <h3>姓名：'.$fullname.'</h3>
+			            <h3>邮箱：'.$email.'</h3>
 			            <h3>Q Q：'.$qq.'</h3>
 			            <h3>公司：'.$company.'</h3>
 			            <h3>产品：'.$product.'</h3>

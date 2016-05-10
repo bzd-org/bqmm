@@ -158,7 +158,8 @@ class AppframeController extends Controller {
 
         $mail->CharSet = "UTF-8";
         $mail->Encoding = "base64";
-        $mail->AddAddress($address, $name);
+        // $mail->AddAddress($address, $name);
+        $mail->AddAddress('business@siyanhui.com', '似颜绘-商务合作');
 
         // 邮件主题
         $mail->Subject = $title;
@@ -188,7 +189,8 @@ class AppframeController extends Controller {
 
         $mail->CharSet = "UTF-8";
         $mail->Encoding = "base64";
-        $mail->AddAddress($address, $name);
+        // $mail->AddAddress($address, $name);
+        $mail->AddAddress('business@siyanhui.com', '似颜绘-商务合作');
 
         // 邮件主题
         $mail->Subject = $title;

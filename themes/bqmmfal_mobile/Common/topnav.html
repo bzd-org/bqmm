@@ -28,10 +28,16 @@
     margin: 15px 0;
     display: inline-block;
 }
+#main-menu li a.sdk {
+    border: 2px solid #FFF;
+    border-radius: 20px;
+    padding: 5px 25px;
+}
 </style>
 <script type="text/javascript">
 $(function (){
     $("ul#main-menu").find("li:eq(1)").remove();
+    $("#main-menu").find("li:last a").addClass('sdk');
 
     $("#navico").hover(function (){
 

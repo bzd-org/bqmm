@@ -148,9 +148,9 @@
         </div>
     </div>
     <style type="text/css" media="screen">
-    .partner-links ul li { padding: 0 10px; margin: 0; padding-bottom: 30px; width: 25%; }
-    .partner-links ul li span { display: block; height: auto; overflow: hidden; cursor: pointer; }
-    .partner-links ul li img { width: auto; height: auto; max-height: 60px; }
+    .partner-links ul li { padding: 0 10px; padding-bottom: 30px; width: 25%; }
+    .partner-links ul li span { display: block; height: 60px; overflow: hidden; cursor: pointer; }
+    .partner-links ul li img { width: auto; max-height: 100%; margin-top: 0; }
     .partner-links ul li b { display: block; }
     .partner-content { width: auto; height: auto; border: 2px solid #F1F1F1; background: #FFFFFF; margin-top: -2px; }
     .partner-content .partner-boxs { overflow: hidden; }
@@ -211,27 +211,37 @@ var partnerClass = function (){
     var plinkslinum = 0;
     var plinksw = 0;
     var plinksulw = 0;
-    var plinkslispanh = 0;
+    var fspanh = 0;
     $("#partner .partner-links ul li").each(function (){
         var index = $(this).index();
-        var iw = parseInt($(this).width())+pw;
+        if (index == 0) fspanh = parseInt($(this).find("span").height());
+        var iw = parseInt($(this).width());
         $(this).css({
-            "width": iw+"px"
+            "width": iw+pw+"px"
         });
 
-        var lispanh = parseInt($(this).find("span").height());
-        if (lispanh > plinkslispanh) plinkslispanh = lispanh;
+        $(this).find("span").css({
+            "height": fspanh+"px"
+        });
 
         if (index<4) {
-            plinksw += iw;
+            plinksw += iw+pw;
+        } else {
+            $(this).css({
+                "width": "auto",
+                "height": "121px"
+            });
+            var iw = parseInt($(this).width());
+            $(this).css({
+                "width": iw+pw+"px"
+            });
         }
-        plinksulw += iw;
+        plinksulw += iw+pw;
 
         plinkslinum++;
     });
     $("#partner .partner-links").css('width', plinksw+'px');
     $("#partner .partner-links ul").css('width', plinksulw+'px');
-    $("#partner .partner-links ul li span").css('height', plinkslispanh+'px');
 
     var pcontentspanw = plinksw;
     $("#partner .partner-content").css('width', pcontentspanw+'px');
@@ -248,6 +258,8 @@ var partnerClass = function (){
     var mwidth = 0;
     //mouse-click
     $("#partner .partner-links ul li span").click(function (){
+        var ffflag = 0;
+
         $("#partner .partner-links ul li").removeClass("slt");
         $(this).parent().addClass("slt");
 
@@ -276,35 +288,39 @@ var partnerClass = function (){
         var ccc = plinkslw-plinksw-mwidth;
         //右边显示
         if (cindex==cccindex && cindex<plinkslinum-1) {
-            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'))+pw;
+            ffflag = 1;
+            mwidth += ccc ? ccc : parseInt($(this).parent().next().css('width'));
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         } else if (cindex == plinkslinum-2) {
             mwidth = plinksulw-plinksw;
             partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
         }
 
-        //右移计算
-        var dddindex = 0;
-        var plinksrw = 0;
-        $("#partner .partner-links ul li").each(function (){
-            if (plinksrw < mwidth) {
-                dddindex = $(this).index()+1;
-                plinksrw += parseInt($(this).width())+pw;
-            } else if (plinksrw == mwidth) {
-                dddindex = $(this).index();
-                return false;
+        if (!ffflag) {
+            //右移计算
+            var dddindex = 0;
+            var plinksrw = 0;
+            $("#partner .partner-links ul li").each(function (){
+                if (plinksrw < mwidth) {
+                    dddindex = $(this).index()+1;
+                    plinksrw += parseInt($(this).width())+pw;
+                } else if (plinksrw == mwidth) {
+                    dddindex = $(this).index();
+                    return false;
+                }
+            });
+            var ddd = 0;
+            if (plinksrw-mwidth) {
+                var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'));
+                var ddd = dwidth-(plinksrw-mwidth);
             }
-        });
-        var ddd = 0;
-        if (plinksrw-mwidth) {
-            var dwidth = parseInt($("#partner .partner-links ul li:eq("+(dddindex-1)+")").css('width'))+pw;
-            var ddd = dwidth-(plinksrw-mwidth);
+            //左边显示
+            if (cindex==dddindex && cindex>0) {
+                mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'));
+                partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
+            }
         }
-        //左边显示
-        if (cindex==dddindex && cindex>0) {
-            mwidth -= ddd ? ddd : parseInt($(this).parent().prev().css('width'))+pw;
-            partnerlinksul.animate({marginLeft:'-'+mwidth+'px'});
-        }
+            
     });
 }
 $(window).load(function (){

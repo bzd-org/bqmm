@@ -26,7 +26,7 @@
                 <ul class="postsbox">
                     <foreach name="subterm.posts" key="k" item="post">
                     <if condition="$post.isbanner eq 1">
-                        <li class="big"><img src="{$post.smeta.banner}"><a href="emojiview_{$post.tid}.html" style="max-width: 600px;"></a></li>
+                        <li class="big"><img src="{$post.smeta.banner}" style="max-width: 600px;"><a href="emojiview_{$post.tid}.html"></a></li>
                     <elseif condition="$post.isfirst eq 1" />
                         <li><a href="emojiview_{$post.tid}.html">{$post.post_title}</a></li>
                         <li><i class="signs-right"></i><a href="emojiview_{$post.tid}.html" class="details">查看详情 ></a><img src="{:sp_get_asset_upload_path($post['smeta']['thumb'])}" width="248" height="248"></li>

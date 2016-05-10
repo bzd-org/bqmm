@@ -55,4 +55,43 @@ class AssetController extends AdminbaseController {
         }
     }
 
+    /**
+     * swfupload 上传 
+     */
+    public function swfuploads() {
+        if (IS_POST) {
+            $savepath=date('Ymd').'/';
+            //上传处理类
+            $config=array(
+                    'rootPath' => './'.C("UPLOADPATH"),
+                    'savePath' => $savepath,
+                    'maxSize' => 11048576,
+                    'saveName'   =>    array('uniqid',''),
+                    'exts'       =>    array('jpg', 'gif', 'png', 'jpeg',"txt",'zip'),
+                    'autoSub'    =>    false,
+            );
+            $upload = new \Think\Upload($config);// 
+            $info=$upload->upload();
+            //开始上传
+            if ($info) {
+                //上传成功
+                //写入附件数据库信息
+                $first=array_shift($info);
+                if(!empty($first['url'])){
+                    $url=$first['url'];
+                }else{
+                    $url=C("TMPL_PARSE_STRING.__UPLOAD__").$savepath.$first['savename'];
+                }
+                
+                echo "1," . $url.",".'1,'.$first['name'];
+                exit;
+            } else {
+                //上传失败，返回错误
+                exit("0," . $upload->getError());
+            }
+        } else {
+            $this->display(':swfuploads');
+        }
+    }
+
 }

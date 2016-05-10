@@ -44,10 +44,13 @@ catid 栏目id
 authkey 参数密钥，验证args
 **/
 function flashupload(uploadid, name, textareaid, funcName, args, module, catid, authkey) {
+    var a = 'swfupload';
+    if (uploadid == 'albums_images') a = 'swfuploads';
+
     var args = args ? '&args=' + args : '';
     var setting = '&module=' + module + '&catid=' + catid ;
     Wind.use("artDialog","iframeTools",function(){
-        art.dialog.open(GV.DIMAUB+'index.php?a=swfupload&m=asset&g=asset' + args + setting, {
+        art.dialog.open(GV.DIMAUB+'index.php?a='+a+'&m=asset&g=asset' + args + setting, {
         title: name,
         id: uploadid,
         width: '650px',

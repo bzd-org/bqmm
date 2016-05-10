@@ -112,7 +112,7 @@ class ListController extends HomebaseController {
 
         $aaa = 0;
         foreach ($subterms as $k=>$subterm) {
-            $tag = 'cid:'.$subterm['term_id'].'order:istop desc, listorder asc, post_date desc;limit:0,9999;';
+            $tag = 'cid:'.$subterm['term_id'].';order:istop desc, listorder asc, post_date desc;limit:0,9999;';
             $posts = sp_sql_posts($tag);
 
             $flag = 1;
@@ -173,7 +173,7 @@ class ListController extends HomebaseController {
 
     	$start = 6+($page-1)*4;
     	$end = $start+4;
-    	$tag = 'cid:'.$termid.'order:istop desc, listorder asc, post_date desc;limit:0,9999;';
+    	$tag = 'cid:'.$termid.';order:istop desc, listorder asc, post_date desc;limit:0,9999;';
         $posts = sp_sql_posts($tag);
 
         $termposts = array();

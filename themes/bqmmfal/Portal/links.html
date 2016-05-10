@@ -21,7 +21,7 @@
                 <div class="news-title-line"></div>
                 <ul>
                     <foreach name="hlinks" item="link">
-                        <li><a href="{$link.link_url}" target="{$link.link_target}"><img src="{:sp_get_asset_upload_path($link['link_image'])}"></a></li>
+                        <li><a href="{$link.link_url}" target="{$link.link_target}"><img src="{:sp_get_asset_upload_path($link['link_image'])}" style="float: left;"></a></li>
                     </foreach>
                     <!-- <li><img src="__TMPL__Assets/images/links/01.jpg" width="190" height="60"></li>
                     <li><img src="__TMPL__Assets/images/links/02.jpg" width="190" height="60"></li>

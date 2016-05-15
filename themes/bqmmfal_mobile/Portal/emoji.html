@@ -27,9 +27,9 @@
             <foreach name="subterms" item="subterm">
             <notempty name="subterm.posts">
             <if condition="$subterm.sk eq 1">
-            <h2 class="b30 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
+            <h2 class="b20 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
             <else />
-            <h2 class="top30 b30 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
+            <h2 class="top20 b20 default" style="color: {$subterm.color} !important;">{$subterm.name}</h2>
             </if>
             <ul class="postsbox">
                 <foreach name="subterm.posts" item="post">
@@ -62,6 +62,45 @@
 
 <style type="text/css" media="screen">
 .series-list ul li .signs-right { left: 0; }
+@media screen and (max-width: 420px) {
+    .series-list ul {
+        width: 360px;
+    }
+    .series-list ul li {
+        width: 178px;
+        height: 178px;
+        line-height: 178px;
+    }
+    .series-list .open-down {
+        width: 358px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .series-list ul {
+        width: 340px;
+    }
+    .series-list ul li {
+        width: 168px;
+        height: 168px;
+        line-height: 168px;
+    }
+    .series-list .open-down {
+        width: 338px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .series-list ul {
+        width: 300px;
+    }
+    .series-list ul li {
+        width: 148px;
+        height: 148px;
+        line-height: 148px;
+    }
+    .series-list .open-down {
+        width: 298px;
+    }
+}
 </style>
 <script type="text/javascript">
 $(function (){

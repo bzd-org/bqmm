@@ -17,16 +17,27 @@
     echo sp_get_menu("main",$effected_id,$filetpl,$foldertpl,$ul_class,$li_class,$style,$showlevel,$dropdown);
 ?>
 <style type="text/css" media="screen">
+#main-menu li.dropdown { margin-bottom: -15px; }
+#main-menu li.dropdown a { margin-bottom: 15px; }
 #main-menu li.dropdown a:focus, #main-menu li.dropdown a:hover { background: none; }
 #main-menu li.dropdown ul.dropdown-menu {
     position: relative;
     float: none;
     background: none;
-    margin-top: 7px;
+    margin-top: 0;
+    border: 0;
+    box-shadow: none;
 }
 #main-menu li.dropdown ul.dropdown-menu li {
-    margin: 15px 0;
+    padding: 15px 0;
     display: inline-block;
+    margin: 0;
+    background: #3E4040;
+    margin-bottom: 1px;
+}
+#main-menu li.dropdown ul.dropdown-menu li a {
+    background: none;
+    margin: 0;
 }
 #main-menu li a.sdk {
     border: 2px solid #FFF;
@@ -51,6 +62,9 @@ $(function (){
 
         //关闭状态-展开
         if (displayf == 'none') {
+            $(".topnav-title").css({
+                "background": "rgba(50,51,52,1)"
+            });
             $("#topnav").slideDown();
 
             setTimeout(function (){
@@ -79,7 +93,11 @@ $(function (){
                 });
             }, 170);
         } else {
-            $("#topnav").slideUp();
+            $("#topnav").slideUp('normal', function (){
+                $(".topnav-title").css({
+                    "background": "none"
+                });
+            });
 
             setTimeout(function (){
                 $(".topnav-title .navico").css({

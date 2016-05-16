@@ -40,15 +40,17 @@
             <div class="series-content-box">
                 <div class="series-content-ico"></div>
                 <div class="series-content">
-                    <h3>
-                        <p class="text-center">{$article['post_title']}</p>
-                        <a href="emoji_{$term.term_id}.html" target="_blank" class="top10 center-block" style="background: {$term.color};">{$term.name}</a>
+                    <h3 style="margin-bottom: 5px;">
+                        <p class="text-left">
+                            <span class="top10" style="display: inline-block;">{$article['post_title']}</span>
+                            <a href="emoji_{$term.term_id}.html" target="_blank" class="center-block" style="background: {$term.color};">{$term.name}</a>
+                        </p>
                     </h3>
                     <p style="padding: 10px 0;">{$article['post_excerpt']}</p>
                     <foreach name="article.smeta.photo" key="k" item="photo">
                     <span style="display: inline-block; width: 25%; margin: 10px 0;"><img src="{:sp_get_asset_upload_path($photo['url'])}" title="{$photo.alt}" class="" style="max-width: 100%; max-height: 65px; padding: 0 10px;"></span>
                     </foreach>
-                    <h5 style="position: absolute; bottom: 9px; left: 50%; margin-left: -31px;"><a href="__ROOT__/" target="_blank">©表情mm</a></h5>
+                    <h5 style="position: absolute; bottom: 9px; left: 50%; margin-left: -31px;"><a href="__ROOT__/" target="_blank" style="color: #8d8d8d; font-size: 12px;">©表情mm</a></h5>
                 </div>
             </div>
         </div>

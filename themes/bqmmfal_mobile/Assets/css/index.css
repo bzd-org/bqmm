@@ -53,12 +53,12 @@
 .partner ul li.slt img { opacity:1; }
 .partner-content { width: 100%; height: auto; border-radius: 5px; margin-right: auto; margin-left: auto; margin-top: -2px; overflow: hidden; }
 .partner-content .partner-boxs { width: 100%; text-align: left; }
-.partner-content .partner-boxs img { width:572px; border: 2px solid #f5f5f5; border-radius: 8px; display: inline-block; float: left; }
+.partner-content .partner-boxs img { width:572px; /*border: 2px solid #f5f5f5; border-radius: 8px;*/ display: inline-block; float: left; }
 .partner .partner-links { width: 100%; height: auto; margin: auto; overflow: hidden; }
 .partner .partner-links li img { cursor: pointer; }
 .partner ul { width: auto; }
 @media screen and (max-width:639px){
-  .partner-content .partner-boxs img { width:auto; border: 2px solid #f5f5f5; border-radius: 8px; }
+  .partner-content .partner-boxs img { width:auto; /*border: 2px solid #f5f5f5; border-radius: 8px;*/ }
 }
 
 /*联系我们*/

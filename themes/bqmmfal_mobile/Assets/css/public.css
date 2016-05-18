@@ -58,7 +58,7 @@ h6 { font-size: 12px; font-weight: normal; }
 .topnav { width: 100%; display: none; z-index: 10; }
 .topnav ul li { width: 100%; height: auto; line-height: auto; text-align: center; margin: 30px 0; }
 .topnav ul li, .topnav ul li a { color:#aaa; }
-.topnav ul li a { font-weight: bold; margin-left: 21px; margin-right: 21px; display: inline-block; padding: 0; background-color: #323334; }
+.topnav ul li a { font-size: 15px; margin-left: 21px; margin-right: 21px; display: inline-block; padding: 0; background-color: #323334; }
 .topnav ul li a:hover { color:#fff; background-color: #323334; }
 
 .topnav-title > .navico { background:url(../images/topnav_switch.png) no-repeat; background-position: 0px 0px; }
@@ -102,7 +102,7 @@ a.abtn-white { border: 2px solid #FFF; color:#fff; position: absolute; left: 50%
 a.abtn-default { border: 2px solid #40c9b6; color:#40c9b6; }
 .btn-all { width: 221px; height: 82px; background: url(../images/btn_all.png) no-repeat; display: block; margin-right: auto; margin-left: auto; }
 @media screen and (max-width:639px){
-  a.abtn{width: 100px; height:30px; line-height: 28px; font-size: 13px;}
+  a.abtn{width: 112px; height:34px; line-height: 32px; font-size: 15px; }
   .btn-all { width: 98px; height: 36px; background: url(../images/btn_all.png) no-repeat; background-size:cover; }
 }
 

@@ -53,8 +53,8 @@
     <div class="module-box module1">
         <div class="main-content">
             <h2 class="top50">几行代码，一分钟集成</h2>
-            <h3 class="top10 default">开发者首选的表情服务，最完美的解决方案，稳定可靠</h3>
-            <a href="http://open.biaoqingmm.com/doc/sdk/" class="abtn abtn-default top20">立即体验</a>
+            <h3 class="top10 default" style="line-height: 27px;">开发者首选的表情服务<br/>最完美的解决方案，稳定可靠</h3>
+            <a href="http://open.biaoqingmm.com/doc/sdk/" class="abtn abtn-default top20" style="background: #FFF;">立即体验</a>
             <img src="__TMPL__Assets/images/mod1_picture.png" class="top30">
         </div>
     </div>
@@ -65,34 +65,34 @@
         </div>
     </div>
 
-    <div class="module-box module3" style="background-position: 100% 145%; background-size: initial;">
+    <div class="module-box module3">
         <div class="main-content">
             <h2 class="top40 white">最高品质的正版授权表情</h2>
-            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
-            <a href="emoji.html" class="btn-all top40" style="width: 115px; height: 43px;"></a>
+            <h3 class="top10 white" style="line-height: 27px;">让开发者远离繁杂的表情版权<br/>知名IP表情官方授权品质保证</h3>
+            <a href="emoji.html" class="btn-all top40" style="width: 127px; height: 47px;"></a>
 
             <img src="__TMPL__Assets/images/mod3_picture1.png"class="top30">
             <h2 class="top30">最接地气的表情商店</h2>
-            <h3 class="top10 default">开发者轻松掌握表情流行趋势，魔法表情分分钟玩疯用户</h3>
+            <h3 class="top10 default" style="line-height: 27px;">开发者轻松掌握表情流行趋势<br/>魔法表情分分钟玩疯用户</h3>
 
-            <a href="download.html" class="abtn abtn-default top40" style="line-height: 28px;">立即体验</a>
+            <a href="download.html" class="abtn abtn-default top40">立即体验</a>
 
             <img src="__TMPL__Assets/images/mod3_picture2.png" class="top30">
         </div>
     </div>
 
-    <div class="module-box module4" style="height: auto; padding-bottom: 15px; background-size: 100% 100%;">
+    <div class="module-box module4" style="height: auto; padding-bottom: 15px;">
         <div class="main-content">
             <h2 class="top50 white">合作案例</h2>
-            <h3 class="top10 white">让开发者远离繁杂的表情版权，知名IP表情官方授权品质保证</h3>
+            <h3 class="top10 white" style="line-height: 27px;">让开发者远离繁杂的表情版权<br/>知名IP表情官方授权品质保证</h3>
 
             <div id="caseworkbox" class="case-work-box">
                 <h3 class="b30 white">他们正在使用...</h3>
 
-                <div class="case-work">
-                    <div class="case-work-all">
+                <div id="HzalSwiper" class="bannerswiper case-work" style="overflow: hidden;">
+                    <div id="banner-swiper-wrapper" class="swiper-wrapper case-work-all">
                         <foreach name="slidehzallist" item="slidebanner">
-                        <ul>
+                        <ul class="swiper-slide item">
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
                             <li style="margin: 0 7px;">
@@ -108,8 +108,8 @@
                 <div class="case-list">
                     <span class="left"></span>
                     <span class="right"></span>
-                    <ul>
-                        <!-- <li class="select"><i>分类三</i></li> -->
+                    <ul class="case-list-dots"></ul>
+                    <ul class="hzalclasses" style="display: none;">
                         <foreach name="slidehzallist" item="slidebanner">
                         <li><i>{$slidebanner.cat_name}</i></li>
                         </foreach>
@@ -120,7 +120,21 @@
     </div>
     <style type="text/css" media="screen">
     .case-list ul li { margin-top: 2px; }
-    .case-list ul li.select { height: 20px; }
+    .case-list ul li.swiper-pagination-bullet {
+        opacity: 1;
+    }
+    @media screen and (max-width:440px){
+        .module4 { background-size: 120%; }
+    }
+    @media screen and (max-width:380px){
+        .module4 { background-size: 130%; }
+    }
+    @media screen and (max-width:360px){
+        .module4 { background-size: 140%; }
+    }
+    @media screen and (max-width:320px){
+        .module4 { background-size: 160%; }
+    }
     </style>
 
     <div class="module-box module5">
@@ -177,6 +191,10 @@ var caseWorkClass = function (){
     var curn = 0;
 
     var clullinum = $("#caseworkbox .case-list ul li").length;
+    if (clullinum == 1) {
+        $("#caseworkbox .case-list .left").hide();
+        $("#caseworkbox .case-list .right").hide();
+    }
 
     $("#caseworkbox .case-list .left").click(function (){
         if (curn === 0) return false;
@@ -202,10 +220,15 @@ var caseWorkClass = function (){
         curn++;
     });
 }
-new caseWorkClass();
+// new caseWorkClass();
 
 //合作伙伴
+$("#partner .partner-content .partner-boxs span:not(:first)").hide();
+$("#partner .partner-links ul li:not(':eq(0),:eq(1),:eq(2),:eq(3)')").hide();
 var partnerClass = function (){
+    $("#partner .partner-links ul li").show();
+    $("#partner .partner-content .partner-boxs span").show();
+
     var pw = 20;
     //元素总数
     var plinkslinum = 0;
@@ -340,7 +363,6 @@ $(window).load(function (){
 <script type="text/javascript">
 var BannerSwiper;
 var BannerSwiperClass = function () {
-    
     //初始化Swiper
     BannerSwiper = new Swiper('#BannerSwiper', {
         autoplay: 5000,//可选选项，自动滑动
@@ -353,5 +375,22 @@ var BannerSwiperClass = function () {
     });
 }
 new BannerSwiperClass();
+
+var HzalSwiper;
+var HzalSwiperClass = function () {
+    //初始化Swiper
+    HzalSwiper = new Swiper('#HzalSwiper', {
+        pagination: '.case-list-dots',
+        paginationElement : 'li',
+        paginationBulletRender: function (index, className) {
+            var html = $('ul.hzalclasses li:eq('+index+')').html();
+            return '<li class="swiper-pagination-bullet">' + html + '</li>';
+        },
+        nextButton: '.right',
+        prevButton: '.left',
+        slidesPerView: 1,
+    });
+}
+new HzalSwiperClass();
 </script>
 <tc_include file="Common/foot" />

@@ -10,11 +10,11 @@
 /*模块*/
 .module-box { width:100%; overflow:hidden; }
 .module-box img { max-width: 100%; }
-.module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat center top; }
+.module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat -170px top; background-size: 300%; }
 .module2 { height: 360px; background: #fafafa; }
-.module3 { height: 1547px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat center bottom; background-size: 100% 65%; }
+.module3 { height: 1547px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat -10px 450px; }
 .module4 { height: auto; background: url(../images/mod4_bg.jpg) no-repeat center top; }
-.module5 { height: 660px; background: url(../images/mod5_bg.jpg) no-repeat center top; }
+.module5 { height: 660px; background: url(../images/mod5_bg.jpg) no-repeat -100px 20px; }
 .main-content { width: 90%; height: auto; overflow: hidden; text-align: center; margin-right: 5%; margin-left: 5%; }
 .module1 img, .module2 img, .module1 img { max-width: 100%; }
 @media screen and (max-width:639px){
@@ -37,8 +37,8 @@
 .case-list { width: 100%; margin-top: 10px; }
 .case-list ul li { width: 6px; height: 6px; background: #fff; display: inline-block; border-radius: 50%; cursor: pointer; margin: 0 2px; }
 .case-list ul li i { font-style: normal; display: none; }
-.case-list ul li.select { color: #fff; width: auto; height: 16px; line-height: 16px;font-size: 12px;background: none; border: 2px solid #fff; text-align: center;padding: 0 8px; border-radius: 9px; cursor: auto; }
-.case-list ul li.select i { display: inline; }
+.case-list ul li.select, .case-list ul li.swiper-pagination-bullet-active { color: #fff; width: auto; height: 23px; line-height: 20px;font-size: 13px;background: none; border: 2px solid #fff; text-align: center;padding: 0 10px; border-radius: 9px; cursor: auto; }
+.case-list ul li.select i, .case-list ul li.swiper-pagination-bullet-active i { display: inline; }
 .case-list>span { width: 20px; height: 20px; background: url(../images/images.png) no-repeat; display: block; cursor: pointer;margin-top: 3px; }
 .case-list>span.left { background: url(../images/cl_left.png) no-repeat; float: left; background-size:cover; }
 .case-list>span.right { background: url(../images/cl_right.png) no-repeat; float: right; background-size:cover; }

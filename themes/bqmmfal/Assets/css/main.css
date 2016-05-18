@@ -7,7 +7,7 @@
 .banner, .b-img div{ height:595px; }
 
 /*表情列表*/
-.series-banner { background: #36cab6 url(../images/series_banner.jpg) no-repeat center top; height: 488px; width: 100%; position: relative; }
+.series-banner { /*background: #36cab6 url(../images/series_banner.jpg) no-repeat center top;*/ height: 488px; width: 100%; position: relative; }
 .series-banner h2 { width: 998px; height: auto; background: url(../images/title_bg.png) no-repeat center center; text-align: center; margin: 0 auto; left:0; right:0; bottom:0; overflow: hidden; display: block; position:absolute; }
 .series-list { background: url(../images/series_bg.png) repeat-y center top; width: 1000px; height: auto; min-height: 300px; text-align: center; margin-right: auto; margin-left: auto; padding: 20px 21px 30px 22px; }
 .series-list h2 { width: 998px; height: auto; background: url(../images/title_bg.png) no-repeat center center; overflow: hidden; display: block; }

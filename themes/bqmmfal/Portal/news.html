@@ -23,7 +23,7 @@
                     <foreach name="posts" item="post">
                     <li>
                         <div class="date">
-                            <i>{:substr($post['post_date'], 5, 2)}.{:substr($post['post_date'], 8, 2)}</i>{:substr($post['post_date'], 0, 4)}
+                            <i>{:substr($post['post_modified'], 5, 2)}.{:substr($post['post_modified'], 8, 2)}</i>{:substr($post['post_modified'], 0, 4)}
                         </div>
                         <div class="summary">
                             <p class="title"><a href="article_{$post.tid}.html">{$post.post_title}</a></p>

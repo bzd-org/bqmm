@@ -36,10 +36,10 @@
             </ul>
         </div>
 
-        <div class="series-box" style="width: 100%;">
+        <div class="series-box" style="width: 100%; min-height: 465px;">
             <div class="series-content-box">
                 <div class="series-content-ico"></div>
-                <div class="series-content">
+                <div class="series-content" style="min-height: 170px;">
                     <h3 style="margin-bottom: 5px;">
                         <p class="text-left">
                             <span class="top10" style="display: inline-block;">{$article['post_title']}</span>
@@ -65,7 +65,14 @@
 .series-info ul li {
     margin: 0 7px;
 }
-@media(max-width: 330px) {
+@media(max-width: 370px) {
+    .series-info ul li {
+        width: 85px;
+        height: 85px;
+        margin: 0 5px;
+    }
+}
+@media(max-width: 340px) {
     .series-info ul li {
         width: 75px;
         height: 75px;

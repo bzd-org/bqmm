@@ -130,13 +130,9 @@ class PageController extends HomebaseController{
     public function downloadslide()
     {
         $download_banners = array(
-            'download_im',
-            'download_comment',
+            'download_topsdk_*',
             'download_websdk',
-            'download_huanxin',
-            'download_rongyun',
-            'download_qinjia',
-            'download_leancloud',
+            'download_mainsdk_*',
             'download_imdemo',
             'download_commentdemo',
         );
@@ -144,14 +140,48 @@ class PageController extends HomebaseController{
         foreach ($download_banners as $bannerflag) {
             //bannerflag
             $bannerflagslide = sp_getslide($bannerflag, 99);
+            $slide_icon = array();
             foreach ($bannerflagslide as $k=>$d) {
                 $des = explode('|', $d['slide_des']);
                 $bannerflagslide[$k]['version'] = $des[0];
                 $bannerflagslide[$k]['dt'] = $des[1];
 
-                $bannerflagslide[$d['slide_name']] = $bannerflagslide[$k];
+                $btn = explode('|', $d['slide_btn']);
+                $bannerflagslide[$k]['btnsdk'] = array(
+                    'title' => $btn[0],
+                    'link' => $d['slide_url'],
+                );
+                $bannerflagslide[$k]['btndemo'] = array(
+                    'title' => $btn[1],
+                    'link' => $d['slide_content'],
+                );
+
+                if ($d['slide_icon']) $slide_icon[$d["cat_idname"]] = $d['slide_icon'];
+                $bannerflagslide[$d["cat_idname"]]['info'] = $d;
+                $bannerflagslide[$d["cat_idname"]]['info']['slide_icon'] = $slide_icon[$d["cat_idname"]];
+
+                $bannerflagslide[$d["cat_idname"]][$d['slide_name']] = $bannerflagslide[$k];
             }
-            $this->assign($bannerflag, $bannerflagslide);
+            if ($bannerflag == 'download_topsdk_*') {
+                $download_topsdk = array();
+                foreach ($bannerflagslide as $k=>$d) {
+                    if (preg_match("/^download\_topsdk/", $k)) {
+                        $download_topsdk[$k] = $d;
+                    }
+                }
+                $this->assign('download_topsdk', $download_topsdk);
+                // dump($download_topsdk);exit;
+            } else if ($bannerflag == 'download_mainsdk_*') {
+                $download_mainsdk = array();
+                foreach ($bannerflagslide as $k=>$d) {
+                    if (preg_match("/^download\_mainsdk/", $k)) {
+                        $download_mainsdk[$k] = $d;
+                    }
+                }
+                $this->assign('download_mainsdk', $download_mainsdk);
+            } else {
+                $this->assign($bannerflag, $bannerflagslide);
+            }
         }
     }
 }

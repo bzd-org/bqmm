@@ -23,53 +23,51 @@
                 下载完成后请点击<a href="http://form.mikecrm.com/f.php?t=HlmhIZ" class="down l20" target="_blank">获取appKey</a>
             </div>
             
-            <h2 class="default top120">IM版</h2>
-            <h3>同时支持APP的IM模块和评论模块接入</h3>
+            <foreach name="download_topsdk" item="slidecat">
+            <h2 class="default top100">
+                <?php if ($slidecat['info']['slide_icon']) { ?>
+                <img src="{$slidecat.info.slide_icon}" width="55" height="45" class="down-ico r10">
+                <?php } ?>
+                <span style="color:#20c2e5">{$slidecat.info.cat_name}</span>
+            </h2>
+            <?php if ($slidecat['info']['cat_remark']) { ?>
+            <h3>{$slidecat.info.cat_remark}</h3>
+            <?php } ?>
             <div class="download-box">
-                <dl class="ftl">
+                <?php if (isset($slidecat['Android'])) { ?>
+                <dl class="ftl" style="margin: 0 50px;">
                     <dt class="android"></dt>
                     <dd>
-                        版本：{$download_im['Android']['version']}<br>
-                        更新：{$download_im['Android']['dt']}
-                        <a href="{$download_im['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a>
-                        <a href="{$download_im['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
+                        版本：{$slidecat['Android']['version']}<br>
+                        更新：{$slidecat['Android']['dt']}
+                        <?php if ($slidecat['Android']['btnsdk']['title'] && $slidecat['Android']['btnsdk']['link']) { ?>
+                        <a href="{$slidecat['Android']['btnsdk']['link']}" class="sdk down-btn top20" target="_blank">{$slidecat['Android']['btnsdk']['title']}</a>
+                        <?php } ?>
+                        <?php if ($slidecat['Android']['btndemo']['title'] && $slidecat['Android']['btndemo']['link']) { ?>
+                        <a href="{$slidecat['Android']['btndemo']['link']}" class="demo down-btn top20" target="_blank">{$slidecat['Android']['btndemo']['title']}</a>
+                        <?php } ?>
                     </dd>
                 </dl>
-                <dl class="ftr l80">
+                <?php } ?>
+                <?php if (isset($slidecat['iOS'])) { ?>
+                <dl class="ftr" style="margin: 0 50px;">
                     <dt class="ios"></dt>
                     <dd>
-                        版本：{$download_im['iOS']['version']}<br>
-                        更新：{$download_im['iOS']['dt']}
-                        <a href="{$download_im['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a>
-                        <a href="{$download_im['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
+                        版本：{$slidecat['iOS']['version']}<br>
+                        更新：{$slidecat['iOS']['dt']}
+                        <?php if ($slidecat['iOS']['btnsdk']['title'] && $slidecat['Android']['btnsdk']['link']) { ?>
+                        <a href="{$slidecat['iOS']['btnsdk']['link']}" class="sdk down-btn top20" target="_blank">{$slidecat['iOS']['btnsdk']['title']}</a>
+                        <?php } ?>
+                        <?php if ($slidecat['iOS']['btndemo']['title'] && $slidecat['Android']['btndemo']['link']) { ?>
+                        <a href="{$slidecat['iOS']['btndemo']['link']}" class="demo down-btn top20" target="_blank">{$slidecat['iOS']['btndemo']['title']}</a>
+                        <?php } ?>
                     </dd>
                 </dl>
+                <?php } ?>
             </div>
+            </foreach>
 
-            <h2 class="default">评论版</h2>
-            <h3>适合有评论模块的APP开发者下载</h3>
-            <div class="download-box">
-                <dl class="ftl">
-                    <dt class="android"></dt>
-                    <dd>
-                        版本：{$download_comment['Android']['version']}<br>
-                        更新：{$download_comment['Android']['dt']}
-                        <a href="{$download_comment['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a>
-                        <a href="{$download_comment['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                    </dd>
-                </dl>
-                <dl class="ftr l80">
-                    <dt class="ios"></dt>
-                    <dd>
-                        版本：{$download_comment['iOS']['version']}<br>
-                        更新：{$download_comment['iOS']['dt']}
-                        <a href="{$download_comment['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a>
-                        <a href="{$download_comment['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                    </dd>
-                </dl>
-            </div>
-
-            <h2 class="default">网页版SDK</h2>
+            <h2 class="default top100">网页版SDK</h2>
             <h3>同时支持APP的IM模块和评论模块接入</h3>
             <div class="download-open">
                 <ul>
@@ -86,95 +84,52 @@
 
         <div class="bg-gray">
             <div class="main b70 tc ovh">
-                <h3 class="top80 b80">表情云全面兼容四大IM云服务，实现IM功能的同时轻松拥有自己的表情商店</h3>
+                <h3 class="top80 b80">表情云全面兼容以下IM云服务，实现IM功能的同时轻松拥有自己的表情商店</h3>
 
-                <h2><img src="__TMPL__Assets/images/download/01.png" width="55" height="45" class="down-ico r10"><span style="color:#20c2e5">环信版</span></h2>
+                <foreach name="download_mainsdk" item="slidecat">
+                <h2 class="default top70">
+                    <?php if ($slidecat['info']['slide_icon']) { ?>
+                    <img src="{$slidecat.info.slide_icon}" width="55" height="45" class="down-ico r10">
+                    <?php } ?>
+                    <span style="color:#20c2e5">{$slidecat.info.cat_name}</span>
+                </h2>
+                <?php if ($slidecat['info']['cat_remark']) { ?>
+                <h3>{$slidecat.info.cat_remark}</h3>
+                <?php } ?>
                 <div class="download-box">
-                    <dl class="ftl">
+                    <?php if (isset($slidecat['Android'])) { ?>
+                    <dl class="ftl" style="margin: 0 50px;">
                         <dt class="android"></dt>
                         <dd>
-                            版本：{$download_huanxin['Android']['version']}<br>
-                            更新：{$download_huanxin['Android']['dt']}
-                            <!-- <a href="{$download_huanxin['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_huanxin['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
+                            版本：{$slidecat['Android']['version']}<br>
+                            更新：{$slidecat['Android']['dt']}
+                            <?php if ($slidecat['Android']['btnsdk']['title'] && $slidecat['Android']['btnsdk']['link']) { ?>
+                            <a href="{$slidecat['Android']['btnsdk']['link']}" class="sdk down-btn top20" target="_blank">{$slidecat['Android']['btnsdk']['title']}</a>
+                            <?php } ?>
+                            <?php if ($slidecat['Android']['btndemo']['title'] && $slidecat['Android']['btndemo']['link']) { ?>
+                            <a href="{$slidecat['Android']['btndemo']['link']}" class="demo down-btn top20" target="_blank">{$slidecat['Android']['btndemo']['title']}</a>
+                            <?php } ?>
                         </dd>
                     </dl>
-                    <dl class="ftr l80">
+                    <?php } ?>
+                    <?php if (isset($slidecat['iOS'])) { ?>
+                    <dl class="ftr" style="margin: 0 50px;">
                         <dt class="ios"></dt>
                         <dd>
-                            版本：{$download_huanxin['iOS']['version']}<br>
-                            更新：{$download_huanxin['iOS']['dt']}
-                            <!-- <a href="{$download_huanxin['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_huanxin['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
+                            版本：{$slidecat['iOS']['version']}<br>
+                            更新：{$slidecat['iOS']['dt']}
+                            <?php if ($slidecat['iOS']['btnsdk']['title'] && $slidecat['Android']['btnsdk']['link']) { ?>
+                            <a href="{$slidecat['iOS']['btnsdk']['link']}" class="sdk down-btn top20" target="_blank">{$slidecat['iOS']['btnsdk']['title']}</a>
+                            <?php } ?>
+                            <?php if ($slidecat['iOS']['btndemo']['title'] && $slidecat['Android']['btndemo']['link']) { ?>
+                            <a href="{$slidecat['iOS']['btndemo']['link']}" class="demo down-btn top20" target="_blank">{$slidecat['iOS']['btndemo']['title']}</a>
+                            <?php } ?>
                         </dd>
                     </dl>
+                    <?php } ?>
                 </div>
+                </foreach>
 
-                <h2><img src="__TMPL__Assets/images/download/02.png" width="72" height="51" class="down-ico r10"><span style="color:#0bb0fc">融云版</span></h2>
-                <div class="download-box">
-                    <dl class="ftl">
-                        <dt class="android"></dt>
-                        <dd>
-                            版本：{$download_rongyun['Android']['version']}<br>
-                            更新：{$download_rongyun['Android']['dt']}
-                            <!-- <a href="{$download_rongyun['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_rongyun['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                    <dl class="ftr l80">
-                        <dt class="ios"></dt>
-                        <dd>
-                            版本：{$download_rongyun['iOS']['version']}<br>
-                            更新：{$download_rongyun['iOS']['dt']}
-                            <!-- <a href="{$download_rongyun['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_rongyun['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                </div>
-
-                <h2><img src="__TMPL__Assets/images/download/03.png" width="51" height="51" class="down-ico r10"><span style="color:#0fc4ca">亲加版</span></h2>
-                <div class="download-box">
-                    <dl class="ftl">
-                        <dt class="android"></dt>
-                        <dd>
-                            版本：{$download_qinjia['Android']['version']}<br>
-                            更新：{$download_qinjia['Android']['dt']}
-                            <!-- <a href="{$download_qinjia['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_qinjia['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                    <dl class="ftr l80">
-                        <dt class="ios"></dt>
-                        <dd>
-                            版本：{$download_qinjia['iOS']['version']}<br>
-                            更新：{$download_qinjia['iOS']['dt']}
-                            <!-- <a href="{$download_qinjia['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_qinjia['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                </div>
-
-                <h2><img src="__TMPL__Assets/images/download/04.png" width="50" height="50" class="down-ico r10"><span style="color:#1ab5fc">Leancloud版</span></h2>
-                <div class="download-box">
-                    <dl class="ftl">
-                        <dt class="android"></dt>
-                        <dd>
-                            版本：{$download_leancloud['Android']['version']}<br>
-                            更新：{$download_leancloud['Android']['dt']}
-                            <!-- <a href="{$download_leancloud['Android']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_leancloud['Android']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                    <dl class="ftr l80">
-                        <dt class="ios"></dt>
-                        <dd>
-                            版本：{$download_leancloud['iOS']['version']}<br>
-                            更新：{$download_leancloud['iOS']['dt']}
-                            <!-- <a href="{$download_leancloud['iOS']['slide_url']}" class="sdk down-btn top20" target="_blank">下载SDK</a> -->
-                            <a href="{$download_leancloud['iOS']['slide_content']}" class="demo down-btn top20" target="_blank">下载DEMO</a>
-                        </dd>
-                    </dl>
-                </div>
             </div>
 
             <div class="clear"></div>

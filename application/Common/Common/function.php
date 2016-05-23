@@ -869,7 +869,13 @@ function sp_getslide($slide,$limit=5,$order = "listorder ASC, slide_id asc"){
 	if ($limit == 0) {
 		$limit = 5;
 	}
-	return $slide_obj->join($join)->where("cat_idname='$slide' and slide_status=1")->order($order)->limit('0,'.$limit)->select();
+
+	$where = "cat_idname='$slide' and slide_status=1";
+	if (preg_match("/\*$/", $slide)) {
+		$slide = str_replace('*', '', $slide);
+		$where = "cat_idname like '$slide%' and slide_status=1";
+	}
+	return $slide_obj->join($join)->where($where)->order($order)->limit('0,'.$limit)->select();
 
 }
 

@@ -85,9 +85,10 @@
 .licence i { width: 30px; height: 30px; background: url(../images/images.png) no-repeat 0 0; display: inline-block; vertical-align:middle; }
 .licence a.down { width: 180px; height: 50px; line-height: 50px; background: #36cab6; color:#fff; display: inline-block; border-radius:8px; text-align: center; }
 .licence a.down:hover { background: #38b4a3; }
-.download-box { width: 720px; height: auto; margin: 30px auto 100px; overflow: hidden; }
+/*.download-box { width: 720px; height: auto; margin: 30px auto 100px; overflow: hidden; }*/
+.download-box { float: none; width: auto; height: auto; margin: 30px auto 0 auto; overflow: hidden; display: inline-block; }
 .download-box dl { width: 320px; height: auto; font-size: 18px; color: #606060; }
-.download-box dl dt { width: 320px; height: 88px; background: url(../images/download_model.png) no-repeat; position: relative; z-index: 1; }
+.download-box dl dt { width: 320px; height: 84px; background: url(../images/download_model.png) no-repeat; position: relative; z-index: 1; }
 .download-box dl dt.android { background-position: 0 0; }
 .download-box dl dt.ios { background-position: 0 -88px; }
 .download-box dl dd { border-right: 3px dashed #cbcbcb; border-bottom: 3px dashed #cbcbcb; border-left: 3px dashed #cbcbcb; padding: 37px 27px 27px; height: auto; width: 260px; border-radius: 15px; margin-top: -10px; }

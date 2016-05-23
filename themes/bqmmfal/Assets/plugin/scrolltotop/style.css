@@ -1,0 +1,13 @@
+#scrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 120px;
+    right: 75px;
+    width: 100px;
+    height: 100px;
+    background-image: url('icon_scrolltotop.png');
+    background-repeat: no-repeat;
+}
+#scrollToTop:hover {
+    background-image: url('icon_scrolltotop_hover.png');
+}

@@ -83,11 +83,11 @@
 
     <div class="module-box module4" style="height: auto; padding-bottom: 15px;">
         <div class="main-content">
-            <h2 class="top50 white">合作案例</h2>
-            <h3 class="top10 white" style="line-height: 27px;">让开发者远离繁杂的表情版权<br/>知名IP表情官方授权品质保证</h3>
+            <h2 class="top30 white">合作案例</h2>
+            <h3 class="top10 white" style="font-size: 18px; line-height: 27px;">让开发者远离繁杂的表情版权<br/>知名IP表情官方授权品质保证</h3>
 
             <div id="caseworkbox" class="case-work-box">
-                <h3 class="b30 white">他们正在使用...</h3>
+                <h3 class="b30 white" style="font-size: 17px; ">他们正在使用...</h3>
 
                 <div id="HzalSwiper" class="bannerswiper case-work" style="overflow: hidden;">
                     <div id="banner-swiper-wrapper" class="swiper-wrapper case-work-all">
@@ -95,8 +95,12 @@
                         <ul class="swiper-slide item">
                             <!-- <li><img src="__TMPL__Assets/images/caseicon/weixin.png"><b>微信</b></li> -->
                             <foreach name="slidebanner.slidebanner" item="banner">
-                            <li style="margin: 0 7px;">
+                            <li style="margin: 0 10px; margin-bottom: 7px;">
+                                <?php if ($banner['slide_url']) { ?>
+                                <a href="{$banner.slide_url}" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"></a>
+                                <?php } else { ?>
                                 <a href="javascript:;" target="_blank"><img src="{$banner.slide_icon}" class="img-responsive center-block"></a>
+                                <?php } ?>
                                 <b>{$banner.slide_name}</b>
                             </li>
                             </foreach>
@@ -165,7 +169,7 @@
     .partner-links ul li { padding: 0 10px; padding-bottom: 30px; width: 25%; }
     .partner-links ul li span { display: block; height: 60px; overflow: hidden; cursor: pointer; }
     .partner-links ul li img { width: auto; max-height: 100%; margin-top: 0; }
-    .partner-links ul li b { display: block; }
+    .partner-links ul li b { display: block; height: 21px; line-height: 21px; overflow: hidden; }
     .partner-content { width: auto; height: auto; border: 2px solid #F1F1F1; background: #FFFFFF; margin-top: -2px; }
     .partner-content .partner-boxs { overflow: hidden; }
     .partner-content .partner-boxs span {
@@ -378,6 +382,12 @@ new BannerSwiperClass();
 
 var HzalSwiper;
 var HzalSwiperClass = function () {
+    var clullinum = $("#caseworkbox .case-list ul li").length;
+    if (clullinum == 1) {
+        $("#caseworkbox .case-list .left").hide();
+        $("#caseworkbox .case-list .right").hide();
+    }
+
     //初始化Swiper
     HzalSwiper = new Swiper('#HzalSwiper', {
         pagination: '.case-list-dots',

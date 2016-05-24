@@ -12,9 +12,9 @@
 .module-box { width:100%; overflow:hidden; }
 .module1 { height: 700px; background: url(../images/mod1_bg.jpg) no-repeat center top; }
 .module2 { height: 360px; background: #fafafa; }
-.module3 { height: 1720px; background: #40c9b6 url(../images/mod3_bg.jpg) no-repeat center bottom; }
-.module4 { height: 860px; background: url(../images/mod4_bg.jpg) no-repeat; }
-.module5 { height: 860px; background: url(../images/mod5_bg.jpg) no-repeat center top; }
+.module3 { height: 1720px; background: #40c9b6 url(../images/mod3_bg.jpg) repeat-x center bottom; }
+.module4 { height: 860px; background: url(../images/mod4_bg.jpg) repeat-x center; }
+.module5 { height: 860px; background: url(../images/mod5_bg.jpg) repeat-x center top; }
 .module6 { height: 700px; background: url(../images/mod6_bg.jpg) no-repeat center top; }
 .main-content { width: 1120px; height: auto; overflow: hidden; text-align: center; margin-right: auto; margin-left: auto; }
 

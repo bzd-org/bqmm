@@ -110,7 +110,7 @@
     .case-work ul li a { display: inline-block; }
     .case-work ul li span { display: block; height: 80px; overflow: hidden; }
     .case-work ul li img { width: auto; height: auto; }
-    .case-work ul li b { display: block; }
+    .case-work ul li b { display: block; height: 17px; line-height: 17px; overflow: hidden; margin: 0 auto; margin-top: 10px; }
     </style>
 
     <div class="module-box module5">
@@ -176,6 +176,13 @@ var caseWorkClass = function (){
     //circlemark高度
     var listitemh = 91;
     var workulh = 546;
+
+    $("#casework .case-work ul li").each(function (){
+        var w = parseInt($(this).find("a span img").width());
+        $(this).find("a b").css({
+            "width": w+"px"
+        });
+    });
 
     //鼠标滑过显示
     $("#casework .case-list ul li i").hover(function (){

@@ -388,6 +388,13 @@ var HzalSwiperClass = function () {
         $("#caseworkbox .case-list .right").hide();
     }
 
+    $("#HzalSwiper #banner-swiper-wrapper ul li").each(function (){
+        var w = parseInt($(this).find("a img").width());
+        $(this).find("b").css({
+            "width": w+"px"
+        });
+    });
+
     //初始化Swiper
     HzalSwiper = new Swiper('#HzalSwiper', {
         pagination: '.case-list-dots',

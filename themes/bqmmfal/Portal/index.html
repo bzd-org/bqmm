@@ -179,6 +179,7 @@ var caseWorkClass = function (){
 
     $("#casework .case-work ul li").each(function (){
         var w = parseInt($(this).find("a span img").width());
+        if (w < 80) w = 80;
         $(this).find("a b").css({
             "width": w+"px"
         });

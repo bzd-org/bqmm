@@ -390,6 +390,7 @@ var HzalSwiperClass = function () {
 
     $("#HzalSwiper #banner-swiper-wrapper ul li").each(function (){
         var w = parseInt($(this).find("a img").width());
+        if (w < 40) w = 40;
         $(this).find("b").css({
             "width": w+"px"
         });
